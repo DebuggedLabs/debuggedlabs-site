@@ -3,3 +3,16 @@
   min-width: 300px;
   flex: 1;
 }
+
+.iflex {
+  display: inline-flex;
+}
+
+.sticky {
+    background: #fff;
+    box-shadow: 0 3px 12px 0 rgba(0,0,0,.08);
+    position: fixed;
+    top: 0;
+    height: 120px;
+    width: 100%;
+}

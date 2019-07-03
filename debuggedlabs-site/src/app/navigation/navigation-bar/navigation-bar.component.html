@@ -1,10 +1,17 @@
-<div class="dbl-background" style="display: inline-flex">
-    <div class="navigation-item">
+<div id="navbar" *ngIf="show" (scroll)="onWindowScroll($event);" 
+[ngClass]="{
+    'dbl-background': true,
+    'iflex': true,
+    'animated': true,
+    'fadeInDown': true,
+    'sticky': 'show'
+}">
+    <div class="navigation-item dbl-background">
         <a routerLink="/">
             <img src="assets/logo/main_logo.png" class="navigation-logo">
         </a>
     </div>
-    <div class="container">
+    <div class="container dbl-background">
         <div class="navigation-item"><a routerLink="podcasts">Podcasts</a></div>
         <div class="navigation-item"><a routerLink="technology">Technology</a></div>
         <div class="navigation-item"><a routerLink="about">About</a></div>
