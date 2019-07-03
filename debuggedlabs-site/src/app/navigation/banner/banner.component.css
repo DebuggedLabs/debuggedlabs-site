@@ -1,0 +1,10 @@
+.banner {
+    display:inline;
+    text-align: center;
+    justify-content: center;
+}
+
+.banner-image {
+    max-width:30%;
+    min-width: 250px;
+}
