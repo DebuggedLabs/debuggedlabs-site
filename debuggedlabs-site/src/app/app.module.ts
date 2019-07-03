@@ -12,6 +12,9 @@ import { TechnologyComponent } from './sections/technology/technology.component'
 import { FrontpageComponent } from './sections/frontpage/frontpage.component';
 import { AboutComponent } from './sections/about/about.component';
 import { BannerComponent } from './navigation/banner/banner.component';
+import { PostMenuItemComponent } from './modules/post-menu-item/post-menu-item.component';
+import { PodcastMenuItemComponent } from './modules/podcast-menu-item/podcast-menu-item.component';
+import { PodcastsListComponent } from './modules/podcasts-list/podcasts-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { BannerComponent } from './navigation/banner/banner.component';
     TechnologyComponent,
     FrontpageComponent,
     AboutComponent,
-    BannerComponent
+    BannerComponent,
+    PostMenuItemComponent,
+    PodcastMenuItemComponent,
+    PodcastsListComponent
   ],
   imports: [
     BrowserModule,
