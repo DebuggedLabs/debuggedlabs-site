@@ -2,3 +2,14 @@
 .dbl-background {
     background-color: #000971
 }
+
+.container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  left: 0;
+}
+
+.navigation-item {
+  flex: 1;
+}

@@ -8,3 +8,13 @@
     max-width:30%;
     min-width: 250px;
 }
+
+.banner-subhead {
+    color: gray;
+}
+
+.banner-hr {
+    display: block;
+    width:100%;
+    border-width: 4px;
+}

@@ -1,16 +1,5 @@
-.container {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  left: 0;
-}
-
 .navigation-logo {
   max-width: 40%;
   min-width: 300px;
-  flex: 1;
-}
-
-.navigation-item {
   flex: 1;
 }
