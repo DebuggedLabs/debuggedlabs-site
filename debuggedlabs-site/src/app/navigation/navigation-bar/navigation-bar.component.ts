@@ -28,7 +28,7 @@ export class NavigationBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.heightCutOff = document.getElementById(this.bannerElementId).offsetHeight * 2;
+    this.heightCutOff = this.bannerElementId != '' ? document.getElementById(this.bannerElementId).offsetHeight * 2 : this.heightCutOff;
   }
 
   @HostListener('window:scroll') onScroll() {
