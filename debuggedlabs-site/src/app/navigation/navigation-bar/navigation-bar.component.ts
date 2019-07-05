@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Injectable, HostListener } from '@angular/core';
+import { Component, OnInit, Input, Injectable, HostListener } from '@angular/core';
 import { trigger, state, transition, style, animate } from '@angular/animations';
 
 @Component({
@@ -21,19 +21,17 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
 
 export class NavigationBarComponent implements OnInit {
 
-  public show: boolean = false;
-  public heightCutOff: number = 400;
+  @Input() show: boolean = false;
+  @Input() bannerElementId: string = "";
+  public heightCutOff: number = -1;
 
   constructor() { }
 
   ngOnInit() {
-    this.heightCutOff = document.getElementById('banner').offsetHeight * 2;
-    console.log("Banner is this tall: ", this.heightCutOff);
+    this.heightCutOff = document.getElementById(this.bannerElementId).offsetHeight * 2;
   }
 
   @HostListener('window:scroll') onScroll() {
-    console.log("Being called!")
-    console.log(window.pageYOffset);
     if (window.pageYOffset > this.heightCutOff) {
       this.show = true;
 
