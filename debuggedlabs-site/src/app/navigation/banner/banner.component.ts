@@ -12,4 +12,11 @@ export class BannerComponent implements OnInit {
   ngOnInit() {
   }
 
+  getMenuItems() {
+    return [
+      { title: 'Podcasts', routerLink: '/podcasts' },
+      { title: 'Technology', routerLink: '/technology' },
+      { title: 'About', routerLink: '/about' }];
+  }
+
 }

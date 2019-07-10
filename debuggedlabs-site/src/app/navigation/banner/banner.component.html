@@ -1,9 +1,7 @@
 <div id="banner">
     <div class="banner">
         <div class="dbl-background">
-            <a class="banner" routerLink="home">
-                <img src="assets/logo/main_logo.png" class="banner-image">
-            </a>
+            <img src="assets/logo/main_logo.png" class="banner-image">
         <div>
     </div>
 
@@ -13,9 +11,9 @@
     </div>
 
     <div class="container">
-        <div class="navigation-item"><a class="menu-item" routerLink="podcasts">Podcasts</a></div>
-        <div class="navigation-item"><a class="menu-item" routerLink="technology">Technology</a></div>
-        <div class="navigation-item"><a class="menu-item" routerLink="about">About</a></div>
+        <div class="navigation-item" *ngFor="let item of getMenuItems()">
+            <a class="menu-item" routerLink="{{ item.routerLink }}">{{ item.title }}</a>
+        </div>
     </div>
     <br>
 </div>

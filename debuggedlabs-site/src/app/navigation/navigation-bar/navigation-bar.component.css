@@ -1,3 +1,11 @@
+.selected-nav-item {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #3399ff;
+  pointer-events: none;
+}
+
 .navigation-logo {
   max-width: 25%;
   min-width: 250px;

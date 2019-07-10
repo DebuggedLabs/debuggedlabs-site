@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Injectable, HostListener } from '@angular/core';
 import { trigger, state, transition, style, animate } from '@angular/animations';
+import { navigationMenuItemInfo } from '../../config/types';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -23,6 +24,7 @@ export class NavigationBarComponent implements OnInit {
 
   @Input() show: boolean = false;
   @Input() bannerElementId: string = "";
+  @Input() sectionTitle: string = "";
   public heightCutOff: number = -1;
 
   constructor() { }
@@ -50,4 +52,11 @@ export class NavigationBarComponent implements OnInit {
     }
   }
 
+  getMenuItems() {
+    console.log(this.sectionTitle === "podcasts");
+    return [
+      { title: 'Podcasts', routerLink: '/podcasts', inactive: this.sectionTitle === "podcasts"},
+      { title: 'Technology', routerLink: '/technology', inactive: this.sectionTitle === "technology" },
+      { title: 'About', routerLink: '/about', inactive: this.sectionTitle === "about" }];
+  }
 }
