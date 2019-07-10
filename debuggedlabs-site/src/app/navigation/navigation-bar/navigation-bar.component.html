@@ -1,19 +1,11 @@
-<div id="navbar" *ngIf="show" (scroll)="onWindowScroll($event);" 
-[ngClass]="{
-    'dbl-background': true,
-    'iflex': true,
-    'animated': true,
-    'fadeInDown': true,
-    'sticky': 'show'
-}">
-    <div class="navigation-item dbl-background">
+
+<div id="navbar" *ngIf="show" (scroll)="onWindowScroll($event);" [ngClass]="setClasses()" style="background-color: #000971;">
+    <div class="navigation-logo-div">
         <a routerLink="/">
             <img src="assets/logo/main_logo.png" class="navigation-logo">
         </a>
     </div>
-    <div class="container dbl-background">
-        <div class="navigation-item"><a routerLink="podcasts">Podcasts</a></div>
-        <div class="navigation-item"><a routerLink="technology">Technology</a></div>
-        <div class="navigation-item"><a routerLink="about">About</a></div>
-    </div>
+    <div class="navigation-item"><a class="menu-item" routerLink="podcasts">Podcasts</a></div>
+    <div class="navigation-item"><a class="menu-item" routerLink="technology">Technology</a></div>
+    <div class="navigation-item"><a class="menu-item" routerLink="about">About</a></div>
 </div>

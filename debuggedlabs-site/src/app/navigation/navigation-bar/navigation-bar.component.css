@@ -1,7 +1,18 @@
 .navigation-logo {
   max-width: 25%;
-  min-width: 300px;
-  flex: 1;
+  min-width: 250px;
+}
+
+.navigation-logo-div {
+  max-width: 25%;
+  max-height: 100px;
+  min-width: 250px;
+  left: 0;
+}
+
+.navigation-menu-div {
+  max-height: 100px;
+  min-width: 100%;
 }
 
 .iflex {

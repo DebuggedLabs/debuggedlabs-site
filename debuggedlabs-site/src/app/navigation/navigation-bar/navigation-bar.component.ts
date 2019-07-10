@@ -41,4 +41,13 @@ export class NavigationBarComponent implements OnInit {
     }
   }
 
+  setClasses() {
+    return {
+      'sticky': this.show,     
+      'dbl-background': true,
+      'container': true,
+      'navigation-menu-div': true 
+    }
+  }
+
 }
