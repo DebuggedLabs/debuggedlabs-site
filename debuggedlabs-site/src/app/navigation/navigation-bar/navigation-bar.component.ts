@@ -28,13 +28,13 @@ export class NavigationBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.heightCutOff = this.bannerElementId != '' ? document.getElementById(this.bannerElementId).offsetHeight * 2 : this.heightCutOff;
+    this.heightCutOff = this.bannerElementId != '' ? 227.45 : this.heightCutOff;
+    console.log(this.heightCutOff);
   }
 
   @HostListener('window:scroll') onScroll() {
     if (window.pageYOffset > this.heightCutOff) {
       this.show = true;
-
     }
     else if (window.pageYOffset <= this.heightCutOff) {
       this.show = false;

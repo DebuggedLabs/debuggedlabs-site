@@ -16,6 +16,9 @@ import { PostMenuItemComponent } from './modules/post-menu-item/post-menu-item.c
 import { PodcastMenuItemComponent } from './modules/podcast-menu-item/podcast-menu-item.component';
 import { PodcastsListComponent } from './modules/podcasts-list/podcasts-list.component';
 
+import { routerConfig } from './config/navigation-bar-config';
+import { RouterModule } from '@angular/router';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +36,10 @@ import { PodcastsListComponent } from './modules/podcasts-list/podcasts-list.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(
+      routerConfig
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

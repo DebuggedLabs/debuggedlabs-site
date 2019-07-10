@@ -6,20 +6,24 @@ import { PodcastsComponent } from '../sections/podcasts/podcasts.component';
 
 export const routerConfig: Routes = [
     {
-        path: 'home',
-        component: FrontpageComponent
+        path: '',
+        component: FrontpageComponent,
+        data: { title: 'Debugged Labs' }
     },
     {
         path: 'about',
-        component: AboutComponent
+        component: AboutComponent,
+        data: { title: 'About | Debugged Labs' }
     },
     {
         path: 'podcasts',
-        component: PodcastsComponent
+        component: PodcastsComponent,
+        data: { title: 'Podcasts | Debugged Labs' }
     },
     {
         path: 'technology',
-        component: TechnologyComponent
+        component: TechnologyComponent,
+        data: { title: 'Technology | Debugged Labs' }
     },
     {
         path: '',
@@ -28,7 +32,6 @@ export const routerConfig: Routes = [
     },
     {
         path: '**',
-        redirectTo: '/',
-        pathMatch: 'full'
+        redirectTo: '/'
     }
 ];

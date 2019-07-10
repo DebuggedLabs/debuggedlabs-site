@@ -27,7 +27,7 @@
 
 /* visited link */
 .menu-item:visited {
-  color: white;
+  color: #d9d9d9;
 }
 
 /* mouse over link */
@@ -38,5 +38,9 @@
 
 /* selected link */
 .menu-item:active {
-  color: d9d9d9;
+  color: #d9d9d9;
+}
+
+.page-content-spacing {
+  padding-top: 100px;
 }
