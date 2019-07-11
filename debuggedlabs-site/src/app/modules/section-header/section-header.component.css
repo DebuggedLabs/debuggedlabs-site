@@ -1,0 +1,21 @@
+.section-title {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 900;
+    font-size: 80px;
+    color: black;
+}
+
+.section-title-padding {
+    width: 10%;
+}
+
+.section-icon {
+    max-width: 15%;
+    min-width: 150px;
+    min-height: 150px;
+}
+
+.image-inline {
+    display: flex;
+    align-items: center;
+}

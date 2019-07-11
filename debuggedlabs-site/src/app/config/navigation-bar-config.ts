@@ -13,17 +13,29 @@ export const routerConfig: Routes = [
     {
         path: 'about',
         component: AboutComponent,
-        data: { title: 'About | Debugged Labs' }
+        data: { 
+            title: 'About | Debugged Labs',
+            iconUrl: 'assets/icons/about_icon.png',
+            backgroundColor: '#ff6666'
+        }
     },
     {
         path: 'podcasts',
         component: PodcastsComponent,
-        data: { title: 'Podcasts | Debugged Labs' }
+        data: { 
+            title: 'Podcasts | Debugged Labs',
+            iconUrl: 'assets/icons/podcast_icon.png',
+            backgroundColor: '#3399ff'
+        }
     },
     {
         path: 'technology',
         component: TechnologyComponent,
-        data: { title: 'Technology | Debugged Labs' }
+        data: { 
+            title: 'Technology | Debugged Labs',
+            iconUrl: 'assets/icons/technology_icon.png',
+            backgroundColor: '#00ff00'
+        }
     },
     {
         path: '',

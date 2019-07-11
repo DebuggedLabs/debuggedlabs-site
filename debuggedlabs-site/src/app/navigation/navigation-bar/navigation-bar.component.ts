@@ -52,7 +52,7 @@ export class NavigationBarComponent implements OnInit {
     }
   }
 
-  getMenuItems() {
+  getMenuItems(): navigationMenuItemInfo[] {
     console.log(this.sectionTitle === "podcasts");
     return [
       { title: 'Podcasts', routerLink: '/podcasts', inactive: this.sectionTitle === "podcasts"},

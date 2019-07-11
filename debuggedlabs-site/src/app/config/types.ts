@@ -1,4 +1,5 @@
 export type navigationMenuItemInfo = { 
     title: string, 
-    routerLink: string 
+    routerLink: string,
+    inactive: boolean
 }

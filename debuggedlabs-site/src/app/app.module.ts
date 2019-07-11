@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { AppComponent } from './app.component';
 
 import { FormsModule } from '@angular/forms';
@@ -18,6 +19,7 @@ import { PodcastsListComponent } from './modules/podcasts-list/podcasts-list.com
 
 import { routerConfig } from './config/navigation-bar-config';
 import { RouterModule } from '@angular/router';
+import { SectionHeaderComponent } from './modules/section-header/section-header.component';
 
 @NgModule({
   declarations: [
@@ -31,12 +33,14 @@ import { RouterModule } from '@angular/router';
     BannerComponent,
     PostMenuItemComponent,
     PodcastMenuItemComponent,
-    PodcastsListComponent
+    PodcastsListComponent,
+    SectionHeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    LoadingBarRouterModule,
     RouterModule.forRoot(
       routerConfig
     )

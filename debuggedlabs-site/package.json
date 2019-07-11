@@ -19,6 +19,8 @@
     "@angular/platform-browser": "~8.0.3",
     "@angular/platform-browser-dynamic": "~8.0.3",
     "@angular/router": "~8.0.3",
+    "@ngx-loading-bar/core": "^4.2.0",
+    "@ngx-loading-bar/router": "^4.2.0",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
     "ng-scroll-progress": "^1.0.0",
