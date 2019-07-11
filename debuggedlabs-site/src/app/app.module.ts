@@ -17,7 +17,7 @@ import { PostMenuItemComponent } from './modules/post-menu-item/post-menu-item.c
 import { PodcastMenuItemComponent } from './modules/podcast-menu-item/podcast-menu-item.component';
 import { PodcastsListComponent } from './modules/podcasts-list/podcasts-list.component';
 
-import { routerConfig } from './config/navigation-bar-config';
+import { routerConfig } from './config/router-config';
 import { RouterModule } from '@angular/router';
 import { SectionHeaderComponent } from './modules/section-header/section-header.component';
 

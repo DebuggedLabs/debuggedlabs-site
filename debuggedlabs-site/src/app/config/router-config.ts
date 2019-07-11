@@ -8,21 +8,15 @@ export const routerConfig: Routes = [
     {
         path: '',
         component: FrontpageComponent,
-        data: { title: 'Debugged Labs' }
-    },
-    {
-        path: 'about',
-        component: AboutComponent,
         data: { 
-            title: 'About | Debugged Labs',
-            iconUrl: 'assets/icons/about_icon.png',
-            backgroundColor: '#ff6666'
+            title: 'Debugged Labs' 
         }
     },
     {
         path: 'podcasts',
         component: PodcastsComponent,
         data: { 
+            name: "Podcasts",
             title: 'Podcasts | Debugged Labs',
             iconUrl: 'assets/icons/podcast_icon.png',
             backgroundColor: '#3399ff'
@@ -31,10 +25,21 @@ export const routerConfig: Routes = [
     {
         path: 'technology',
         component: TechnologyComponent,
-        data: { 
+        data: {
+            name: "Technology", 
             title: 'Technology | Debugged Labs',
             iconUrl: 'assets/icons/technology_icon.png',
-            backgroundColor: '#00ff00'
+            backgroundColor: '#ff872e'
+        }
+    },
+    {
+        path: 'about',
+        component: AboutComponent,
+        data: {
+            name: "About",
+            title: 'About | Debugged Labs',
+            iconUrl: 'assets/icons/about_icon.png',
+            backgroundColor: '#ff6666'
         }
     },
     {
@@ -46,4 +51,10 @@ export const routerConfig: Routes = [
         path: '**',
         redirectTo: '/'
     }
+];
+
+export const menuConfig: Routes = [
+    routerConfig[1], // Podcasts
+    routerConfig[2], // Technology
+    routerConfig[3] // About
 ];

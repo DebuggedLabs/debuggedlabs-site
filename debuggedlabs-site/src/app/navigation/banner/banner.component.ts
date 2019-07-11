@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { menuConfig } from 'src/app/config/router-config';
 
 @Component({
   selector: 'app-banner',
@@ -13,10 +14,14 @@ export class BannerComponent implements OnInit {
   }
 
   getMenuItems() {
-    return [
-      { title: 'Podcasts', routerLink: '/podcasts' },
-      { title: 'Technology', routerLink: '/technology' },
-      { title: 'About', routerLink: '/about' }];
+    var menuItems = [];
+    menuConfig.forEach(element => {
+      menuItems.push({
+        title: element.data.name,
+        routerLink: '/' + element.path,
+      });
+    });
+    return menuItems;
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Injectable, HostListener } from '@angular/core';
 import { trigger, state, transition, style, animate } from '@angular/animations';
 import { navigationMenuItemInfo } from '../../config/types';
+import { menuConfig } from 'src/app/config/router-config';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -25,13 +26,14 @@ export class NavigationBarComponent implements OnInit {
   @Input() show: boolean = false;
   @Input() bannerElementId: string = "";
   @Input() sectionTitle: string = "";
+  @Input() selectedColor: string = "";
+
   public heightCutOff: number = -1;
 
   constructor() { }
 
   ngOnInit() {
     this.heightCutOff = this.bannerElementId != '' ? 227.45 : this.heightCutOff;
-    console.log(this.heightCutOff);
   }
 
   @HostListener('window:scroll') onScroll() {
@@ -53,10 +55,20 @@ export class NavigationBarComponent implements OnInit {
   }
 
   getMenuItems(): navigationMenuItemInfo[] {
-    console.log(this.sectionTitle === "podcasts");
-    return [
-      { title: 'Podcasts', routerLink: '/podcasts', inactive: this.sectionTitle === "podcasts"},
-      { title: 'Technology', routerLink: '/technology', inactive: this.sectionTitle === "technology" },
-      { title: 'About', routerLink: '/about', inactive: this.sectionTitle === "about" }];
+
+    var menuItems: navigationMenuItemInfo[] = [];
+
+    // get menu item information from routerConfig
+    menuConfig.forEach(element => {
+      menuItems.push({
+        title: element.data.name,
+        routerLink: '/' + element.path,
+        inactive: this.sectionTitle === element.path,
+        selectedColor: element.data.backgroundColor
+      });
+    });
+
+    return menuItems
   }
+
 }

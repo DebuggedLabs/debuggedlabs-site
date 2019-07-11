@@ -16,7 +16,6 @@ export class SectionHeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.backgroundColor);
     this.backgroundColorStyle = { "background-color": this.backgroundColor };
     this.sectionTitle = this.sectionTitle.toUpperCase();
   }
