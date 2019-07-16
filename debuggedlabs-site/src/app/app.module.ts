@@ -20,6 +20,9 @@ import { PodcastsListComponent } from './modules/podcasts-list/podcasts-list.com
 import { routerConfig } from './config/router-config';
 import { RouterModule } from '@angular/router';
 import { SectionHeaderComponent } from './modules/section-header/section-header.component';
+import { FeaturedPodcastComponent } from './modules/featured-podcast/featured-podcast.component';
+import { FeaturedPostComponent } from './modules/featured-post/featured-post.component';
+import { SocialMediaLinksComponent } from './modules/social-media-links/social-media-links.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { SectionHeaderComponent } from './modules/section-header/section-header.
     PostMenuItemComponent,
     PodcastMenuItemComponent,
     PodcastsListComponent,
-    SectionHeaderComponent
+    SectionHeaderComponent,
+    FeaturedPodcastComponent,
+    FeaturedPostComponent,
+    SocialMediaLinksComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,25 @@
+.fa {
+  padding: 20px;
+  font-size: 25px;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa-facebook:hover {
+    color: white;
+}
+
+.fa-twitter:hover {
+    color: #00ccff
+}
+
+.fa-instagram:hover {
+    color: #DB336F
+}
+
+.fa-rss:hover {
+    color: #ff872e;
+}
+
