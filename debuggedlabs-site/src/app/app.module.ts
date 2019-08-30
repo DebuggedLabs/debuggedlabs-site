@@ -23,6 +23,7 @@ import { SectionHeaderComponent } from './modules/section-header/section-header.
 import { FeaturedPodcastComponent } from './modules/featured-podcast/featured-podcast.component';
 import { FeaturedPostComponent } from './modules/featured-post/featured-post.component';
 import { SocialMediaLinksComponent } from './modules/social-media-links/social-media-links.component';
+import { AboutPostComponent } from './sections/about/about-post/about-post.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SocialMediaLinksComponent } from './modules/social-media-links/social-m
     SectionHeaderComponent,
     FeaturedPodcastComponent,
     FeaturedPostComponent,
-    SocialMediaLinksComponent
+    SocialMediaLinksComponent,
+    AboutPostComponent
   ],
   imports: [
     BrowserModule,

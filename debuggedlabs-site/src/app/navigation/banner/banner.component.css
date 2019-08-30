@@ -2,6 +2,8 @@
     display:inline;
     text-align: center;
     justify-content: center;
+    overflow: hidden;
+    min-width: 897px;
 }
 
 .banner-image {
@@ -21,4 +23,16 @@
     display: block;
     width:100%;
     border-width: 4px;
+}
+
+.banner-spacing {
+  height: 115px;
+  min-width: 100%;
+}
+
+.logo-div-placeholder{
+  width: 25%;
+  height: 100px;
+  max-width: 25%;
+  max-height: 100px;
 }

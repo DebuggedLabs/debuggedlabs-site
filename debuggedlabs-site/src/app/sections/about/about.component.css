@@ -1,0 +1,12 @@
+.vert-padding {
+    margin-top: 3%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.large-cairo {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: black;
+}

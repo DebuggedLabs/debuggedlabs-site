@@ -10,12 +10,19 @@
         <hr class="banner-hr">
     </div>
 
-    <div>
-        <div class="container">
-            <div class="navigation-item" *ngFor="let item of getMenuItems()">
-                <a class="menu-item" routerLink="{{ item.routerLink }}">{{ item.title }}</a>
-            </div>
+    <div class="container banner-spacing">
+        <div class="logo-div-placeholder">
         </div>
+
+        <!-- Show the menu items -->
+        <div class="navigation-item" *ngFor="let item of getMenuItems()">
+            <a [ngClass]="{
+                    'menu-item': !item.inactive, 
+                    'selected-nav-item': item.inactive
+                }" [ngStyle]="{'color': item.inactive ? item.selectedColor : ''}"
+                routerLink="{{ item.routerLink }}">{{ item.title }}</a>
+        </div>
+        <app-social-media-links></app-social-media-links>
     </div>
-    <br>
+
 </div>
