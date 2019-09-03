@@ -4,7 +4,7 @@ import { AboutComponent } from '../sections/about/about.component';
 import { Routes } from '@angular/router';
 import { PodcastsComponent } from '../sections/podcasts/podcasts.component';
 
-export const routerConfig: Routes = [
+export const RouterConfig: Routes = [
     {
         path: '',
         component: FrontpageComponent,
@@ -53,8 +53,8 @@ export const routerConfig: Routes = [
     }
 ];
 
-export const menuConfig: Routes = [
-    routerConfig[1], // Podcasts
-    routerConfig[2], // Technology
-    routerConfig[3] // About
+export const MenuConfig: Routes = [
+    RouterConfig[1], // Podcasts
+    RouterConfig[2], // Technology
+    RouterConfig[3] // About
 ];

@@ -1,8 +1,9 @@
 
-<div id="navbar" *ngIf="show" (scroll)="onWindowScroll($event);" [ngClass]="setClasses()" style="background-color: #000971;">
+<div id="navbar" *ngIf="show" (scroll)="onWindowScroll($event);" 
+    [ngClass]="setClasses()" style="background-color: #000971;">
 
     <!-- Logo to front page -->
-    <div class="navigation-logo-div">
+    <div [@fadeIn] class="navigation-logo-div">
         <a routerLink="/">
             <img src="assets/logo/main_logo.png" class="navigation-logo">
         </a>

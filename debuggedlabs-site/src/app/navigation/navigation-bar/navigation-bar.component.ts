@@ -1,24 +1,20 @@
 import { Component, OnInit, Input, Injectable, HostListener } from '@angular/core';
 import { trigger, state, transition, style, animate } from '@angular/animations';
-import { navigationMenuItemInfo } from '../../config/types';
-import { menuConfig } from 'src/app/config/router-config';
+import { navigationMenuItemInfo } from '../../definitions/types';
+import { MenuConfig } from 'src/app/config/router-config';
 
 @Component({
   selector: 'app-navigation-bar',
   templateUrl: './navigation-bar.component.html',
   styleUrls: ['./navigation-bar.component.css'],
   animations: [
-    trigger('fade',
-      [
-        state('void', style({ opacity: 0 })),
-        transition(':enter', [animate(300)]),
-        transition(':leave', [animate(500)]),
-      ]
-    )]
-})
-
-@Injectable({
-  providedIn: 'root'
+    trigger('fadeIn', [
+      state('void', style({
+        opacity: 0
+      })), 
+      transition('void <=> *', animate(300)),
+    ])
+  ]
 })
 
 export class NavigationBarComponent implements OnInit {
@@ -59,7 +55,7 @@ export class NavigationBarComponent implements OnInit {
     var menuItems: navigationMenuItemInfo[] = [];
 
     // get menu item information from routerConfig
-    menuConfig.forEach(element => {
+    MenuConfig.forEach(element => {
       menuItems.push({
         title: element.data.name,
         routerLink: '/' + element.path,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { menuConfig } from 'src/app/config/router-config';
+import { MenuConfig } from 'src/app/config/router-config';
 
 @Component({
   selector: 'app-banner',
@@ -15,7 +15,7 @@ export class BannerComponent implements OnInit {
 
   getMenuItems() {
     var menuItems = [];
-    menuConfig.forEach(element => {
+    MenuConfig.forEach(element => {
       menuItems.push({
         title: element.data.name,
         routerLink: '/' + element.path,

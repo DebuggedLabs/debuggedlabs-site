@@ -17,13 +17,14 @@ import { PostMenuItemComponent } from './modules/post-menu-item/post-menu-item.c
 import { PodcastMenuItemComponent } from './modules/podcast-menu-item/podcast-menu-item.component';
 import { PodcastsListComponent } from './modules/podcasts-list/podcasts-list.component';
 
-import { routerConfig } from './config/router-config';
+import { RouterConfig } from './config/router-config';
 import { RouterModule } from '@angular/router';
 import { SectionHeaderComponent } from './modules/section-header/section-header.component';
 import { FeaturedPodcastComponent } from './modules/featured-podcast/featured-podcast.component';
 import { FeaturedPostComponent } from './modules/featured-post/featured-post.component';
 import { SocialMediaLinksComponent } from './modules/social-media-links/social-media-links.component';
 import { AboutPostComponent } from './sections/about/about-post/about-post.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -46,11 +47,12 @@ import { AboutPostComponent } from './sections/about/about-post/about-post.compo
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     LoadingBarRouterModule,
     RouterModule.forRoot(
-      routerConfig
+      RouterConfig
     )
   ],
   providers: [],
