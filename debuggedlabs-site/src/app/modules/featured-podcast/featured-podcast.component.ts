@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PodcastPost } from 'src/app/definitions/podcast';
 
 @Component({
   selector: 'app-featured-podcast',
@@ -7,14 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FeaturedPodcastComponent implements OnInit {
 
-  @Input() featuredArtUrl: string;
-  @Input() podcastTitle: string;
-  @Input() episodeTitle: string;
-  @Input() teaserText: string;
+  @Input() featuredPodcast: PodcastPost;
 
   constructor() { }
 
   ngOnInit() {
+    console.log("Featured podcast: ", this.featuredPodcast);
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { TextPost } from 'src/app/definitions/textpost';
 
 @Component({
   selector: 'app-featured-post',
@@ -7,12 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FeaturedPostComponent implements OnInit {
 
-  @Input() featuredArtUrl: string;
-  @Input() headline: string;
-  @Input() author: string;
-  @Input() teaserText: string;
+  @Input() featuredPost: TextPost;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
