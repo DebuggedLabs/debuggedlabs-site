@@ -5,6 +5,8 @@ import { Routes } from '@angular/router';
 import { PodcastsComponent } from '../sections/podcasts/podcasts.component';
 
 export const RouterConfig: Routes = [
+
+    // for the default pages 
     {
         path: '',
         component: FrontpageComponent,
@@ -42,6 +44,45 @@ export const RouterConfig: Routes = [
             backgroundColor: '#ff6666'
         }
     },
+
+    // to handle no url parameters
+    {
+        path: 'podcasts/page/1',
+        redirectTo: 'podcasts',
+        pathMatch: 'full'
+    },
+    {
+        path: 'podcasts/page/1',
+        redirectTo: 'podcasts',
+        pathMatch: 'full'
+    },
+    {
+        path: 'technology/page/1',
+        redirectTo: 'technology',
+        pathMatch: 'full'
+    },
+    {
+        path: 'podcasts/page/:page',
+        component: PodcastsComponent,
+        data: {
+            name: "Podcasts",
+            title: 'Podcasts | Debugged Labs',
+            iconUrl: 'assets/icons/podcast_icon.png',
+            backgroundColor: '#3399ff'
+        }
+    },
+    {
+        path: 'technology/page/:page',
+        component: TechnologyComponent,
+        data: {
+            name: "Technology",
+            title: 'Technology | Debugged Labs',
+            iconUrl: 'assets/icons/technology_icon.png',
+            backgroundColor: '#ff872e'
+        }
+    },
+
+    // to handle edge cases
     {
         path: '',
         redirectTo: '/',

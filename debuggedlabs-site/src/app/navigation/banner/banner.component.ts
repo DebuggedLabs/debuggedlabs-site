@@ -13,6 +13,9 @@ export class BannerComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Get menu items for the banner
+   */
   getMenuItems() {
     var menuItems = [];
     MenuConfig.forEach(element => {

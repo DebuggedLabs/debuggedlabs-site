@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-featured-podcast',
@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./featured-podcast.component.css']
 })
 export class FeaturedPodcastComponent implements OnInit {
+
+  @Input() featuredArtUrl: string;
+  @Input() podcastTitle: string;
+  @Input() episodeTitle: string;
+  @Input() teaserText: string;
 
   constructor() { }
 

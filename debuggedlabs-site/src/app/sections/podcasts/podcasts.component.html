@@ -13,6 +13,9 @@
 <app-featured-podcast></app-featured-podcast>
 
 <!-- List podcast posts -->
-<app-podcasts-list></app-podcasts-list>
+<p>Displaying page index: {{this.pageNumber}}</p>
+<app-podcasts-list  [podcastSetNumber]="pageNumber"
+                    [isFeaturedPostShown]="isShowingFeaturedPost"
+></app-podcasts-list>
 
 

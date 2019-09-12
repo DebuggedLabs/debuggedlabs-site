@@ -25,6 +25,7 @@ import { FeaturedPostComponent } from './modules/featured-post/featured-post.com
 import { SocialMediaLinksComponent } from './modules/social-media-links/social-media-links.component';
 import { AboutPostComponent } from './sections/about/about-post/about-post.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FeaturedVariablePostComponent } from './featured-variable-post/featured-variable-post/featured-variable-post.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SectionHeaderComponent,
     FeaturedPodcastComponent,
     FeaturedPostComponent,
+    FeaturedVariablePostComponent,
     SocialMediaLinksComponent,
     AboutPostComponent
   ],

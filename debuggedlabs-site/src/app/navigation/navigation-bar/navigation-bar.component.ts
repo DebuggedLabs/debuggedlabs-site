@@ -13,7 +13,10 @@ import { MenuConfig } from 'src/app/config/router-config';
         opacity: 0
       })), 
       transition('void <=> *', animate(300)),
-    ])
+      state('noAnimate', style({
+        opacity: 100
+      }))
+    ]),
   ]
 })
 
