@@ -1,0 +1,46 @@
+.image {
+    max-width: 35%;
+}
+
+.image-inline {
+    display: flex;
+}
+
+.text {
+    display: block;
+}
+
+.bio {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: black;
+    vertical-align: top;
+    margin-right: 20%;
+}
+
+.bioShort {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    font-size: 23px;
+    color: #ff6666;
+    vertical-align: top;
+}
+
+.position {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: gray;
+}
+
+.name {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: black;
+}
+
+.padding {
+    width: 10%;
+}

@@ -35,13 +35,9 @@
 <hr class="abouut-hr">
 <p class="cairo-heading" align="center">THE TEAM</p>
 <hr class="abouut-hr">
+<br>
 
-
-<div class="horiz-padding">
-    <!-- Keshav -->
-    <app-about-post></app-about-post>
-
-    <!-- Shawn -->
-    <app-about-post></app-about-post>
+<div class="horiz-padding" *ngFor="let profile of this.teamProfiles">
+    <app-about-post [profile]="profile"></app-about-post>
 </div>
 

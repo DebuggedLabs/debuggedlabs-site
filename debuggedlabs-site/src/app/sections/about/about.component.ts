@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { TeamProfile } from 'src/app/definitions/teamProfile';
+import { TeamProfileData } from 'src/app/config/profiles-config';
 
 @Component({
   selector: 'app-about',
@@ -12,7 +14,11 @@ export class AboutComponent implements OnInit {
   public iconUrl: string;
   public backgroundColor: string;
 
-  constructor(private titleService: Title, private router: ActivatedRoute) { }
+  teamProfiles: TeamProfile[];
+
+  constructor(private titleService: Title, private router: ActivatedRoute) {
+    this.teamProfiles = TeamProfileData;
+  }
 
   ngOnInit() {
     this.router.data
