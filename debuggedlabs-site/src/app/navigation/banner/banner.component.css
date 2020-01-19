@@ -12,9 +12,9 @@
 }
 
 .banner-subhead {
-    color: gray;
+    color: #3399ff;
     font-family: 'Cairo', sans-serif;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 16px;
     text-align: center;
 }
@@ -22,7 +22,8 @@
 .banner-hr {
     display: block;
     width:100%;
-    border-width: 4px;
+    border-width: 1px;
+    border-color: gray;
 }
 
 .banner-spacing {

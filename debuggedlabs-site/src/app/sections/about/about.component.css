@@ -4,9 +4,58 @@
     margin-right: 15%;
 }
 
+.horiz-padding {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.heading {
+    background-color: #ff6666;
+    width: 50%;
+}
+
 .large-cairo {
     font-family: 'Cairo', sans-serif;
     font-weight: 700;
     font-size: 30px;
     color: black;
+}
+
+.large-cairo-em {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+    color: #ff6666;
+}
+
+.cairo-heading {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: gray;
+}
+
+.cairo-paragraph {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: black;
+}
+
+.science-sentence {
+    color: #3399ff;
+}
+
+.technology-sentence {
+    color: #ff872e;
+}
+
+.about-sentence {
+    color: #ff6666;
+}
+
+.abouut-hr {
+    width:40%;
+    border-width: 1px;
+    align:left;
 }
