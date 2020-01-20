@@ -28,22 +28,40 @@ export class NavigationBarComponent implements OnInit {
   @Input() selectedColor: string = "";
 
   public heightCutOff: number = -1;
+  public isHamburgerMenu: boolean;
+  private windowWidth: number;
 
   constructor() { }
 
   ngOnInit() {
     this.heightCutOff = this.bannerElementId != '' ? 227.45 : this.heightCutOff;
+    this.windowWidth = window.innerWidth;
+    this.tryDisplayHamburgerMenu();
   }
 
+/**
+ * Listen in on scroll and resizing events
+ */
   @HostListener('window:scroll') onScroll() {
-    if (window.pageYOffset > this.heightCutOff) {
-      this.show = true;
-    }
-    else if (window.pageYOffset <= this.heightCutOff) {
-      this.show = false;
+    if (window.pageYOffset > 0)
+    {
+      if (window.pageYOffset > this.heightCutOff) {
+        this.show = true;
+      }
+      else if (window.pageYOffset <= this.heightCutOff) {
+        this.show = false;
+      }
     }
   }
 
+  @HostListener('window:resize', ['$event']) onResize(event) {
+      this.windowWidth = window.innerWidth;
+      this.tryDisplayHamburgerMenu();
+  }
+
+/**
+ * Set the CSS classes
+ */
   setClasses() {
     return {
       'sticky': this.show,     
@@ -53,6 +71,9 @@ export class NavigationBarComponent implements OnInit {
     }
   }
 
+  /**
+   * Get menu items for showing in the navbar
+   */
   getMenuItems(): navigationMenuItemInfo[] {
 
     var menuItems: navigationMenuItemInfo[] = [];
@@ -68,6 +89,19 @@ export class NavigationBarComponent implements OnInit {
     });
 
     return menuItems
+  }
+
+/**
+ * See if need to show the hamburger menu if the width is too small
+ */
+  tryDisplayHamburgerMenu() {
+    var widthCutOff: number = 1030;
+    if (this.windowWidth <= widthCutOff) {
+      this.isHamburgerMenu = true;
+    }
+    else {
+      this.isHamburgerMenu = false;
+    }
   }
 
 }

@@ -1,7 +1,7 @@
 .section-title {
     font-family: 'Cairo', sans-serif;
     font-weight: 900;
-    font-size: 65px;
+    font-size: 6vw;
     color: black;
 }
 
@@ -11,8 +11,8 @@
 
 .section-icon {
     max-width: 15%;
-    min-width: 150px;
-    min-height: 150px;
+    min-width: 100px;
+    min-height: 100px;
 }
 
 .image-inline {

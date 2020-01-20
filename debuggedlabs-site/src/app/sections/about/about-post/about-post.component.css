@@ -1,5 +1,6 @@
 .image {
     max-width: 35%;
+    width: auto;
 }
 
 .image-inline {
@@ -30,7 +31,7 @@
 .position {
     font-family: 'Cairo', sans-serif;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 17px;
     color: gray;
 }
 

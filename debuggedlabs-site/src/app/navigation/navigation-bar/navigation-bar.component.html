@@ -10,13 +10,20 @@
     </div>
 
     <!-- Show the menu items -->
-    <div class="navigation-item" *ngFor="let item of getMenuItems()">
-        <a [ngClass]="{
-            'menu-item': !item.inactive, 
-            'selected-nav-item': item.inactive
-        }" 
-        [ngStyle]="{'color': item.inactive ? item.selectedColor : ''}"
-        routerLink="{{ item.routerLink }}">{{ item.title }}</a>
+    <ng-container *ngIf="!isHamburgerMenu">
+        <div class="navigation-item" *ngFor="let item of getMenuItems()">
+            <a [ngClass]="{
+                'menu-item': !item.inactive, 
+                'selected-nav-item': item.inactive
+            }" 
+            [ngStyle]="{'color': item.inactive ? item.selectedColor : ''}"
+            routerLink="{{ item.routerLink }}">{{ item.title }}</a>
+        </div>
+    </ng-container>
+    <app-social-media-links *ngIf="!isHamburgerMenu"></app-social-media-links>
+
+    <!-- Show hamburger menu if smaller window -->
+    <div class="hamburger-menu" *ngIf="isHamburgerMenu">
+        <app-hamburger-menu [menuItems]="getMenuItems()"></app-hamburger-menu>
     </div>
-     <app-social-media-links></app-social-media-links>
 </div>

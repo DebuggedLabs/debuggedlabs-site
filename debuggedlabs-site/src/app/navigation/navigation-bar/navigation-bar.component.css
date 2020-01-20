@@ -34,3 +34,10 @@
     height: 120px;
     width: 100%;
 }
+
+.hamburger-menu {
+  flex: 1 0 100%;
+  align-items: right;
+  justify-content: right;
+  align-content: right;
+}
