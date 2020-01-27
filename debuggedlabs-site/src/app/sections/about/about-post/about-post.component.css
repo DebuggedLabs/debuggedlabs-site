@@ -1,10 +1,14 @@
 .image {
-    max-width: 35%;
-    width: auto;
+    width: 250px;
+    height: auto;
 }
 
 .image-inline {
     display: flex;
+}
+
+.image-block {
+    display: block;
 }
 
 .text {

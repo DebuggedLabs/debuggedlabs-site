@@ -37,7 +37,8 @@
 
 .hamburger-menu {
   flex: 1 0 100%;
-  align-items: right;
+  align-self: right;
   justify-content: right;
   align-content: right;
+  flex-direction: row;
 }
