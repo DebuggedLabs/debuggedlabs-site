@@ -36,9 +36,13 @@
 }
 
 .hamburger-menu {
-  flex: 1 0 100%;
-  align-self: right;
-  justify-content: right;
-  align-content: right;
-  flex-direction: row;
+  width: 100%;
+  min-width: 100px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox*/
+	box-sizing: border-box;
+}
+
+.padding-left {
+  padding-left: 50px;
 }

@@ -1,0 +1,13 @@
+<ng-container *ngIf="showOrHideItems()">
+    <div class="hamburger-menu-items">
+        <ul *ngFor="let item of getMenuItems()">
+            <li style="list-style-type:none;">
+                <a [ngClass]="{
+                            'menu-item': !item.inactive, 
+                            'selected-nav-item': item.inactive
+                            }" [ngStyle]="{'color': item.inactive ? item.selectedColor : ''}"
+                    routerLink="{{ item.routerLink }}">{{ item.title }}</a>
+            </li>
+        </ul>
+    </div>
+</ng-container>

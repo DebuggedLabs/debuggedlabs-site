@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Injectable, HostListener } from '@angular/cor
 import { trigger, state, transition, style, animate } from '@angular/animations';
 import { navigationMenuItemInfo } from '../../definitions/types';
 import { MenuConfig } from 'src/app/config/router-config';
+import { ShowHamburgerMenuServiceService } from 'src/app/services/show-hamburger-menu-service.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -31,7 +32,7 @@ export class NavigationBarComponent implements OnInit {
   public isHamburgerMenu: boolean;
   private windowWidth: number;
 
-  constructor() { }
+  constructor(private hamburgerMenuShowService: ShowHamburgerMenuServiceService) { }
 
   ngOnInit() {
     this.heightCutOff = this.bannerElementId != '' ? 227.45 : this.heightCutOff;
@@ -101,7 +102,12 @@ export class NavigationBarComponent implements OnInit {
     }
     else {
       this.isHamburgerMenu = false;
-    }
-  }
 
+      // close hamburger menu items if not showing menu
+      this.hamburgerMenuShowService.updateShowHamburgerMenuItemsStatus(false);
+    }
+
+    // update the show status
+    this.hamburgerMenuShowService.updateShowHamburgerMenuStatus(this.isHamburgerMenu);
+  }
 }

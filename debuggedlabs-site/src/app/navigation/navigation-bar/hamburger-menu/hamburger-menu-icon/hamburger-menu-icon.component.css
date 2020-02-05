@@ -1,13 +1,17 @@
 .container {
   display: inline-block;
   cursor: pointer;
+  align-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .bar1, .bar2, .bar3 {
+  margin-left: auto;
   width: 35px;
   height: 5px;
   background-color:white;
-  margin: 6px 0;
+  margin-bottom: 6px;
   transition: 0.4s;
 }
 

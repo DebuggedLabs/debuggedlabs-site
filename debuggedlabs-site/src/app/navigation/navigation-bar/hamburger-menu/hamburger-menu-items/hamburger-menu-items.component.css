@@ -1,0 +1,10 @@
+.hamburger-menu-items{
+    position: fixed;
+    width: 30%;
+    height: 400px;
+    min-width: 100px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox*/
+    box-sizing: border-box;
+    right: 0px;
+}
