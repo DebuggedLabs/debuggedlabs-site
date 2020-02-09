@@ -26,8 +26,8 @@ import { SocialMediaLinksComponent } from './modules/social-media-links/social-m
 import { AboutPostComponent } from './sections/about/about-post/about-post.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FeaturedVariablePostComponent } from './featured-variable-post/featured-variable-post/featured-variable-post.component';
-import { HamburgerMenuIconComponent } from './navigation/navigation-bar/hamburger-menu/hamburger-menu-icon/hamburger-menu-icon.component';
-import { HamburgerMenuItemsComponent } from './navigation/navigation-bar/hamburger-menu/hamburger-menu-items/hamburger-menu-items.component';
+import { HamburgerMenuIconComponent } from './modules/hamburger-menu-icon/hamburger-menu-icon.component';
+import { HamburgerMenuComponent } from './navigation/hamburger-menu/hamburger-menu.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,7 @@ import { HamburgerMenuItemsComponent } from './navigation/navigation-bar/hamburg
     SocialMediaLinksComponent,
     AboutPostComponent,
     HamburgerMenuIconComponent,
-    HamburgerMenuItemsComponent
+    HamburgerMenuComponent
   ],
   imports: [
     BrowserModule,

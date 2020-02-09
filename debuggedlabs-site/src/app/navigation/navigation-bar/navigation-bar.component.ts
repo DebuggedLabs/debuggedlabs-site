@@ -1,8 +1,9 @@
-import { Component, OnInit, Input, Injectable, HostListener } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { trigger, state, transition, style, animate } from '@angular/animations';
 import { navigationMenuItemInfo } from '../../definitions/types';
 import { MenuConfig } from 'src/app/config/router-config';
-import { ShowHamburgerMenuServiceService } from 'src/app/services/show-hamburger-menu-service.service';
+import { ShowHamburgerMenuService } from 'src/app/services/show-hamburger-menu-service.service';
+import { PageDetailsService } from 'src/app/services/page-details.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -25,16 +26,18 @@ export class NavigationBarComponent implements OnInit {
 
   @Input() show: boolean = false;
   @Input() bannerElementId: string = "";
-  @Input() sectionTitle: string = "";
   @Input() selectedColor: string = "";
 
   public heightCutOff: number = -1;
   public isHamburgerMenu: boolean;
   private windowWidth: number;
+  private sectionTitle: string = "";
 
-  constructor(private hamburgerMenuShowService: ShowHamburgerMenuServiceService) { }
+  constructor(private hamburgerMenuShowService: ShowHamburgerMenuService,
+              private pageDetailService: PageDetailsService) { }
 
   ngOnInit() {
+    this.sectionTitle = this.pageDetailService.getCurrentPageId();
     this.heightCutOff = this.bannerElementId != '' ? 227.45 : this.heightCutOff;
     this.windowWidth = window.innerWidth;
     this.tryDisplayHamburgerMenu();
@@ -104,10 +107,10 @@ export class NavigationBarComponent implements OnInit {
       this.isHamburgerMenu = false;
 
       // close hamburger menu items if not showing menu
-      this.hamburgerMenuShowService.updateShowHamburgerMenuItemsStatus(false);
+      this.hamburgerMenuShowService.updateShowHamburgerMenu(false);
     }
 
     // update the show status
-    this.hamburgerMenuShowService.updateShowHamburgerMenuStatus(this.isHamburgerMenu);
+    this.hamburgerMenuShowService.updateShowHambuurgerIconStatus(this.isHamburgerMenu);
   }
 }

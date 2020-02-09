@@ -6,6 +6,13 @@
     min-width: 897px;
 }
 
+.hamburger-menu {
+  display:inline;
+  position: absolute;
+  padding-top: 5%;
+  padding-left: 80%;
+}
+
 .banner-image {
     max-width: 25%;
     min-width: 200px;

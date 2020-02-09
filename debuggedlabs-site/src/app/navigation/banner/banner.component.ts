@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuConfig } from 'src/app/config/router-config';
+import { ShowHamburgerMenuService } from 'src/app/services/show-hamburger-menu-service.service';
 
 @Component({
   selector: 'app-banner',
@@ -8,7 +9,7 @@ import { MenuConfig } from 'src/app/config/router-config';
 })
 export class BannerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private showHamburgerMenuService: ShowHamburgerMenuService) { }
 
   ngOnInit() {
   }
@@ -25,6 +26,10 @@ export class BannerComponent implements OnInit {
       });
     });
     return menuItems;
+  }
+
+  shouldShowHamburgerMenu(): boolean {
+    return this.showHamburgerMenuService.shouldShowHamburgerMenuIcon();
   }
 
 }

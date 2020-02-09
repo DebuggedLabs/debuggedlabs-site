@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ShowHamburgerMenuServiceService } from 'src/app/services/show-hamburger-menu-service.service';
+import { ShowHamburgerMenuService } from 'src/app/services/show-hamburger-menu-service.service';
 
 @Component({
   selector: 'app-hamburger-menu-icon',
@@ -10,7 +10,7 @@ export class HamburgerMenuIconComponent implements OnInit {
 
   private isCollapsed: boolean;
 
-  constructor(private showMenuService: ShowHamburgerMenuServiceService) { 
+  constructor(private showMenuService: ShowHamburgerMenuService) { 
     this.isCollapsed = true;
   }
 
@@ -20,7 +20,7 @@ export class HamburgerMenuIconComponent implements OnInit {
   onClick() {
     this.isCollapsed = !this.isCollapsed;
     var showMenuItems: boolean = !this.isCollapsed;
-    this.showMenuService.updateShowHamburgerMenuItemsStatus(showMenuItems);
+    this.showMenuService.updateShowHamburgerMenu(showMenuItems);
   }
 
 }

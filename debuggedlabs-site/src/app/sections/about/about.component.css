@@ -1,12 +1,12 @@
 .vert-padding {
     margin-top: 3%;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .horiz-padding {
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .heading {
@@ -54,7 +54,7 @@
     color: #ff6666;
 }
 
-.abouut-hr {
+.about-hr {
     width:40%;
     border-width: 1px;
     align:left;

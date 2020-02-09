@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ShowHamburgerMenuServiceService {
+export class ShowHamburgerMenuService {
 
   private showHamburgerMenuItems: boolean;
   private showHamburgerMenu: boolean;
@@ -13,15 +13,19 @@ export class ShowHamburgerMenuServiceService {
     this.showHamburgerMenu = false;
   }
 
-  updateShowHamburgerMenuItemsStatus(showMenuItems: boolean) {
+  updateShowHamburgerMenu(showMenuItems: boolean) {
     this.showHamburgerMenuItems = showMenuItems;
   }
 
-  updateShowHamburgerMenuStatus(showMenu: boolean) {
+  updateShowHambuurgerIconStatus(showMenu: boolean) {
     this.showHamburgerMenu = showMenu;
   }
 
-  shouldShowHamburgerMenuItemsStatus(): boolean{
+  shouldShowHamburgerMenuAndItems(): boolean{
     return this.showHamburgerMenu && this.showHamburgerMenuItems;
+  }
+
+  shouldShowHamburgerMenuIcon(): boolean {
+    return this.showHamburgerMenu;
   }
 }

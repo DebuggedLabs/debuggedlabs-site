@@ -1,2 +1,12 @@
-<router-outlet></router-outlet>
+<!-- Main content -->
+<div id="main">
+    <router-outlet></router-outlet>
+    
+    <!-- Side navigation menu -->
+    <div id="sidenav">
+        <app-hamburger-menu></app-hamburger-menu>
+    </div>
+</div>
+
 <ngx-loading-bar [color]="'#00ff00'"></ngx-loading-bar>
+

@@ -1,0 +1,15 @@
+<div class="sidenav" [style.width.%]="width" [ngClass]="{active: showOrHideItems()}">
+    <ul *ngFor="let item of getMenuItems()">
+        <li style="list-style-type:none;">
+            <a [ngClass]="{
+                        'menu-item': !item.inactive, 
+                        'selected-nav-item': item.inactive
+                        }" [ngStyle]="{'color': item.inactive ? item.selectedColor : ''}"
+                routerLink="{{ item.routerLink }}">{{ item.title }}</a>
+        </li>
+    </ul>
+    <hr class="divider">
+    <div class="social-media-hamburger" *ngIf="showOrHideItems()">
+        <app-social-media-links></app-social-media-links>
+    </div>
+</div>
