@@ -24,9 +24,10 @@ export class FrontpageComponent implements OnInit {
       });
 
     // close hamburger menu
-    this.showHamburgerMenuService.updateShowHamburgerMenu(false);
+    this.showHamburgerMenuService.updateShowHamburgerMenuStatus(false);
 
     // update the current page Id
     this.pageDetailService.updateCurrentPageId(PageId.Home);
+    this.pageDetailService.updateFrontPageShowNavBarStatus(false);
   }
 }

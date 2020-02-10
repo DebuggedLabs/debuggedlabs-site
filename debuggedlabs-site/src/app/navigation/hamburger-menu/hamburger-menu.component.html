@@ -1,4 +1,7 @@
-<div class="sidenav" [style.width.%]="width" [ngClass]="{active: showOrHideItems()}">
+<div class="sidenav" 
+    [style.width.%]="width" 
+    [ngClass]="{active: showOrHideItems()}"
+    [style.marginTop.px]="getMarginTop()">
     <ul *ngFor="let item of getMenuItems()">
         <li style="list-style-type:none;">
             <a [ngClass]="{

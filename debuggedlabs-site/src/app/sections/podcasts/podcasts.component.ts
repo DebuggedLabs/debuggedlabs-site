@@ -59,7 +59,7 @@ export class PodcastsComponent implements OnInit {
     });
 
     // close hamburger menu
-    this.showHamburgerService.updateShowHamburgerMenu(false);
+    this.showHamburgerService.updateShowHamburgerMenuStatus(false);
 
     // update page detail service
     this.pageDetailService.updateCurrentPageId(PageId.Podcasts);

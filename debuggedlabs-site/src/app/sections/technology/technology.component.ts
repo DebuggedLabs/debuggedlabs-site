@@ -28,7 +28,7 @@ export class TechnologyComponent implements OnInit {
       });
 
     // close hamburger menu
-    this.showHamburgerService.updateShowHamburgerMenu(false);
+    this.showHamburgerService.updateShowHamburgerMenuStatus(false);
 
     this.pageDetailService.updateCurrentPageId(PageId.Technology);
   }

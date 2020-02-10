@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +10,4 @@ export class AppComponent {
 
   public title: string = 'Debugged Labs';
 
-}
+} 

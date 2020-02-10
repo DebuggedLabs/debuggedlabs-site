@@ -43,7 +43,7 @@ export class HamburgerMenuComponent implements OnInit {
    * Invoke the opening navigation for the hamburger menu
    */
   openMenu() {
-    this.width = 65;
+    this.width = 55;
   }
 
   closeMenu() {
@@ -76,6 +76,16 @@ export class HamburgerMenuComponent implements OnInit {
     });
 
     return menuItems
+  }
+
+  /**
+   * Get the margin-top pixel value for the menu, based on the current page Id
+   */
+  getMarginTop(): number {
+    if (this.pageDetailService.getCurrentPageId() == PageId.Home) {
+      return this.pageDetailService.getBannerHeightPx();
+    }
+    return 100;
   }
 
 }

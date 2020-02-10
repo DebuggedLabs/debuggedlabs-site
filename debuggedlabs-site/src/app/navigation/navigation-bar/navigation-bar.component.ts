@@ -51,9 +51,11 @@ export class NavigationBarComponent implements OnInit {
     {
       if (window.pageYOffset > this.heightCutOff) {
         this.show = true;
+        this.pageDetailService.updateFrontPageShowNavBarStatus(true);
       }
       else if (window.pageYOffset <= this.heightCutOff) {
         this.show = false;
+        this.pageDetailService.updateFrontPageShowNavBarStatus(false);
       }
     }
   }
@@ -107,7 +109,7 @@ export class NavigationBarComponent implements OnInit {
       this.isHamburgerMenu = false;
 
       // close hamburger menu items if not showing menu
-      this.hamburgerMenuShowService.updateShowHamburgerMenu(false);
+      this.hamburgerMenuShowService.updateShowHamburgerMenuStatus(false);
     }
 
     // update the show status

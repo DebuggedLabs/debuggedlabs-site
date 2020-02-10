@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { MenuConfig } from 'src/app/config/router-config';
 import { ShowHamburgerMenuService } from 'src/app/services/show-hamburger-menu-service.service';
+import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
 
 @Component({
   selector: 'app-banner',
@@ -9,9 +10,26 @@ import { ShowHamburgerMenuService } from 'src/app/services/show-hamburger-menu-s
 })
 export class BannerComponent implements OnInit {
 
-  constructor(private showHamburgerMenuService: ShowHamburgerMenuService) { }
+  @ViewChild('bannerId', { read: ElementRef, static: false }) elementView: ElementRef;
+
+  /**
+   * Constructor for BannerComponent
+   * @param showHamburgerMenuService service dictating hamburger menu details
+   */
+  constructor(private showHamburgerMenuService: ShowHamburgerMenuService,
+              private pageDetailService: PageDetailsService) 
+  { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    console.log(this.elementView.nativeElement.scrollHeight);
+  }
+
+  @HostListener('window:resize', ['$event']) onResize(event) {
+    console.log(this.elementView.nativeElement.offsetHeight);
+    this.pageDetailService.updateBannerHeightValue(this.elementView.nativeElement.offsetHeight);
   }
 
   /**
@@ -28,6 +46,9 @@ export class BannerComponent implements OnInit {
     return menuItems;
   }
 
+  /**
+   * Return whether to show the hamburger menu on the banner
+   */
   shouldShowHamburgerMenu(): boolean {
     return this.showHamburgerMenuService.shouldShowHamburgerMenuIcon();
   }

@@ -6,7 +6,6 @@
 }
 
 .sidenav  {
-  margin-top: 100px;
   height: 100%; 
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
@@ -16,7 +15,7 @@
   background-color: rgb(0, 0, 0,  0.95); /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 30px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  transition: 0.35s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
 .divider {

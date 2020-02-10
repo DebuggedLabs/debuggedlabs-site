@@ -33,7 +33,7 @@ export class AboutComponent implements OnInit {
         this.backgroundColor = data.backgroundColor;
       });
       this.pageDetailService.updateCurrentPageId(PageId.About);
-      this.showHamnburgerMenuService.updateShowHamburgerMenu(false);
+      this.showHamnburgerMenuService.updateShowHamburgerMenuStatus(false);
   }
   
 }

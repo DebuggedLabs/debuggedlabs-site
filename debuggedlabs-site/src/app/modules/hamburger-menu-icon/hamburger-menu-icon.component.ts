@@ -20,7 +20,7 @@ export class HamburgerMenuIconComponent implements OnInit {
   onClick() {
     this.isCollapsed = !this.isCollapsed;
     var showMenuItems: boolean = !this.isCollapsed;
-    this.showMenuService.updateShowHamburgerMenu(showMenuItems);
+    this.showMenuService.updateShowHamburgerMenuStatus(showMenuItems);
   }
 
 }
