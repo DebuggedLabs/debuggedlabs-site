@@ -2,7 +2,7 @@ import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { trigger, state, transition, style, animate } from '@angular/animations';
 import { navigationMenuItemInfo } from '../../definitions/types';
 import { MenuConfig } from 'src/app/config/router-config';
-import { ShowHamburgerMenuService } from 'src/app/services/show-hamburger-menu-service.service';
+import { WidthService } from 'src/app/services/width.service';
 import { PageDetailsService } from 'src/app/services/page-details.service';
 
 @Component({
@@ -33,7 +33,7 @@ export class NavigationBarComponent implements OnInit {
   private windowWidth: number;
   private sectionTitle: string = "";
 
-  constructor(private hamburgerMenuShowService: ShowHamburgerMenuService,
+  constructor(private hamburgerMenuShowService: WidthService,
               private pageDetailService: PageDetailsService) { }
 
   ngOnInit() {

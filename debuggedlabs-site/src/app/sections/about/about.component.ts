@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TeamProfile } from 'src/app/definitions/teamProfile';
 import { TeamProfileData } from 'src/app/config/profiles-config';
 import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
-import { ShowHamburgerMenuService } from 'src/app/services/show-hamburger-menu-service.service';
+import { WidthService } from 'src/app/services/width.service';
 
 @Component({
   selector: 'app-about',
@@ -21,7 +21,7 @@ export class AboutComponent implements OnInit {
   constructor(private titleService: Title, 
               private router: ActivatedRoute, 
               private pageDetailService: PageDetailsService,
-              private showHamnburgerMenuService: ShowHamburgerMenuService) {
+              private showHamnburgerMenuService: WidthService) {
     this.teamProfiles = TeamProfileData;
   }
 

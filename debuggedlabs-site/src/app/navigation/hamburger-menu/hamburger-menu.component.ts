@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { navigationMenuItemInfo } from 'src/app/definitions/types';
-import { ShowHamburgerMenuService } from 'src/app/services/show-hamburger-menu-service.service';
+import { WidthService } from 'src/app/services/width.service';
 import { MenuConfig } from 'src/app/config/router-config';
 import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
 
@@ -18,7 +18,7 @@ export class HamburgerMenuComponent implements OnInit {
    * @param showMenuService service dictating whether to show the hamburger menu
    * @param pageDetailService service giving details about the page being displayed
    */
-  constructor(private showMenuService: ShowHamburgerMenuService,
+  constructor(private showMenuService: WidthService,
               private pageDetailService: PageDetailsService) { }
 
   ngOnInit() {

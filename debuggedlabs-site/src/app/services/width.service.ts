@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ShowHamburgerMenuService {
+export class WidthService {
 
   private showHamburgerMenuItems: boolean;
   private showHamburgerMenu: boolean;

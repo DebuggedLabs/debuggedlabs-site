@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { MenuConfig } from 'src/app/config/router-config';
-import { ShowHamburgerMenuService } from 'src/app/services/show-hamburger-menu-service.service';
+import { WidthService } from 'src/app/services/width.service';
 import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
 
 @Component({
@@ -16,19 +16,14 @@ export class BannerComponent implements OnInit {
    * Constructor for BannerComponent
    * @param showHamburgerMenuService service dictating hamburger menu details
    */
-  constructor(private showHamburgerMenuService: ShowHamburgerMenuService,
+  constructor(private showHamburgerMenuService: WidthService,
               private pageDetailService: PageDetailsService) 
   { }
 
   ngOnInit() {
   }
 
-  ngAfterViewInit() {
-    console.log(this.elementView.nativeElement.scrollHeight);
-  }
-
   @HostListener('window:resize', ['$event']) onResize(event) {
-    console.log(this.elementView.nativeElement.offsetHeight);
     this.pageDetailService.updateBannerHeightValue(this.elementView.nativeElement.offsetHeight);
   }
 

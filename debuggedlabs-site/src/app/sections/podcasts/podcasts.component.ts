@@ -6,7 +6,7 @@ import { ScrollTopService } from '../../services/scroll-top.service';
 import { PodcastPost } from '../../definitions/podcast';
 import { PodcastsService } from '../../services/podcasts.service';
 import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
-import { ShowHamburgerMenuService } from 'src/app/services/show-hamburger-menu-service.service';
+import { WidthService } from 'src/app/services/width.service';
 
 @Component({
   selector: 'app-podcasts',
@@ -41,7 +41,7 @@ export class PodcastsComponent implements OnInit {
               private scrollTopService: ScrollTopService,
               private podcastFetchService: PodcastsService,
               private pageDetailService: PageDetailsService,
-              private showHamburgerService: ShowHamburgerMenuService) { }
+              private showHamburgerService: WidthService) { }
 
   ngOnInit() {
     // get data from router-config

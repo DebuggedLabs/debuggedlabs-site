@@ -12,15 +12,30 @@ export class PodcastsService {
   /**
    * Get total number of podcast posts
    */
-  getTotalNumPodcasts(): number {
+  getTotalPodcastsCount(): number {
     return PODCASTS.length;
   }
 
   /**
    * Get ten podcasts from most recent to least, starting from the setNumber parameter
    * @param setNumber the podcast number to start from
+   * @param offset the offset to begin with
    */
-  getTenPodcastPosts(setNumber: number): PodcastPost[] {
-    return PODCASTS.slice(setNumber * 10, setNumber * 10 + 10);
+  getTenPodcastPosts(setNumber: number, offset: number = 0): PodcastPost[] {
+    return PODCASTS.slice((setNumber * 10) + offset, setNumber * 10 + 10);
+   }
+
+  /**
+   * Get the most recent 10 non-featuured podcast posts
+   */ 
+  getTenRecentNonFeaturedPodcastPosts(): PodcastPost[] {
+    return this.getTenPodcastPosts(0, 1);
+  }
+
+   /**
+    * Get the featured podcast post
+    */
+   getFeaturedPodcast(): PodcastPost {
+      return PODCASTS[0];
    }
 }  

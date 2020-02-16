@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ShowHamburgerMenuService } from 'src/app/services/show-hamburger-menu-service.service';
+import { WidthService } from 'src/app/services/width.service';
 
 @Component({
   selector: 'app-hamburger-menu-icon',
@@ -10,7 +10,7 @@ export class HamburgerMenuIconComponent implements OnInit {
 
   private isCollapsed: boolean;
 
-  constructor(private showMenuService: ShowHamburgerMenuService) { 
+  constructor(private showMenuService: WidthService) { 
     this.isCollapsed = true;
   }
 
