@@ -1,5 +1,20 @@
-<div>
-    <p>
-        featured-post works!
+<div class="feature-card" [style.width.%]="getCardWidth()">
+    <img [src]="featuredPost.featuredArtURL" 
+         [alt]="featuredPost.featuredArtAlt" 
+         class="card-image">
+
+    <h2 class="card-title">
+        {{featuredPost.title}}
+    </h2>
+    <p class="card-teaser">
+        {{featuredPost.teaser}}
     </p>
+    <div>
+        <p class="card-byline">
+            {{featuredPost.bylines}}
+        </p>
+        <p class="card-topic">
+            {{featuredPost.topic}}
+        </p>
+    </div>
 </div>

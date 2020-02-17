@@ -113,6 +113,6 @@ export class NavigationBarComponent implements OnInit {
     }
 
     // update the show status
-    this.hamburgerMenuShowService.updateShowHambuurgerIconStatus(this.isHamburgerMenu);
+    this.hamburgerMenuShowService.updateIsMobileOrNarrowViewStatus(this.isHamburgerMenu);
   }
 }

@@ -22,10 +22,10 @@ export class WidthService {
   }
 
   /**
-   * To update whether to show the hamburger menu icon
+   * To update whether the page is of a mobile or narrow view
    * @param showMenu boolean indicating whether to show the menu icon
    */
-  updateShowHambuurgerIconStatus(showMenu: boolean) {
+  updateIsMobileOrNarrowViewStatus(showMenu: boolean) {
     this.showHamburgerMenu = showMenu;
   }
 
@@ -39,7 +39,7 @@ export class WidthService {
   /**
    * To determine whether to show the hamburger menu icon
    */
-  shouldShowHamburgerMenuIcon(): boolean {
+    isMobileOrNarrowView(): boolean {
     return this.showHamburgerMenu;
   }
 }

@@ -9,14 +9,16 @@
                     [backgroundColor]="backgroundColor"
 ></app-section-header>
 
-<p>Displaying page index: {{this.pageNumber}}</p>
+<div class="page-boundaries">
+    <p>Displaying page index: {{this.pageNumber}}</p>
+    
+    <!-- Featured podcast post -->
+    <app-featured-podcast *ngIf="isShowingFeaturedPost" [featuredPodcast]="featuredPodcast"></app-featured-podcast>
+    
+    <!-- List podcast posts -->
+    <app-podcasts-list [podcasts]="podcasts"></app-podcasts-list>
+</div>
 
-<!-- Featured podcast post -->
-<app-featured-podcast *ngIf="isShowingFeaturedPost"
-                      [featuredPodcast]="featuredPodcast"
-></app-featured-podcast>
 
-<!-- List podcast posts -->
-<app-podcasts-list [podcasts]="podcasts" ></app-podcasts-list>
 
 

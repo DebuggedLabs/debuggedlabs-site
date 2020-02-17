@@ -45,7 +45,7 @@ export class BannerComponent implements OnInit {
    * Return whether to show the hamburger menu on the banner
    */
   shouldShowHamburgerMenu(): boolean {
-    return this.showHamburgerMenuService.shouldShowHamburgerMenuIcon();
+    return this.showHamburgerMenuService.  isMobileOrNarrowView();
   }
 
 }
