@@ -1,4 +1,7 @@
 <div class="feature-card" [style.width.%]="getCardWidth()">
+    <p class="card-topic">
+        {{featuredPost.topic}}
+    </p>
     <img [src]="featuredPost.featuredArtURL" 
          [alt]="featuredPost.featuredArtAlt" 
          class="card-image">
@@ -12,9 +15,6 @@
     <div>
         <p class="card-byline">
             {{featuredPost.bylines}}
-        </p>
-        <p class="card-topic">
-            {{featuredPost.topic}}
         </p>
     </div>
 </div>

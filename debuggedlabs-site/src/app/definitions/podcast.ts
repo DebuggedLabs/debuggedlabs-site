@@ -1,11 +1,11 @@
 import { Post } from './interfaces';
+import { TeamProfile } from './teamProfile';
 
 export class PodcastPost implements Post {
 
     id: string;
     title: string;
-    bylines: string[];
-    authorPages: string[];
+    authors: TeamProfile[];
     publishedDate: Date;
     topic: string;
     teaser: string;
@@ -22,8 +22,7 @@ export class PodcastPost implements Post {
      * 
      * @param id post id
      * @param title title of the post
-     * @param bylines bylines for the piece
-     * @param authorPages links to the authors' pages 
+     * @param authors bylines for the piece
      * @param publishedDate published date of the post
      * @param teaser teaser text to display on posts-lists element
      * @param topic topic of the post
@@ -37,8 +36,7 @@ export class PodcastPost implements Post {
     constructor(
         id: string,
         title: string,
-        bylines: string[],
-        authorPages: string[],
+        authors: TeamProfile[],
         publishedDate: Date,
         topic: string,
         teaser: string,
@@ -51,8 +49,7 @@ export class PodcastPost implements Post {
     ) {
         this.id = id;
         this.title = title;
-        this.bylines = bylines;
-        this.authorPages = authorPages;
+        this.authors = authors;
         this.publishedDate = publishedDate;
         this.topic = topic;
         this.teaser = teaser;

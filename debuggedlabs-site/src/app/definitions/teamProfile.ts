@@ -1,6 +1,7 @@
 // for handling the about page content
 export interface TeamProfile {
     name: string;                                       // Name of the team member
+    id: string;                                         // Id to use for DB queries (to generate author pages)
     position: string;                                   // Position of the team member
     bio: string;                                        // Bio text for the profile owner
     bioShort: string;                                   // Summary bio text, to show up as first sentence

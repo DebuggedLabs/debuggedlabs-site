@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TextpostsService } from './textposts.service';
+import { WidthService } from '../width.service';
 
-describe('TextpostsService', () => {
+describe('ShowHamburgerMenuServiceService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: TextpostsService = TestBed.get(TextpostsService);
+    const service: WidthService = TestBed.get(WidthService);
     expect(service).toBeTruthy();
   });
 });

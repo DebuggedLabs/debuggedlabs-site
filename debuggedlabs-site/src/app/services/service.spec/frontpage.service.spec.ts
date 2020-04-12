@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ScrollTopService } from './scroll-top.service';
+import { FrontPageService } from '../frontpage.service';
 
-describe('ScrollTopServiceService', () => {
+describe('FrontpageService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ScrollTopService = TestBed.get(ScrollTopService);
+    const service: FrontPageService = TestBed.get(FrontPageService);
     expect(service).toBeTruthy();
   });
 });

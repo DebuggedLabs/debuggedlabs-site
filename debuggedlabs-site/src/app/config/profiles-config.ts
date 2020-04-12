@@ -3,6 +3,7 @@ import { TeamProfile } from '../definitions/teamProfile'
 // for handling profile information
 export const TeamProfileData: TeamProfile[] = [
     {
+        id: "ktadimeti",
         name: 'Keshav Tadimeti',
         position: "Founder, Editor in Chief",
         bioShort: "A tech guy who loves telling stories.",
@@ -13,6 +14,7 @@ export const TeamProfileData: TeamProfile[] = [
     },
 
     {
+        id: "skbarman",
         name: 'Shawn Barman',
         position: "Founder, Managing Editor",
         bioShort: "A legit scientist who loves PB&J.",

@@ -1,4 +1,5 @@
 import { PodcastPost } from '../definitions/podcast';
+import { TeamProfileData } from '../config/profiles-config';
 
 const today = new Date();
 const yesterday = new Date();
@@ -8,8 +9,7 @@ const data = [
     {
         id: "string1",
         title: "Podcast 1",
-        bylines: ["Keshav Tadimeti", "Shawn Barman"],
-        authorPages: ["/author/keshav_tadimeti", "author/shawn_barman"],
+        authors: TeamProfileData,
         publishedDate: today,
         topic: "Technology",
         teaser: "Reading is for schmucks. Listen to this epic podcast 1!",
@@ -23,8 +23,7 @@ const data = [
     {
         id: "string2",
         title: "Podcast 2",
-        bylines: ["Keshav Tadimeti", "Shawn Barman"],
-        authorPages: ["/author/keshav_tadimeti", "author/shawn_barman"],
+        authors: TeamProfileData,
         publishedDate: yesterday,
         topic: "Technology",
         teaser: "Reading is for schmucks. Listen to this epic podcast 2!",
@@ -38,8 +37,7 @@ const data = [
     {
         id: "string3",
         title: "Podcast 3",
-        bylines: ["Keshav Tadimeti"],
-        authorPages: ["/author/keshav_tadimeti"],
+        authors: TeamProfileData,
         publishedDate: before,
         topic: "Genetics",
         teaser: "Reading is for schmucks. Listen to this epic podcast 3!",
@@ -57,8 +55,7 @@ data.forEach(elem => {
     PODCASTS.push(new PodcastPost(
         elem.id,
         elem.title,
-        elem.bylines,
-        elem.authorPages,
+        elem.authors,
         elem.publishedDate,
         elem.topic,
         elem.teaser,

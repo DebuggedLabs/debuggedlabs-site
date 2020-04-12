@@ -1,4 +1,5 @@
 import { TextPost } from '../definitions/textpost';
+import { TeamProfileData } from '../config/profiles-config';
 
 const today = new Date();
 const yesterday = new Date();
@@ -7,14 +8,13 @@ const before = new Date();
 var data = [
     {
         id: "string1",
-        title: "Podcast 1",
-        bylines: ["Keshav Tadimeti", "Shawn Barman"],
-        authorPages: ["/author/keshav_tadimeti", "author/shawn_barman"],
+        title: "What does the fox say?",
+        authors: TeamProfileData,
         publishedDate: today,
         topic: "Technology",
-        teaser: "Teaser for this awesome post 1",
-        featuredArtURL: "https://i.kym-cdn.com/entries/icons/facebook/000/004/795/I-LIKE-TRAINS.jpg",
-        featuredArtAlt: "I like trains",
+        teaser: "Unveiling the secret behind the mysterious mammal",
+        featuredArtURL: "http://hdwpro.com/wp-content/uploads/2017/01/3D-Cool-Image.jpg",
+        featuredArtAlt: "A fox",
         additionalArtURLs: [],
         additionalArtAlts: [],
         content: "https://soundcloud.com/dailybruin/no-offense-but-the-admissions-scandals"
@@ -23,8 +23,7 @@ var data = [
     {
         id: "string2",
         title: "Podcast 2",
-        bylines: ["Keshav Tadimeti", "Shawn Barman"],
-        authorPages: ["/author/keshav_tadimeti", "author/shawn_barman"],
+        authors: TeamProfileData,
         publishedDate: yesterday,
         topic: "Ethics",
         teaser: "Teaser for this awesome post 2",
@@ -38,8 +37,7 @@ var data = [
     {
         id: "string3",
         title: "Podcast 3",
-        bylines: ["Keshav Tadimeti"],
-        authorPages: ["/author/keshav_tadimeti"],
+        authors: TeamProfileData,
         publishedDate: before,
         topic: "Technology",
         teaser: "Teaser for this awesome post 3",
@@ -57,8 +55,7 @@ data.forEach(elem => {
     POSTS.push(new TextPost(
         elem.id,
         elem.title,
-        elem.bylines,
-        elem.authorPages,
+        elem.authors,
         elem.publishedDate,
         elem.topic,
         elem.teaser,

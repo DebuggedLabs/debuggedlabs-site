@@ -26,4 +26,8 @@ export class FeaturedPostComponent implements OnInit {
     return 40;
   }
 
+  getLinkedBylines() {
+    
+  }
+
 }

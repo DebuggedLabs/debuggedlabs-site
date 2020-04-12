@@ -1,9 +1,10 @@
+import { TeamProfile } from './teamProfile';
+
 // for handling the various kinds of posts pulled from the backend
 export interface Post {
     id: string;                                         // to query from the database
     title: string;                                      // post title
-    bylines: string[];                                  // authors of the piece
-    authorPages: string[];                              // links to the author pages
+    authors: TeamProfile[];                             // authors of the piece
     publishedDate: Date;                                // published date
     topic: string;                                      // topic of the post
     teaser: string;                                     // teaser blurbs to show on the lists pages
