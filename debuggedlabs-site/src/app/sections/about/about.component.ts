@@ -5,6 +5,7 @@ import { TeamProfile } from 'src/app/definitions/teamProfile';
 import { TeamProfileData } from 'src/app/config/profiles-config';
 import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
 import { WidthService } from 'src/app/services/width.service';
+import { AuthorDetailService } from 'src/app/services/author-detail.service';
 
 @Component({
   selector: 'app-about',
@@ -21,8 +22,9 @@ export class AboutComponent implements OnInit {
   constructor(private titleService: Title, 
               private router: ActivatedRoute, 
               private pageDetailService: PageDetailsService,
-              private showHamnburgerMenuService: WidthService) {
-    this.teamProfiles = TeamProfileData;
+              private showHamnburgerMenuService: WidthService,
+              private authorDetailService: AuthorDetailService) {
+    this.teamProfiles = authorDetailService.getAllTeamProfiles();
   }
 
   ngOnInit() {
