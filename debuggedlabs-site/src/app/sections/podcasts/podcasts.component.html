@@ -10,13 +10,13 @@
 ></app-section-header>
 
 <div class="page-boundaries">
-    <p>Displaying page index: {{this.pageNumber}}</p>
-    
+   
     <!-- Featured podcast post -->
-    <app-featured-podcast *ngIf="isShowingFeaturedPost" [featuredPodcast]="featuredPodcast"></app-featured-podcast>
+    <app-featured-post *ngIf="isShowingFeaturedPost" [featuredPost]="featuredPodcast"></app-featured-post>
+    <p>Displaying page index: {{ this.pageNumber }}</p>
     
     <!-- List podcast posts -->
-    <app-podcasts-list [podcasts]="podcasts"></app-podcasts-list>
+    <app-posts-list [posts]="podcasts"></app-posts-list>
 </div>
 
 

@@ -67,8 +67,8 @@ export class PodcastsComponent implements OnInit {
     // fetch the podcasts
     this.getPodcasts();
 
+    // scroll to the top of the page on reload
     this.scrollTopService.setScrollTop();
-    this.isShowingFeaturedPost = true; // need to change this to be modular
 
     // log all our variables
     console.log("Showing featured podcast: ", this.isShowingFeaturedPost);
@@ -95,7 +95,7 @@ export class PodcastsComponent implements OnInit {
   /**
    * Retrieve the podcasts from the fetching service
    */
-  getPodcasts(): void {
+  getPodcasts() {
     const allTenPodcasts = this.podcastFetchService.getTenPodcastPosts(this.pageNumber);
 
     // if we're not showing a featured podcast on the page, store the entire array

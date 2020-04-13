@@ -11,15 +11,14 @@
 
 <div class="page-boundaries">
     <!-- Featured technology post -->
-    <app-featured-variable-post></app-featured-variable-post>
-    
-    <app-featured-post></app-featured-post>
-    
+    <app-featured-post *ngIf="isShowingFeaturedPost" [featuredPost]="featuredPost"></app-featured-post>
+    <p>Displaying page index: {{ this.pageNumber }}</p>
+
     <!-- Technology post list -->
     <app-posts-list></app-posts-list>
     
     <!-- Technology podcast list -->
-    <app-podcasts-list></app-podcasts-list>
+    <app-posts-list></app-posts-list>
     
     <p>technology works!</p>
     <p>technology works!</p>

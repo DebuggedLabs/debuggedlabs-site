@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PodcastPost } from '../definitions/podcast';
-import { PODCASTS } from '../testing/mock-podcasts'; // change this when backend is worked out
+import { PODCASTS } from '../mocks/mock-podcasts'; // change this when backend is worked out
 
 @Injectable({
   providedIn: 'root'

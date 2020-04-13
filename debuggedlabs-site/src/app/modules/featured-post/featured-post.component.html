@@ -1,20 +1,27 @@
 <div class="feature-card" [style.width.%]="getCardWidth()">
     <p class="card-topic">
-        {{featuredPost.topic}}
+        {{ featuredPost.topic | uppercase }}
     </p>
-    <img [src]="featuredPost.featuredArtURL" 
-         [alt]="featuredPost.featuredArtAlt" 
-         class="card-image">
 
-    <h2 class="card-title">
-        {{featuredPost.title}}
+    <!-- Featured image -->
+    <a href="{{ featuredPost.content }}">
+        <img [src]="featuredPost.featuredArtURL" [alt]="featuredPost.featuredArtAlt" class="card-image">
+    </a>
+
+    <!-- Card title -->
+    <h2 class="card-title-h2">
+        <a href="{{ featuredPost.content }}" class="card-title">{{ featuredPost.title }}</a>
     </h2>
-    <p class="card-teaser">
-        {{featuredPost.teaser}}
+
+    <!-- Card teaser -->
+    <p class="card-teaser-p">
+        <a href="{{ featuredPost.content }}" class="card-teaser">{{ featuredPost.teaser }}</a>
     </p>
-    <div>
-        <p class="card-byline">
-            {{featuredPost.bylines}}
-        </p>
-    </div>
+
+    <!-- Byline -->
+    <p align="right" class="card-byline-section">By
+        <ng-container *ngFor="let author of featuredPost.authors">
+            <a class="card-byline" href="{{ author.profilePageUrl }}">{{ author.name | uppercase }}</a>
+        </ng-container>
+    </p>
 </div>

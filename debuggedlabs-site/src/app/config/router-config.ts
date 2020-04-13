@@ -82,6 +82,8 @@ export const RouterConfig: Routes = [
         }
     },
 
+    // add /author support
+
     // to handle edge cases
     {
         path: '',

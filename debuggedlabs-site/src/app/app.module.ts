@@ -13,21 +13,17 @@ import { TechnologyComponent } from './sections/technology/technology.component'
 import { FrontpageComponent } from './sections/frontpage/frontpage.component';
 import { AboutComponent } from './sections/about/about.component';
 import { BannerComponent } from './navigation/banner/banner.component';
-import { PostMenuItemComponent } from './modules/post-menu-item/post-menu-item.component';
-import { PodcastMenuItemComponent } from './modules/podcast-menu-item/podcast-menu-item.component';
-import { PodcastsListComponent } from './modules/podcasts-list/podcasts-list.component';
 
 import { RouterConfig } from './config/router-config';
 import { RouterModule } from '@angular/router';
 import { SectionHeaderComponent } from './modules/section-header/section-header.component';
-import { FeaturedPodcastComponent } from './modules/featured-podcast/featured-podcast.component';
 import { FeaturedPostComponent } from './modules/featured-post/featured-post.component';
 import { SocialMediaLinksComponent } from './modules/social-media-links/social-media-links.component';
 import { AboutPostComponent } from './sections/about/about-post/about-post.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FeaturedVariablePostComponent } from './featured-variable-post/featured-variable-post/featured-variable-post.component';
 import { HamburgerMenuIconComponent } from './modules/hamburger-menu-icon/hamburger-menu-icon.component';
 import { HamburgerMenuComponent } from './navigation/hamburger-menu/hamburger-menu.component';
+import { PostMenuItemComponent } from './modules/post-menu-item/post-menu-item/post-menu-item.component';
 
 @NgModule({
   declarations: [
@@ -39,17 +35,13 @@ import { HamburgerMenuComponent } from './navigation/hamburger-menu/hamburger-me
     FrontpageComponent,
     AboutComponent,
     BannerComponent,
-    PostMenuItemComponent,
-    PodcastMenuItemComponent,
-    PodcastsListComponent,
     SectionHeaderComponent,
-    FeaturedPodcastComponent,
     FeaturedPostComponent,
-    FeaturedVariablePostComponent,
     SocialMediaLinksComponent,
     AboutPostComponent,
     HamburgerMenuIconComponent,
-    HamburgerMenuComponent
+    HamburgerMenuComponent,
+    PostMenuItemComponent,
   ],
   imports: [
     BrowserModule,

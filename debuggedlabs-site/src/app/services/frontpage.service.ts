@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Post } from '../definitions/interfaces';
-import { POSTS } from '../testing/mock-posts';
+import { POSTS } from '../mocks/mock-posts';
 import { PodcastPost } from '../definitions/podcast';
-import { PODCASTS } from '../testing/mock-podcasts';
+import { PODCASTS } from '../mocks/mock-podcasts';
 
 @Injectable({
   providedIn: 'root'

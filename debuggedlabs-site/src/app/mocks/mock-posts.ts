@@ -17,12 +17,12 @@ var data = [
         featuredArtAlt: "A fox",
         additionalArtURLs: [],
         additionalArtAlts: [],
-        content: "https://soundcloud.com/dailybruin/no-offense-but-the-admissions-scandals"
+        content: "/posts/string1"
     },
 
     {
         id: "string2",
-        title: "Podcast 2",
+        title: "Textpost 2",
         authors: TeamProfileData,
         publishedDate: yesterday,
         topic: "Ethics",
@@ -31,12 +31,12 @@ var data = [
         featuredArtAlt: "I like trains a lot",
         additionalArtURLs: [],
         additionalArtAlts: [],
-        content: "https://soundcloud.com/dailybruin/no-offense-but-usac-elections-1"
+        content: "/posts/string2"
     },
 
     {
         id: "string3",
-        title: "Podcast 3",
+        title: "Textpost 3",
         authors: TeamProfileData,
         publishedDate: before,
         topic: "Technology",
@@ -45,7 +45,7 @@ var data = [
         featuredArtAlt: "I still like trains",
         additionalArtURLs: [],
         additionalArtAlts: [],
-        content: "https://soundcloud.com/dailybruin/in-the-know-quarters-dimes-and-semesters"
+        content: "/posts/string3"
     }
 ];
 
