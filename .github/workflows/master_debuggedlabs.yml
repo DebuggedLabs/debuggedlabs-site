@@ -29,7 +29,7 @@ jobs:
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v1
       with:
-        app-name: 'debuggedlabs'
+        app-name: 'debuggedlabs-site'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_5e1bba91387b4b83b691d409d211f8d9 }}
         package: .
