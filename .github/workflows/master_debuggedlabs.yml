@@ -25,10 +25,17 @@ jobs:
         npm install
         npm run deploy
 
+    # publish the pipeline artifact
+    - task: PublishPipelineArtifact@1
+      inputs: 
+        targetPath: $(System.DefaultWorkingDirectory)/dist
+        artifactName: drop
+
+    # deploy the app
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v1
       with:
         app-name: 'debuggedlabs-site'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_75053c3ebac04dedb22c8deaacb53d4e }}
-        package: .
+        package: drop
