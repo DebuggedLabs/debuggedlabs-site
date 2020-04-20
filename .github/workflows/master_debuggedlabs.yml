@@ -26,7 +26,8 @@ jobs:
         npm run deploy
 
     # publish the pipeline artifact
-    - task: PublishPipelineArtifact@1
+    - name: Publish pipeline artifact
+      uses: PublishPipelineArtifact@1
       inputs: 
         targetPath: $(System.DefaultWorkingDirectory)/dist
         artifactName: drop
