@@ -28,7 +28,7 @@ jobs:
     # publish the pipeline artifact
     - name: Publish pipeline artifact
       uses: PublishPipelineArtifact@1
-      inputs: 
+      with: 
         targetPath: $(System.DefaultWorkingDirectory)/dist
         artifactName: drop
 
