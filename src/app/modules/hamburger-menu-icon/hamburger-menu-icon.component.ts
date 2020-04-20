@@ -8,7 +8,7 @@ import { WidthService } from 'src/app/services/width.service';
 })
 export class HamburgerMenuIconComponent implements OnInit {
 
-  private isCollapsed: boolean;
+  public isCollapsed: boolean;
 
   constructor(private showMenuService: WidthService) { 
     this.isCollapsed = true;
