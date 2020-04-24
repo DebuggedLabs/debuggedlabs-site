@@ -28,9 +28,9 @@ jobs:
     # publish the artifact
     - name: Upload artifact
       uses: actions/upload-artifact@v1
-        with:
-          name: dist
-          path: dist
+      with:
+        name: dist
+        path: dist
 
     # download generated artifact
     - name: Download artiifact
