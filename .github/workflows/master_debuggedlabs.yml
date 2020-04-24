@@ -9,8 +9,11 @@ on:
       - master
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+
+  # build job
+  - job: build
+    pool:
+      vmImage: 'ubuntu-latest'
 
     steps:
     - uses: actions/checkout@master
@@ -24,19 +27,29 @@ jobs:
       run: |
         npm install
         npm run deploy
+    
+  # deployment job
+  - job: deploy
+    pool:
+      vmImage: 'ubuntu-latest'
+    dependsOn: build
+    condition: succeeded()
+    
+    steps:
+      # publish the build artifact
+      - task: PublishBuildArtifacts@1
+        inputs:
+          artifactName: drop
 
-    # publish the pipeline artifact
-    - name: Publish pipeline artifact
-      uses: azure/PublishPipelineArtifact@1
-      with: 
-        targetPath: $(System.DefaultWorkingDirectory)/dist
-        artifactName: drop
+      # download the artifact
+      - task: DownloadBuildArtifacts@0
+        inputs:
+          artifactName: drop
 
-    # deploy the app
-    - name: 'Deploy to Azure Web App'
-      uses: azure/webapps-deploy@v1
-      with:
-        app-name: 'debuggedlabs-site'
-        slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_75053c3ebac04dedb22c8deaacb53d4e }}
-        package: drop
+      # deploy the app
+      - name: 'Deploy to Azure Web App'
+        uses: azure/webapps-deploy@v1
+        with:
+          app-name: 'debuggedlabs-site'
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_75053c3ebac04dedb22c8deaacb53d4e }}
+          package: drop
