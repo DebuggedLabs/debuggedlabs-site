@@ -45,4 +45,4 @@ jobs:
         app-name: 'debuggedlabs-site'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_75053c3ebac04dedb22c8deaacb53d4e }}
-        package: dist/debuggedlabs-site
+        package: dist
