@@ -23,26 +23,12 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm install
-        npm run deploy
-
-    # # publish the artifact
-    # - name: Upload artifact
-    #   uses: actions/upload-artifact@v1
-    #   with:
-    #     name: dist
-    #     path: dist
-
-    # # download generated artifact
-    # - name: Download artiifact
-    #   uses: actions/download-artifact@v1
-    #   with:
-    #     name: dist
+        npm run build --prod
 
       # deploy to Azure Web App
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v1
       with:
         app-name: 'debuggedlabs-site'
-        slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_75053c3ebac04dedb22c8deaacb53d4e }}
-        package: dist
+        package: './dist/debuggedlabs-site'
