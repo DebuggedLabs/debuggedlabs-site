@@ -23,13 +23,11 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm install
-        npm run build --if-present
-        npm run test --if-present
+        npm run deploy
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v1
       with:
-        app-name: 'debuggedlabs'
-        slot-name: 'production'
+        app-name: 'debuggedlabs-siite'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_bc13d9fc31514aacac825cfb08e9c34b }}
-        package: .
+        package: './dist/debuggedlabs-site'
