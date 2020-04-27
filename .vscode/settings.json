@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/c7503e0f-0b83-497a-897a-19b065406088/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/debuggedlabs",
+    "appService.deploySubpath": "dist/debuggedlabs-site"
+}
