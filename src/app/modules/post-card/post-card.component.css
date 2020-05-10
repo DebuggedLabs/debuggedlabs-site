@@ -4,7 +4,7 @@
     border-top: 6px solid #000971;
     margin-bottom: 3%;
     position: relative;
-    z-index: -1;
+    z-index: 0;
 }
 
 .card:hover {
