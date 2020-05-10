@@ -1,0 +1,7 @@
+.top-posts {
+  display: inline-block;
+}
+
+.featured-post {
+  float: left;
+}

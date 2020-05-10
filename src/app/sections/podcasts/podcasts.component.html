@@ -4,17 +4,17 @@
 <div class="page-content-spacing"></div>
 
 <!-- Section header -->
-<app-section-header [sectionTitle]="'Podcasts'" 
+<app-section-header [sectionTitle]="'Podcasts'"
                     [iconUrl]="iconUrl"
                     [backgroundColor]="backgroundColor"
 ></app-section-header>
 
 <div class="page-boundaries">
-   
+
     <!-- Featured podcast post -->
-    <app-featured-post *ngIf="isShowingFeaturedPost" [featuredPost]="featuredPodcast"></app-featured-post>
+    <app-post-card *ngIf="isShowingFeaturedPost" [post]="featuredPodcast" [isFeaturedPost]="true"></app-post-card>
     <p>Displaying page index: {{ this.pageNumber }}</p>
-    
+
     <!-- List podcast posts -->
     <app-posts-list [posts]="podcasts"></app-posts-list>
 </div>

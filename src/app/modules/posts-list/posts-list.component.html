@@ -1,1 +1,5 @@
-<p>posts-list works!</p>
+<div class="posts-list" *ngFor="let post of this.posts">
+  <div>
+    <app-post-card [post]="post" [isFeaturedPost]="false" [style.width.%]="getPostWidth()"></app-post-card>
+  </div>
+</div>

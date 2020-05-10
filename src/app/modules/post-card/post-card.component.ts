@@ -5,18 +5,19 @@ import { WidthService } from 'src/app/services/width.service';
 import { PodcastPost } from 'src/app/definitions/podcast';
 
 @Component({
-  selector: 'app-featured-post',
-  templateUrl: './featured-post.component.html',
-  styleUrls: ['./featured-post.component.css']
+  selector: 'app-post-card',
+  templateUrl: './post-card.component.html',
+  styleUrls: ['./post-card.component.css']
 })
-export class FeaturedPostComponent implements OnInit {
+export class PostCardComponent implements OnInit {
 
-  @Input() featuredPost: Post;
+  @Input() isFeaturedPost: boolean;
+  @Input() post: Post;
 
   constructor(private widthService: WidthService) {}
 
   ngOnInit() {
-    console.log(this.featuredPost);
+    console.log(this.post);
   }
 
   getCardWidth() {
@@ -24,10 +25,6 @@ export class FeaturedPostComponent implements OnInit {
       return 100;
     }
     return 40;
-  }
-
-  getLinkedBylines() {
-    
   }
 
 }

@@ -3,11 +3,22 @@
 
 <div class="page-boundaries">
 
-    <!-- Show featured post -->
-    <app-featured-post [featuredPost]="this.featuredPost"></app-featured-post>
-    <p>frontpage works!</p>
+    <!-- Top posts -->
+    <div class="top-posts">
+      <div>
+        <app-post-card [post]="this.featuredPost" [isFeaturedPost]="true"></app-post-card>
+      </div>
+      <div>
+        <app-posts-list [posts]="this.nonfeaturedPosts" [numRows]="2" [numCols]="2"></app-posts-list>
+      </div>
+    </div>
 
 
+    <!-- Podcasts subsection -->
+
+
+    <!-- Technology subsection -->
+
     <p>frontpage works!</p>
     <p>frontpage works!</p>
     <p>frontpage works!</p>
@@ -139,7 +150,8 @@
     <p>frontpage works!</p>
     <p>frontpage works!</p>
     <p>frontpage works!</p>
-    
+    <p>frontpage works!</p>
+
     <p>frontpage works!</p>
     <p>frontpage works!</p>
     <p>frontpage works!</p>

@@ -17,13 +17,12 @@ import { BannerComponent } from './navigation/banner/banner.component';
 import { RouterConfig } from './config/router-config';
 import { RouterModule } from '@angular/router';
 import { SectionHeaderComponent } from './modules/section-header/section-header.component';
-import { FeaturedPostComponent } from './modules/featured-post/featured-post.component';
+import { PostCardComponent } from './modules/post-card/post-card.component';
 import { SocialMediaLinksComponent } from './modules/social-media-links/social-media-links.component';
 import { AboutPostComponent } from './sections/about/about-post/about-post.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HamburgerMenuIconComponent } from './modules/hamburger-menu-icon/hamburger-menu-icon.component';
 import { HamburgerMenuComponent } from './navigation/hamburger-menu/hamburger-menu.component';
-import { PostMenuItemComponent } from './modules/post-menu-item/post-menu-item/post-menu-item.component';
 
 @NgModule({
   declarations: [
@@ -36,12 +35,11 @@ import { PostMenuItemComponent } from './modules/post-menu-item/post-menu-item/p
     AboutComponent,
     BannerComponent,
     SectionHeaderComponent,
-    FeaturedPostComponent,
+    PostCardComponent,
     SocialMediaLinksComponent,
     AboutPostComponent,
     HamburgerMenuIconComponent,
-    HamburgerMenuComponent,
-    PostMenuItemComponent,
+    HamburgerMenuComponent
   ],
   imports: [
     BrowserModule,

@@ -21,7 +21,7 @@ export class FrontpageComponent implements OnInit {
   public podcastSubSectionPosts: PodcastPost[];
   public technologySectionPosts: TextPost[];
 
-  constructor(private titleService: Title, 
+  constructor(private titleService: Title,
               private router: ActivatedRoute,
               private pageDetailService: PageDetailsService,
               private showHamburgerMenuService: WidthService,
