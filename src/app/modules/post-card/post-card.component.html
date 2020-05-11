@@ -1,27 +1,14 @@
-<div class="card" [style.width.%]="getCardWidth()" [style.height.px]="getCardHeight()">
-    <p class="card-topic">
-        {{ post.topic | uppercase }}
-    </p>
+<!-- Featured card -->
+<app-featured-post-card *ngIf="isFeaturedCard" [post]="post"></app-featured-post-card>
 
-    <!-- Featured image -->
-    <a href="{{ post.content }}">
-        <img [src]="post.featuredArtURL" [alt]="post.featuredArtAlt" class="card-image">
-    </a>
+<!-- Column card -->
+<app-column-post-card *ngIf="isColumnCard" [post]="post"></app-column-post-card>
 
-    <!-- Card title -->
-    <h2 class="card-title-h2">
-        <a href="{{ post.content }}" class="card-title">{{ post.title }}</a>
-    </h2>
+<!-- Gallery card -->
+<app-gallery-post-card *ngIf="isGalleryCard" [post]="post"></app-gallery-post-card>
 
-    <!-- Card teaser -->
-    <p class="card-teaser-p">
-        <a href="{{ post.content }}" class="card-teaser">{{ post.teaser }}</a>
-    </p>
+<!-- Horizontal card -->
+<app-horizontal-post-card *ngIf="isHorizontalCard" [post]="post"></app-horizontal-post-card>
 
-    <!-- Byline -->
-    <p align="right" class="card-byline-section">By
-        <ng-container *ngFor="let author of post.authors">
-            <a class="card-byline" href="{{ author.profilePageUrl }}">{{ author.name | uppercase }}</a>
-        </ng-container>
-    </p>
-</div>
+<!-- Row list card -->
+<app-rowlist-post-card *ngIf="isRowListCard" [post]="post"></app-rowlist-post-card>

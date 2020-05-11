@@ -14,7 +14,9 @@ export type navigationMenuItemInfo = {
 export enum PostCardType {
   Featured,
   Column,
-  Horizontal
+  Horizontal,
+  Gallery,
+  RowList
 }
 
 export enum PostListType {

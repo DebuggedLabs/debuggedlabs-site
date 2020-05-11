@@ -10,8 +10,9 @@
     <app-post-card [post]="this.verticalPost" [cardType]="1"></app-post-card>
   </div>
 
-  <!-- Horizontal posts
-  <div *ngFor="let horizontalPost of this.horizontalPosts">
-      <app-post-card [post]="horizontalPost" [cardType]="2"></app-post-card>
-  </div> -->
+  <!-- Horizontal posts -->
+  <div>
+      <app-post-card [post]="horizontalPostTop" [cardType]="2"></app-post-card>
+      <app-post-card [post]="horizontalPostBottom" [cardType]="2"></app-post-card>
+  </div>
 </div>

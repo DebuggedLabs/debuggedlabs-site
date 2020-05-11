@@ -1,8 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TextPost } from 'src/app/definitions/textpost';
 import { Post } from 'src/app/definitions/interfaces';
-import { WidthService } from 'src/app/services/width.service';
-import { PodcastPost } from 'src/app/definitions/podcast';
 import { PostCardType } from 'src/app/definitions/types';
 
 @Component({
@@ -15,39 +12,20 @@ export class PostCardComponent implements OnInit {
   @Input() cardType: PostCardType;
   @Input() post: Post;
 
-  constructor(private widthService: WidthService) {}
+  // boolean determining which card type to show
+  public isFeaturedCard: boolean;
+  public isColumnCard: boolean;
+  public isGalleryCard: boolean;
+  public isHorizontalCard: boolean;
+  public isRowListCard: boolean;
+
+  constructor() {}
 
   ngOnInit() {
-    console.log(this.post);
-    console.log("Card type: ", this.cardType);
-  }
-
-  /**
-   * Get card width based on card type
-   */
-  getCardWidth(): number {
-    // return 100% view per card if mobile view
-    if (this.widthService.isMobileOrNarrowView()) {
-      return 100;
-    }
-
-    // have different widths based on post card type
-    if (this.cardType == PostCardType.Featured) {
-      return 100;
-    }
-    else if (this.cardType == PostCardType.Column) {
-      return 50;
-    }
-    return 100;
-  }
-
-  /**
-   * Get card height based on card type
-   */
-  getCardHeight(): number {
-    // if (this.widthService.isMobileOrNarrowView()) {
-    //   return 450;
-    // }
-    return 525;
+    this.isFeaturedCard = this.cardType === PostCardType.Featured;
+    this.isColumnCard = this.cardType === PostCardType.Column;
+    this.isGalleryCard = this.cardType === PostCardType.Gallery;
+    this.isHorizontalCard = this.cardType === PostCardType.Horizontal;
+    this.isRowListCard = this.cardType === PostCardType.RowList;
   }
 }

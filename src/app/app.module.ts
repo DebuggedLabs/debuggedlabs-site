@@ -27,6 +27,11 @@ import { EListComponent } from './modules/posts-list/e-list/e-list.component';
 import { ICListComponent } from './modules/posts-list/ic-list/ic-list.component';
 import { GalleryListComponent } from './modules/posts-list/gallery-list/gallery-list.component';
 import { RowListComponent } from './modules/posts-list/row-list/row-list.component';
+import { FeaturedPostCardComponent } from './modules/post-card/featured-post-card/featured-post-card.component';
+import { ColumnPostCardComponent } from './modules/post-card/column-post-card/column-post-card.component';
+import { HorizontalPostCardComponent } from './modules/post-card/horizontal-post-card/horizontal-post-card.component';
+import { GalleryPostCardComponent } from './modules/post-card/gallery-post-card/gallery-post-card.component';
+import { RowlistPostCardComponent } from './modules/post-card/rowlist-post-card/rowlist-post-card.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +53,11 @@ import { RowListComponent } from './modules/posts-list/row-list/row-list.compone
     ICListComponent,
     GalleryListComponent,
     RowListComponent,
+    FeaturedPostCardComponent,
+    ColumnPostCardComponent,
+    HorizontalPostCardComponent,
+    GalleryPostCardComponent,
+    RowlistPostCardComponent,
   ],
   imports: [
     BrowserModule,

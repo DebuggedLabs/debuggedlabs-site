@@ -25,7 +25,6 @@ export class ICListComponent extends PostsListBaseComponent implements OnInit {
     this.verticalPost = this.posts[1];
     this.horizontalPostTop = this.posts[2];
     this.horizontalPostBottom = this.posts[3];
-    console.log("Vertical post", this.verticalPost);
   }
 
   /**
