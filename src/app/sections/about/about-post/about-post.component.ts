@@ -15,19 +15,23 @@ export class AboutPostComponent implements OnInit {
   @HostListener('window:resize', ['$event']) onResize(event) {
     this.windowWidth = window.innerWidth;
   }
-  
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  getImageInlineClass() 
+  getImageInlineClass()
   {
     return this.windowWidth <= this.widthCutOff ? 'image-block': 'image-inline';
   }
 
   showAltTitle(): boolean{
     return this.windowWidth <= this.widthCutOff;
+  }
+
+  getImageWidth(): number {
+    return this.windowWidth <= this.widthCutOff ? 60 : 25;
   }
 
 }

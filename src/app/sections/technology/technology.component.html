@@ -4,22 +4,22 @@
 <div class="page-content-spacing"></div>
 
 <!-- Section header -->
-<app-section-header [sectionTitle]="'Technology'" 
+<app-section-header [sectionTitle]="'Technology'"
                     [iconUrl]="iconUrl"
                     [backgroundColor]="backgroundColor"
 ></app-section-header>
 
 <div class="page-boundaries">
     <!-- Featured technology post -->
-    <app-featured-post *ngIf="isShowingFeaturedPost" [featuredPost]="featuredPost"></app-featured-post>
+    <app-post-card *ngIf="isShowingFeaturedPost" [post]="featuredPost" [cardType]="0"></app-post-card>
     <p>Displaying page index: {{ this.pageNumber }}</p>
 
     <!-- Technology post list -->
     <app-posts-list></app-posts-list>
-    
+
     <!-- Technology podcast list -->
     <app-posts-list></app-posts-list>
-    
+
     <p>technology works!</p>
     <p>technology works!</p>
     <p>technology works!</p>

@@ -1,5 +1,5 @@
 <div [ngClass]="getImageInlineClass()">
-    <img src="{{ profile.imageUrl }}" class="image">
+    <img src="{{ profile.imageUrl }}" class="image" [style.width.%]="getImageWidth()">
     <p class="name" *ngIf="showAltTitle()">{{ profile.name }}</p>
     <p class="position" *ngIf="showAltTitle()">{{ profile.position }}</p>
     <div class="padding"></div>

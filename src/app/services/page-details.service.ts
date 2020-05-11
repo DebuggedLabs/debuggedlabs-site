@@ -54,6 +54,6 @@ export class PageDetailsService {
    * Return the banner height in pixels
    */
   public getBannerHeightPx(): number {
-    return (this.frontPageShowNavBar && this.currentPageId == PageId.Home) ? 100 : this.bannerHeight;
+    return (this.frontPageShowNavBar && this.currentPageId === PageId.Home) ? 100 : this.bannerHeight;
   }
 }

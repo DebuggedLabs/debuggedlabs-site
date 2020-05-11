@@ -12,16 +12,9 @@ export class FrontPageService {
   constructor() { }
 
   /**
-   * Get the featured post for the front page
+   * Get the top posts, which includes the feature post for the front page
    */
-  getFeaturedPost(): Post {
-    return POSTS[0];
-  }
-
-  /**
-   * Get recent non-featured posts for the front page
-   */
-  getRecentNonFeaturedPosts(): Post[] {
+  getTopPosts(): Post[] {
     return POSTS;
   }
 

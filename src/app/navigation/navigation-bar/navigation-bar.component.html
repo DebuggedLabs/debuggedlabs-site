@@ -1,5 +1,4 @@
-
-<div id="navbar" *ngIf="show" (scroll)="onWindowScroll($event);" 
+<div id="navbar" *ngIf="show" (scroll)="onWindowScroll($event);"
     [ngClass]="setClasses()" style="background-color: #000971;">
 
     <!-- Logo to front page -->
@@ -13,9 +12,9 @@
     <ng-container *ngIf="!isHamburgerMenu">
         <div class="navigation-item" *ngFor="let item of getMenuItems()">
             <a [ngClass]="{
-                'menu-item': !item.inactive, 
+                'menu-item': !item.inactive,
                 'selected-nav-item': item.inactive
-            }" 
+            }"
             [ngStyle]="{'color': item.inactive ? item.selectedColor : ''}"
             routerLink="{{ item.routerLink }}">{{ item.title }}</a>
         </div>

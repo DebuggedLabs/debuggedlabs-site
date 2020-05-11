@@ -1,18 +1,18 @@
-.feature-card{
+.card{
     max-width: 400px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     border-top: 6px solid #000971;
     margin-bottom: 3%;
 }
 
-.feature-card:hover {
+.card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
 }
 
 .card-topic {
-    padding-left: 3%;
-    padding-top: 2%;
+    padding-left: 15px;
+    padding-top: 7px;
     padding-bottom: 0%;
     margin-bottom: 0;
     font-family: 'Cairo', sans-serif;
@@ -23,14 +23,15 @@
 
 .card-image {
     max-width: 100%;
-    padding-top: 2%;
-    padding-left: 3%;
-    padding-right: 3%;
+    padding-top: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .card-title-h2 {
-    padding-top: 2%;
-    padding-left: 3%;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
     margin: 0;
 }
 
@@ -43,8 +44,9 @@
 }
 
 .card-teaser-p {
-    padding-top: 1%;
-    padding-left: 3%;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     margin-bottom: 2%;
 }
 
@@ -57,9 +59,9 @@
 }
 
 .card-byline-section {
-    padding-right: 3%;
-    padding-top: 3%;
-    padding-bottom: 2%;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 3%;
 }
 
 .card-byline {

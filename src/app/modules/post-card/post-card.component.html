@@ -1,0 +1,14 @@
+<!-- Featured card -->
+<app-featured-post-card *ngIf="isFeaturedCard" [post]="post"></app-featured-post-card>
+
+<!-- Column card -->
+<app-column-post-card *ngIf="isColumnCard" [post]="post"></app-column-post-card>
+
+<!-- Gallery card -->
+<app-gallery-post-card *ngIf="isGalleryCard" [post]="post"></app-gallery-post-card>
+
+<!-- Horizontal card -->
+<app-horizontal-post-card *ngIf="isHorizontalCard" [post]="post"></app-horizontal-post-card>
+
+<!-- Row list card -->
+<app-rowlist-post-card *ngIf="isRowListCard" [post]="post"></app-rowlist-post-card>

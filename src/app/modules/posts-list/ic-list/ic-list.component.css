@@ -1,0 +1,13 @@
+.ic-list {
+  display: inline;
+}
+
+.ic-post {
+  float: left;
+  margin-right: 1%;
+}
+
+.ic-horiz {
+  float: left;
+  width: 44%;
+}

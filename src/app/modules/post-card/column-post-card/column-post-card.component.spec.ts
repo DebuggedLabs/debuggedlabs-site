@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PostMenuItemComponent } from './post-menu-item.component';
+import { ColumnPostCardComponent } from './column-post-card.component';
 
-describe('PostMenuItemComponent', () => {
-  let component: PostMenuItemComponent;
-  let fixture: ComponentFixture<PostMenuItemComponent>;
+describe('ColumnPostCardComponent', () => {
+  let component: ColumnPostCardComponent;
+  let fixture: ComponentFixture<ColumnPostCardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PostMenuItemComponent ]
+      declarations: [ ColumnPostCardComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PostMenuItemComponent);
+    fixture = TestBed.createComponent(ColumnPostCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

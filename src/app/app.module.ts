@@ -17,13 +17,21 @@ import { BannerComponent } from './navigation/banner/banner.component';
 import { RouterConfig } from './config/router-config';
 import { RouterModule } from '@angular/router';
 import { SectionHeaderComponent } from './modules/section-header/section-header.component';
-import { FeaturedPostComponent } from './modules/featured-post/featured-post.component';
+import { PostCardComponent } from './modules/post-card/post-card.component';
 import { SocialMediaLinksComponent } from './modules/social-media-links/social-media-links.component';
 import { AboutPostComponent } from './sections/about/about-post/about-post.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HamburgerMenuIconComponent } from './modules/hamburger-menu-icon/hamburger-menu-icon.component';
 import { HamburgerMenuComponent } from './navigation/hamburger-menu/hamburger-menu.component';
-import { PostMenuItemComponent } from './modules/post-menu-item/post-menu-item/post-menu-item.component';
+import { EListComponent } from './modules/posts-list/e-list/e-list.component';
+import { ICListComponent } from './modules/posts-list/ic-list/ic-list.component';
+import { GalleryListComponent } from './modules/posts-list/gallery-list/gallery-list.component';
+import { RowListComponent } from './modules/posts-list/row-list/row-list.component';
+import { FeaturedPostCardComponent } from './modules/post-card/featured-post-card/featured-post-card.component';
+import { ColumnPostCardComponent } from './modules/post-card/column-post-card/column-post-card.component';
+import { HorizontalPostCardComponent } from './modules/post-card/horizontal-post-card/horizontal-post-card.component';
+import { GalleryPostCardComponent } from './modules/post-card/gallery-post-card/gallery-post-card.component';
+import { RowlistPostCardComponent } from './modules/post-card/rowlist-post-card/rowlist-post-card.component';
 
 @NgModule({
   declarations: [
@@ -36,12 +44,20 @@ import { PostMenuItemComponent } from './modules/post-menu-item/post-menu-item/p
     AboutComponent,
     BannerComponent,
     SectionHeaderComponent,
-    FeaturedPostComponent,
+    PostCardComponent,
     SocialMediaLinksComponent,
     AboutPostComponent,
     HamburgerMenuIconComponent,
     HamburgerMenuComponent,
-    PostMenuItemComponent,
+    EListComponent,
+    ICListComponent,
+    GalleryListComponent,
+    RowListComponent,
+    FeaturedPostCardComponent,
+    ColumnPostCardComponent,
+    HorizontalPostCardComponent,
+    GalleryPostCardComponent,
+    RowlistPostCardComponent,
   ],
   imports: [
     BrowserModule,
