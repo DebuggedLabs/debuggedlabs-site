@@ -34,7 +34,14 @@ export class ICListComponent extends PostsListBaseComponent implements OnInit {
     if (this.widthService.isMobileOrNarrowView()){
       return 0;
     }
-    return 2;
+    return 1.5;
+  }
+
+  getHorizontalClass(): string{
+    if (this.widthService.isMobileOrNarrowView()) {
+      return "";
+    }
+    return "ic-horiz";
   }
 
 }

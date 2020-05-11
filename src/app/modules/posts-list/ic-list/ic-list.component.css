@@ -4,5 +4,10 @@
 
 .ic-post {
   float: left;
-  margin-right: 1.5%;
+  margin-right: 1%;
+}
+
+.ic-horiz {
+  float: left;
+  width: 44%;
 }

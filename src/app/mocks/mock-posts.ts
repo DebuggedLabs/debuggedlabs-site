@@ -36,11 +36,11 @@ var data = [
 
     {
         id: "string3",
-        title: "Textpost 3",
+        title: "ASDF videos were our childhood",
         authors: TeamProfileData,
         publishedDate: before,
         topic: "Technology",
-        teaser: "Teaser for this awesome post 3",
+        teaser: "And they still are. Somewhat.",
         featuredArtURL: "https://i.ytimg.com/vi/BaQq6wLcr5o/maxresdefault.jpg",
         featuredArtAlt: "I still like trains",
         additionalArtURLs: [],

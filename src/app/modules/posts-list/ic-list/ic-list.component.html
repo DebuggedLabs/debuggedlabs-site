@@ -11,7 +11,7 @@
   </div>
 
   <!-- Horizontal posts -->
-  <div>
+  <div [ngClass]="getHorizontalClass()">
       <app-post-card [post]="horizontalPostTop" [cardType]="2"></app-post-card>
       <app-post-card [post]="horizontalPostBottom" [cardType]="2"></app-post-card>
   </div>

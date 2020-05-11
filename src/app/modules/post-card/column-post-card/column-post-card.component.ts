@@ -17,13 +17,6 @@ export class ColumnPostCardComponent extends PostCardBaseComponent implements On
   }
 
   /**
-   * Override full window view width to be 60%
-   */
-  getFullWindowViewWidth(): number {
-    return 60;
-  }
-
-  /**
    * Determine image class based on mobile view status
    */
   getImageClass(): string {
@@ -32,6 +25,16 @@ export class ColumnPostCardComponent extends PostCardBaseComponent implements On
       return "card-image-mobile";
     }
     return "card-image-full";
+  }
+
+  /**
+   * Get max width in pixels based on mobile view status
+   */
+  getMaxWidthInPixels(): number {
+    if (this.myWidthService.isMobileOrNarrowView()) {
+      return 400;
+    }
+    return 400 * 0.6;
   }
 
 }
