@@ -7,7 +7,7 @@ import { WidthService } from 'src/app/services/width.service';
   templateUrl: './post-card-base.component.html',
   styleUrls: ['./post-card-base.component.css']
 })
-export abstract class PostCardBaseComponent implements OnInit {
+export class PostCardBaseComponent implements OnInit {
 
   @Input() post: Post;
 

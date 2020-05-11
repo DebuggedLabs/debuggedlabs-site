@@ -6,7 +6,7 @@ import { Post } from 'src/app/definitions/interfaces';
   templateUrl: './posts-list-base.component.html',
   styleUrls: ['./posts-list-base.component.css']
 })
-export abstract class PostsListBaseComponent implements OnInit {
+export class PostsListBaseComponent implements OnInit {
 
   @Input() posts: Post[];
 
