@@ -11,7 +11,7 @@
 
 <div class="page-boundaries">
     <!-- Featured technology post -->
-    <app-post-card *ngIf="isShowingFeaturedPost" [post]="featuredPost" [isFeaturedPost]="true"></app-post-card>
+    <app-post-card *ngIf="isShowingFeaturedPost" [post]="featuredPost" [cardType]="0"></app-post-card>
     <p>Displaying page index: {{ this.pageNumber }}</p>
 
     <!-- Technology post list -->

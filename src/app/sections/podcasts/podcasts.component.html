@@ -12,7 +12,7 @@
 <div class="page-boundaries">
 
     <!-- Featured podcast post -->
-    <app-post-card *ngIf="isShowingFeaturedPost" [post]="featuredPodcast" [isFeaturedPost]="true"></app-post-card>
+    <app-post-card *ngIf="isShowingFeaturedPost" [post]="featuredPodcast" [cardType]="0"></app-post-card>
     <p>Displaying page index: {{ this.pageNumber }}</p>
 
     <!-- List podcast posts -->

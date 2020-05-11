@@ -16,8 +16,7 @@ import { TextPost } from 'src/app/definitions/textpost';
 
 export class FrontpageComponent implements OnInit {
 
-  public featuredPost: Post;
-  public nonfeaturedPosts: Post[];
+  public topPosts: Post[];
   public podcastSubSectionPosts: PodcastPost[];
   public technologySectionPosts: TextPost[];
 
@@ -41,8 +40,7 @@ export class FrontpageComponent implements OnInit {
     this.pageDetailService.updateFrontPageShowNavBarStatus(false);
 
     // get the posts for the front page
-    this.featuredPost = this.frontpageService.getFeaturedPost();
-    this.nonfeaturedPosts = this.frontpageService.getRecentNonFeaturedPosts();
+    this.topPosts = this.frontpageService.getTopPosts();
     this.technologySectionPosts = this.frontpageService.getTechnologySectionPosts();
     this.podcastSubSectionPosts = this.frontpageService.getPodcastSectionPosts();
   }

@@ -1,5 +1,11 @@
-<div class="posts-list" *ngFor="let post of this.posts">
-  <div>
-    <app-post-card [post]="post" [isFeaturedPost]="false" [style.width.%]="getPostWidth()"></app-post-card>
-  </div>
-</div>
+<!-- E-list -->
+<app-e-list *ngIf="isEList" [posts]="posts"></app-e-list>
+
+<!-- IC-list -->
+<app-ic-list *ngIf="isICList" [posts]="posts"></app-ic-list>
+
+<!-- Gallery-list -->
+<app-gallery-list *ngIf="isGalleryList" [posts]="posts"></app-gallery-list>
+
+<!-- Row-list -->
+<app-row-list *ngIf="isRowList" [posts]="posts"></app-row-list>

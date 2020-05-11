@@ -3,21 +3,16 @@
 
 <div class="page-boundaries">
 
-    <!-- Top posts -->
-    <div class="top-posts">
-      <div>
-        <app-post-card [post]="this.featuredPost" [isFeaturedPost]="true"></app-post-card>
-      </div>
-      <div>
-        <app-posts-list [posts]="this.nonfeaturedPosts" [numRows]="2" [numCols]="2"></app-posts-list>
-      </div>
+    <!-- Top posts (ic list) -->
+    <div>
+      <app-posts-list [listType]="1" [posts]="this.topPosts"></app-posts-list>
     </div>
 
+    <!-- Podcasts subsection (gallery list)
+    <app-posts-list [listType]="2" [posts]="this.topPosts"></app-posts-list> -->
 
-    <!-- Podcasts subsection -->
-
-
-    <!-- Technology subsection -->
+    <!-- Technology subsection (row-list)
+    <app-posts-list [listType]="3" [posts]="this.topPosts"></app-posts-list> -->
 
     <p>frontpage works!</p>
     <p>frontpage works!</p>

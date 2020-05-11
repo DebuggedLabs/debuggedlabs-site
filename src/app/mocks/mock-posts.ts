@@ -8,11 +8,11 @@ const before = new Date();
 var data = [
     {
         id: "string1",
-        title: "What does the fox say?",
+        title: "What does the fox really say?",
         authors: TeamProfileData,
         publishedDate: today,
         topic: "Technology",
-        teaser: "Unveiling the secret behind the mysterious mammal",
+        teaser: "It's time to finally unveil the secret behind the mysterious mammal",
         featuredArtURL: "http://hdwpro.com/wp-content/uploads/2017/01/3D-Cool-Image.jpg",
         featuredArtAlt: "A fox",
         additionalArtURLs: [],
@@ -22,12 +22,12 @@ var data = [
 
     {
         id: "string2",
-        title: "Textpost 2",
+        title: "Train aren't happening anymore",
         authors: TeamProfileData,
         publishedDate: yesterday,
         topic: "Ethics",
-        teaser: "Teaser for this awesome post 2",
-        featuredArtURL: "https://i.pinimg.com/originals/46/96/06/46960678b500d0add4434929a15b385c.jpg",
+        teaser: "Coronavirus has all but ensured these beautiful beasts' end.",
+      featuredArtURL: "https://hips.hearstapps.com/pop.h-cdn.co/assets/cm/15/05/54ca9c8cbd1bb_-_monstertrain-470-0210.jpg?fill=320:234&resize=480:*",
         featuredArtAlt: "I like trains a lot",
         additionalArtURLs: [],
         additionalArtAlts: [],
