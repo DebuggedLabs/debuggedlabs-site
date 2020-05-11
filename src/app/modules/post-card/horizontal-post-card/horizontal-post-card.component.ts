@@ -23,7 +23,7 @@ export class HorizontalPostCardComponent extends PostCardBaseComponent implement
     if (!this.myWidthService.isMobileOrNarrowView()) {
       return 252;
     }
-    return 525;
+    return 480;
   }
 
   /**
