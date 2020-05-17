@@ -30,7 +30,7 @@ export class PostCardBaseComponent implements OnInit {
    * Return card height
    */
   getCardHeightInPixels(): number {
-    return 525;
+    return 545;
   }
 
   /**

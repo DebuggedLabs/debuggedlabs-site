@@ -32,9 +32,9 @@ export class ColumnPostCardComponent extends PostCardBaseComponent implements On
    */
   getMaxWidthInPixels(): number {
     if (this.myWidthService.isMobileOrNarrowView()) {
-      return 400;
+      return 500;
     }
-    return 400 * 0.6;
+    return 500 * 0.6;
   }
 
 }

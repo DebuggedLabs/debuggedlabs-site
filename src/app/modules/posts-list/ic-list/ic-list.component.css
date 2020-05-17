@@ -2,9 +2,21 @@
   display: inline;
 }
 
-.ic-post {
+.ic-post-mobile {
   float: left;
   margin-right: 1%;
+}
+
+.ic-feature {
+  float: left;
+  margin-right: 1%;
+  width: 33%;
+}
+
+.ic-column {
+  float: left;
+  margin-right: 1%;
+  width: 20%;
 }
 
 .ic-horiz {
