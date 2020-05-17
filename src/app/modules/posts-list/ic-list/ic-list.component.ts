@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostsListBaseComponent } from '../posts-list-base/posts-list-base.component';
 import { Post } from 'src/app/definitions/interfaces';
 import { WidthService } from 'src/app/services/width.service';
+import { PostCardType } from 'src/app/definitions/types';
 
 @Component({
   selector: 'app-ic-list',
@@ -37,11 +38,25 @@ export class ICListComponent extends PostsListBaseComponent implements OnInit {
     return 1.5;
   }
 
-  getHorizontalClass(): string{
-    if (this.widthService.isMobileOrNarrowView()) {
-      return "";
-    }
-    return "ic-horiz";
-  }
+  getCardClass(cardType: PostCardType): string {
+    var mobileOption: string = cardType === PostCardType.Horizontal ? "" : "ic-post-mobile";
+    var fullOption: string;
 
+    switch(cardType) {
+      case PostCardType.Featured:
+        fullOption = "ic-feature"
+        break;
+      case PostCardType.Column:
+        fullOption = "ic-column";
+        break;
+      case PostCardType.Horizontal:
+        fullOption = "ic-horiz";
+        break
+    }
+
+    if (this.widthService.isMobileOrNarrowView()) {
+      return mobileOption;
+    }
+    return fullOption;
+  }
 }

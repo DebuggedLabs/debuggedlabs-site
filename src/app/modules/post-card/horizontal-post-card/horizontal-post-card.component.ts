@@ -21,7 +21,7 @@ export class HorizontalPostCardComponent extends PostCardBaseComponent implement
    */
   getCardHeightInPixels(): number {
     if (!this.myWidthService.isMobileOrNarrowView()) {
-      return 252;
+      return 262;
     }
     return 480;
   }

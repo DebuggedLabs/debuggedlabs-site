@@ -1,17 +1,17 @@
 <div>
 
   <!-- Featured post -->
-  <div class="ic-post" [style.margin-right.%]="getMarginRight()">
+  <div [ngClass]="getCardClass(0)" [style.margin-right.%]="getMarginRight()">
     <app-post-card [post]="this.featuredPost" [cardType]="0"></app-post-card>
   </div>
 
   <!-- Vertical post -->
-  <div class="ic-post">
+  <div [ngClass]="getCardClass(1)">
     <app-post-card [post]="this.verticalPost" [cardType]="1"></app-post-card>
   </div>
 
   <!-- Horizontal posts -->
-  <div [ngClass]="getHorizontalClass()">
+  <div [ngClass]="getCardClass(2)">
       <app-post-card [post]="horizontalPostTop" [cardType]="2"></app-post-card>
       <app-post-card [post]="horizontalPostBottom" [cardType]="2"></app-post-card>
   </div>
