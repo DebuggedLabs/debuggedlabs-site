@@ -23,7 +23,7 @@ import { AboutPostComponent } from './sections/about/about-post/about-post.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HamburgerMenuIconComponent } from './modules/hamburger-menu-icon/hamburger-menu-icon.component';
 import { HamburgerMenuComponent } from './navigation/hamburger-menu/hamburger-menu.component';
-import { EListComponent } from './modules/posts-list/e-list/e-list.component';
+import { CListComponent } from './modules/posts-list/c-list/c-list.component';
 import { ICListComponent } from './modules/posts-list/ic-list/ic-list.component';
 import { GalleryListComponent } from './modules/posts-list/gallery-list/gallery-list.component';
 import { RowListComponent } from './modules/posts-list/row-list/row-list.component';
@@ -51,7 +51,7 @@ import { PostsListBaseComponent } from './modules/posts-list/posts-list-base/pos
     AboutPostComponent,
     HamburgerMenuIconComponent,
     HamburgerMenuComponent,
-    EListComponent,
+    CListComponent,
     ICListComponent,
     GalleryListComponent,
     RowListComponent,

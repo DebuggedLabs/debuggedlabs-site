@@ -10,12 +10,14 @@
 ></app-section-header>
 
 <div class="page-boundaries">
-    <!-- Featured technology post -->
-    <app-post-card *ngIf="isShowingFeaturedPost" [post]="featuredPost" [cardType]="0"></app-post-card>
+
+    <!-- Top technology posts (if page 1) -->
+    <app-posts-list *ngIf="isShowingTopPosts" [listType]="0" [posts]="this.topPosts"></app-posts-list>
+
     <p>Displaying page index: {{ this.pageNumber }}</p>
 
     <!-- Technology post list -->
-    <app-posts-list></app-posts-list>
+    <app-posts-list [listType]="3" [posts]="this.rowPosts"></app-posts-list>
 
     <!-- Technology podcast list -->
     <app-posts-list></app-posts-list>

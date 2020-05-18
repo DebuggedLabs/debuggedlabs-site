@@ -12,7 +12,7 @@ export class PostsListComponent implements OnInit {
   @Input() listType: PostListType;
   @Input() posts: Post[];
 
-  public isEList: boolean = true;
+  public isCList: boolean = true;
   public isICList: boolean = true;
   public isGalleryList: boolean = true;
   public isRowList: boolean = true;
@@ -21,7 +21,7 @@ export class PostsListComponent implements OnInit {
 
   ngOnInit() {
     // check which type of list we're dealing with
-    this.isEList = this.listType === PostListType.EList;
+    this.isCList = this.listType === PostListType.CList;
     this.isICList = this.listType === PostListType.ICList;
     this.isGalleryList = this.listType === PostListType.GalleryList;
     this.isRowList = this.listType === PostListType.RowList;

@@ -21,9 +21,9 @@ export class HorizontalPostCardComponent extends PostCardBaseComponent implement
    */
   getCardHeightInPixels(): number {
     if (!this.myWidthService.isMobileOrNarrowView()) {
-      return 262;
+      return 261;
     }
-    return 480;
+    return 545;
   }
 
   /**
@@ -51,7 +51,6 @@ export class HorizontalPostCardComponent extends PostCardBaseComponent implement
    * Determine image class based on mobile view status
    */
   getImageClass(): string {
-    console.log("Getting image class");
     if (this.myWidthService.isMobileOrNarrowView()) {
       return "card-image-mobile";
     }

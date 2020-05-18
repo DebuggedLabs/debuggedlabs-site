@@ -6,16 +6,10 @@
 .feature-post {
   float: left;
   margin-right: 1%;
-  width: 33%;
-}
-
-.column-post {
-  float: left;
-  margin-right: 1%;
-  width: 20%;
+  width: 45%;
 }
 
 .horiz-post {
   float: left;
-  width: 44%;
+  width: 50%;
 }

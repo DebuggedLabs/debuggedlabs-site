@@ -13,21 +13,21 @@ import { ScrollTopService } from 'src/app/services/scroll-top.service';
   styleUrls: ['./technology.component.css']
 })
 export class TechnologyComponent implements OnInit {
-  
+
   // style-related fields
   public iconUrl: string;
   public backgroundColor: string;
 
   // structural fields
-  public isShowingFeaturedPost: boolean;
+  public isShowingTopPosts: boolean;
   public pageNumber: number;
 
   // data fields
-  public featuredPost?: Post; // the featured post, if we're showing one
-  public posts: Post[];       // list of podcasts for the page
+  public topPosts: Post[];       // list of top posts for the page
+  public rowPosts: Post[];       // list of row (regular) posts for the page
 
   /**
-     * To display the page of DebuggedLabs podcasts 
+     * To display the page of DebuggedLabs podcasts
      * @param titleService to determine the title banner text
      * @param route ActivatedRoute to parse router information
      * @param router Router to navigate
@@ -70,7 +70,8 @@ export class TechnologyComponent implements OnInit {
     this.scrollTopService.setScrollTop();
 
     // log all our variables
-    console.log("Showing featured podcast: ", this.isShowingFeaturedPost);
+    console.log("Page number: " + this.pageNumber);
+    console.log("Showing featured podcast: ", this.isShowingTopPosts);
   }
 
   /**
@@ -88,25 +89,24 @@ export class TechnologyComponent implements OnInit {
     }
 
     // if not on first page of podcasts, then we're not showing a featured post
-    this.isShowingFeaturedPost = this.pageNumber > 1 ? false : true;
+    this.isShowingTopPosts = this.pageNumber > 0 ? false : true;
   }
 
   /**
-   * Retrieve the podcasts from the fetching service
+   * Get technology posts
    */
   getTechnologyPosts() {
-    const allTenPosts = this.technologyFetchService.getTenTechnologyPosts(this.pageNumber);
+    var allPosts = this.technologyFetchService.getTenTechnologyPosts(this.pageNumber);
 
-    // if we're not showing a featured podcast on the page, store the entire array
-    if (!this.isShowingFeaturedPost) {
-      this.posts = allTenPosts;
-      this.featuredPost = undefined;
+    // if showing featured posts, the first 4 posts are featured
+    if (this.isShowingTopPosts) {
+      this.topPosts = allPosts.slice(0, 4);
+      this.rowPosts = allPosts.slice(4);
     }
-
-    // if we're showing a featured podcast on the page, only store from index 1 onwards
     else {
-      this.featuredPost = allTenPosts[0];
-      this.posts = allTenPosts.slice(1);
+      this.rowPosts = allPosts;
     }
   }
+
 }
+

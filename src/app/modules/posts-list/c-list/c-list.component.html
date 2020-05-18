@@ -1,0 +1,12 @@
+<div>
+  <!-- Featured post -->
+  <div [ngClass]="getCardClass(0)" [style.margin-right.%]="getMarginRight()">
+    <app-post-card [post]="this.featuredPost" [cardType]="0"></app-post-card>
+  </div>
+
+  <!-- Horizontal posts -->
+  <div [ngClass]="getCardClass(2)">
+    <app-post-card [post]="this.horizontalPostTop"    [cardType]="2"></app-post-card>
+    <app-post-card [post]="this.horizontalPostBottom" [cardType]="2"></app-post-card>
+  </div>
+</div>

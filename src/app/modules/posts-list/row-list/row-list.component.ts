@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PostsListBaseComponent } from '../posts-list-base/posts-list-base.component';
 import { Post } from 'src/app/definitions/interfaces';
+import { WidthService } from 'src/app/services/width.service';
 
 @Component({
   selector: 'app-row-list',
@@ -15,8 +16,8 @@ export class RowListComponent extends PostsListBaseComponent implements OnInit {
   // constant number of columns = 3
   NUMBER_OF_COLUMNS: number = 3;
 
-  constructor() {
-    super();
+  constructor(private myWidthService: WidthService) {
+    super(myWidthService);
   }
 
   ngOnInit() {

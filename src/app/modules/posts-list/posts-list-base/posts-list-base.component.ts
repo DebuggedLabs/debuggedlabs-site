@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Post } from 'src/app/definitions/interfaces';
+import { PostCardType } from 'src/app/definitions/types';
+import { WidthService } from 'src/app/services/width.service';
 
 @Component({
   selector: 'app-posts-list-base',
@@ -10,37 +12,45 @@ export class PostsListBaseComponent implements OnInit {
 
   @Input() posts: Post[];
 
-  constructor() { }
+  constructor(private widthService: WidthService) { }
 
   ngOnInit() {
   }
 
   /**
-   * Featured image height
-   */
-  getFeaturedImageHeight(): number {
-    return -1;
+     * Return a margin right if not on a mobile device
+     */
+  getMarginRight(): number {
+    if (this.widthService.isMobileOrNarrowView()) {
+      return 0;
+    }
+    return 1.5;
   }
 
   /**
-   * Featured image width
+   * Get card class based on mobile or not
+   * @param cardType card type
    */
-  getFeaturedImageWidth(): number {
-    return -1;
-  }
+  getCardClass(cardType: PostCardType): string {
+    var mobileOption: string = cardType === PostCardType.Horizontal ? "" : "post-mobile";
+    var fullOption: string;
 
-  /**
-   * Regular image height
-   */
-  getRegularImageHeight(): number {
-    return -1;
-  }
+    switch (cardType) {
+      case PostCardType.Featured:
+        fullOption = "feature-post"
+        break;
+      case PostCardType.Column:
+        fullOption = "column-post";
+        break;
+      case PostCardType.Horizontal:
+        fullOption = "horiz-post";
+        break
+    }
 
-  /**
-   * Regular image width
-   */
-  getRegularImageWidth(): number {
-    return -1;
+    if (this.widthService.isMobileOrNarrowView()) {
+      return mobileOption;
+    }
+    return fullOption;
   }
 
 }

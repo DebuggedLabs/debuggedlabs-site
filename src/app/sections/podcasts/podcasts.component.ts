@@ -20,22 +20,22 @@ export class PodcastsComponent implements OnInit {
   public backgroundColor: string;
 
   // structural fields
-  public isShowingFeaturedPost: boolean;
+  public isShowingTopPosts: boolean;
   public pageNumber: number;
 
   // data fields
-  public featuredPodcast?: PodcastPost; // the featured post, if we're showing one
-  public podcasts: PodcastPost[];       // list of podcasts for the page
+  public topPodcasts: PodcastPost[];    // the featured posts, if we're showing them
+  public rowPosts: PodcastPost[];       // list of podcasts for the page
 
   /**
-   * To display the page of DebuggedLabs podcasts 
+   * To display the page of DebuggedLabs podcasts
    * @param titleService to determine the title banner text
    * @param route ActivatedRoute to parse router information
    * @param router Router to navigate
    * @param scrollTopService to force the page to scroll to the top if reloaded
    * @param podcastFetchService to fetch podcasts to display on the page
    */
-  constructor(private titleService: Title, 
+  constructor(private titleService: Title,
               private route: ActivatedRoute,
               private router: Router,
               private scrollTopService: ScrollTopService,
@@ -51,7 +51,7 @@ export class PodcastsComponent implements OnInit {
         this.iconUrl = data.iconUrl;
         this.backgroundColor = data.backgroundColor;
       });
-    
+
     // parse the query params
     this.route.paramMap.subscribe(params => {
       // get the page number from the URL
@@ -71,7 +71,7 @@ export class PodcastsComponent implements OnInit {
     this.scrollTopService.setScrollTop();
 
     // log all our variables
-    console.log("Showing featured podcast: ", this.isShowingFeaturedPost);
+    console.log("Showing featured podcast: ", this.isShowingTopPosts);
   }
 
   /**
@@ -89,25 +89,22 @@ export class PodcastsComponent implements OnInit {
     }
 
     // if not on first page of podcasts, then we're not showing a featured post
-    this.isShowingFeaturedPost = this.pageNumber > 1 ? false : true;
+    this.isShowingTopPosts = this.pageNumber > 0 ? false : true;
   }
 
   /**
    * Retrieve the podcasts from the fetching service
    */
   getPodcasts() {
-    const allTenPodcasts = this.podcastFetchService.getTenPodcastPosts(this.pageNumber);
+    var allPosts = this.podcastFetchService.getTenPodcastPosts(this.pageNumber);
 
-    // if we're not showing a featured podcast on the page, store the entire array
-    if (!this.isShowingFeaturedPost) {
-      this.podcasts = allTenPodcasts;
-      this.featuredPodcast = undefined;
+    // if showing featured posts, the first 4 posts are featured
+    if (this.isShowingTopPosts) {
+      this.topPodcasts = allPosts.slice(0, 4);
+      this.rowPosts = allPosts.slice(4);
     }
-
-    // if we're showing a featured podcast on the page, only store from index 1 onwards
     else {
-      this.featuredPodcast = allTenPodcasts[0];
-      this.podcasts = allTenPodcasts.slice(1);
+      this.rowPosts = allPosts;
     }
   }
 

@@ -13,7 +13,7 @@ const data = [
         publishedDate: today,
         topic: "Technology",
         teaser: "Reading is for schmucks. Listen to this epic podcast 1!",
-        featuredArtURL: "https://i.kym-cdn.com/entries/icons/facebook/000/004/795/I-LIKE-TRAINS.jpg",
+        featuredArtURL: "https://i.ytimg.com/vi/MEO3Dub2I0g/hqdefault.jpg",
         featuredArtAlt: "I like trains",
         additionalArtURLs: [],
         additionalArtAlts: [],
@@ -49,7 +49,7 @@ const data = [
     }
 ];
 
-export var PODCASTS: PodcastPost[] = []; 
+export var PODCASTS: PodcastPost[] = [];
 
 data.forEach(elem => {
     PODCASTS.push(new PodcastPost(
