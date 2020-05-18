@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostsListBaseComponent } from '../posts-list-base/posts-list-base.component';
+import { WidthService } from 'src/app/services/width.service';
 
 @Component({
   selector: 'app-gallery-list',
@@ -8,8 +9,8 @@ import { PostsListBaseComponent } from '../posts-list-base/posts-list-base.compo
 })
 export class GalleryListComponent extends PostsListBaseComponent implements OnInit {
 
-  constructor() {
-    super();
+  constructor(private myWidthService: WidthService) {
+    super(myWidthService);
   }
 
   ngOnInit() {

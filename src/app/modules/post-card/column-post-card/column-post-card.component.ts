@@ -20,7 +20,6 @@ export class ColumnPostCardComponent extends PostCardBaseComponent implements On
    * Determine image class based on mobile view status
    */
   getImageClass(): string {
-    console.log("Getting image class");
     if (this.myWidthService.isMobileOrNarrowView()) {
       return "card-image-mobile";
     }

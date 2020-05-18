@@ -20,7 +20,7 @@ export enum PostCardType {
 }
 
 export enum PostListType {
-  EList,
+  CList,
   ICList,
   GalleryList,
   RowList
