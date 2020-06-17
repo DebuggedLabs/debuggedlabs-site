@@ -31,6 +31,12 @@ export class AboutPostComponent implements OnInit {
   }
 
   getImageWidth(): number {
+
+    // fix firefox-related image bug
+    if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+      return this.windowWidth <= this.widthCutOff ? 60 : 100;
+    }
+
     return this.windowWidth <= this.widthCutOff ? 60 : 25;
   }
 

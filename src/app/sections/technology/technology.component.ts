@@ -100,12 +100,14 @@ export class TechnologyComponent implements OnInit {
 
     // if showing featured posts, the first 4 posts are featured
     if (this.isShowingTopPosts) {
-      this.topPosts = allPosts.slice(0, 4);
-      this.rowPosts = allPosts.slice(4);
+      this.topPosts = allPosts.slice(0, 3);
+      this.rowPosts = allPosts.slice(3);
     }
     else {
       this.rowPosts = allPosts;
     }
+
+    console.log(this.rowPosts);
   }
 
 }

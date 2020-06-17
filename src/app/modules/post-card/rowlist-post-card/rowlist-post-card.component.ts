@@ -16,6 +16,26 @@ export class RowlistPostCardComponent extends PostCardBaseComponent implements O
   ngOnInit() {
   }
 
+  /**
+   * Determine image class based on mobile view status
+   */
+  getImageClass(): string {
+    if (this.myWidthService.isMobileOrNarrowView()) {
+      return "card-image-mobile";
+    }
+    return "card-image-full";
+  }
+
+  /**
+   * Get max width in pixels based on mobile view status
+   */
+  getMaxWidthInPixels(): number {
+    if (this.myWidthService.isMobileOrNarrowView()) {
+      return 500;
+    }
+    return 500 * 0.67;
+  }
+
 }
 
 

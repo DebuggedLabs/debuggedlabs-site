@@ -15,6 +15,8 @@
   flex: 1;
 }
 
+/* -- menu item --  */
+
 .menu-item {
     font-family: 'Cairo', sans-serif;
     font-weight: 700;
@@ -42,6 +44,9 @@
   color: #d9d9d9;
 }
 
+
+/* -- page boundaries --  */
+
 .page-content-spacing {
   padding-top: 100px;
 }
@@ -51,10 +56,54 @@
   text-align: center;
 }
 
-/* page boundaries */
 .page-boundaries {
   margin: auto auto;
   margin-top: 30px;
   max-width: 1200px;
   width: calc(100% - (30px * 2));
+}
+
+
+/* -- subsection headers --  */
+
+/* main */
+.subsection-header {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 900;
+    font-size: 36px;
+    padding-bottom: 100px;
+    margin-bottom: 100px;
+    margin-top: 100px;
+}
+
+/* unvisited link */
+.subsection-header:link {
+  color: black;
+}
+
+/* visited link */
+.subsection-header:visited {
+  color: black;
+}
+
+/* mouse over link */
+.subsection-header:hover {
+  color: gray;
+  text-decoration: none;
+}
+
+/* selected link */
+.subsection-header:active {
+  color: black;
+}
+
+
+/* -- posts styles -- */
+.top-posts {
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.technology-posts {
+  margin-top: 10px;
 }

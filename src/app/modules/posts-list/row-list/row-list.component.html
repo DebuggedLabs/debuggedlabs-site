@@ -1,9 +1,5 @@
-<p>row-list works!</p>
-
-<div class="row-list">
-  <div *ngFor="let i of getIndices()">
-    <div class="posts-list" *ngFor="let post of getNextRow(i)">
-      <app-post-card [post]="post" [cardType]="featured" [style.width.%]="getPostWidth()"></app-post-card>
-    </div>
+<div *ngFor="let i of getIndices()">
+  <div class="posts-list" *ngFor="let post of getNextRow(i)">
+    <app-post-card [post]="post" [cardType]="4"></app-post-card>
   </div>
 </div>
