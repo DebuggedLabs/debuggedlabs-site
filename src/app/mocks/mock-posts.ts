@@ -19,7 +19,6 @@ var data = [
         additionalArtAlts: [],
         content: "/posts/string1"
     },
-
     {
         id: "string2",
         title: "Say goodbye to trains",
@@ -59,7 +58,60 @@ var data = [
         additionalArtURLs: [],
         additionalArtAlts: [],
         content: "/posts/string4"
-    }
+    },
+    {
+      id: "string5",
+      title: "What does the fox really say?",
+      authors: TeamProfileData,
+      publishedDate: today,
+      topic: "Technology",
+      teaser: "It's time to finally unveil the secret behind the mysterious mammal",
+      featuredArtURL: "http://hdwpro.com/wp-content/uploads/2017/01/3D-Cool-Image.jpg",
+      featuredArtAlt: "A fox",
+      additionalArtURLs: [],
+      additionalArtAlts: [],
+      content: "/posts/string1"
+    },
+    {
+      id: "string6",
+      title: "Say goodbye to trains",
+      authors: TeamProfileData,
+      publishedDate: yesterday,
+      topic: "Ethics",
+      teaser: "Coronavirus has all but ensured these beautiful contraptions will go away.",
+      featuredArtURL: "https://hips.hearstapps.com/pop.h-cdn.co/assets/cm/15/05/54ca9c8cbd1bb_-_monstertrain-470-0210.jpg?fill=320:234&resize=480:*",
+      featuredArtAlt: "I like trains a lot",
+      additionalArtURLs: [],
+      additionalArtAlts: [],
+      content: "/posts/string2"
+    },
+
+    {
+      id: "string7",
+      title: "ASDF videos were our childhood",
+      authors: TeamProfileData,
+      publishedDate: before,
+      topic: "Technology",
+      teaser: "And they still are. Somewhat.",
+      featuredArtURL: "https://i.ytimg.com/vi/BaQq6wLcr5o/maxresdefault.jpg",
+      featuredArtAlt: "I still like trains",
+      additionalArtURLs: [],
+      additionalArtAlts: [],
+      content: "/posts/string3"
+    },
+    {
+      id: "string8",
+      title: "Textpost 4",
+      authors: TeamProfileData,
+      publishedDate: before,
+      topic: "Technology",
+      teaser: "Teaser for this awesome post 4",
+      featuredArtURL: "https://i.ytimg.com/vi/BaQq6wLcr5o/maxresdefault.jpg",
+      featuredArtAlt: "I still like trains",
+      additionalArtURLs: [],
+      additionalArtAlts: [],
+      content: "/posts/string4"
+    },
 ];
 
 export var POSTS: TextPost[] = [];

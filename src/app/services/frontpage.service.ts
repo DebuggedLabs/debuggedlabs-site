@@ -29,6 +29,6 @@ export class FrontPageService {
    * Get technology section posts for the front page
    */
   getTechnologySectionPosts(): Post[] {
-    return POSTS;
+    return POSTS.slice(0, 3);
   }
 }

@@ -21,14 +21,19 @@ export class RowListComponent extends PostsListBaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.numRows = this.posts.length / 3;
+    this.numRows = Math.ceil(this.posts.length / 3);
   }
 
   /**
    * Get indices for each row to display
    */
   getIndices(): number[] {
-    return Array(this.numRows).fill(value => value).map((value, index) => index);
+    var indices: number [] = [];
+    for (var i = 0; i < this.numRows; i++)
+    {
+      indices.push(i);
+    }
+    return indices;
   }
 
   /**
@@ -36,7 +41,7 @@ export class RowListComponent extends PostsListBaseComponent implements OnInit {
    */
   getNextRow(rowIndex: number): Post[] {
     var rowStart = rowIndex * this.NUMBER_OF_COLUMNS;
-    return this.posts.slice(rowStart, rowStart + this.NUMBER_OF_COLUMNS - 1);
+    return this.posts.slice(rowStart, rowStart + this.NUMBER_OF_COLUMNS);
   }
 
 }
