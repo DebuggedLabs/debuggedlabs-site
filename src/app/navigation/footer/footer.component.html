@@ -1,0 +1,40 @@
+<div class="background">
+  <!-- spacing -->
+  <span>
+    <div class="footer-content">
+
+      <!-- Podcasts -->
+      <ul class="footer-list">
+        <li><a href="/podcasts" [ngClass]="getSubheaderClassName()">Podcasts</a></li>
+        <li><a href="/podcasts/shows" class="footer-text">Our shows</a></li>
+        <li><a href="/podcasts/subscribe" class="footer-text">Subscribe to us</a></li>
+        <li class="footer-text-empty">.</li>
+      </ul>
+
+      <!-- Technology -->
+      <ul class="footer-list">
+        <li><a href="/technology"[ngClass]="getSubheaderClassName()">Technology</a></li>
+        <li><a href="/category/ethics" class="footer-text">Ethics in tech</a></li>
+        <li><a href="/podcasts/bits-and-pieces" class="footer-text">"Bits and Pieces"</a></li>
+        <li><a href="/category/security-and-privacy" class="footer-text">Security and privacy</a></li>
+      </ul>
+
+      <!-- About -->
+      <ul class="footer-list">
+        <li><a href="/about" [ngClass]="getSubheaderClassName()">About</a></li>
+        <li><a href="/contact-us/" class="footer-text">Contact us</a></li>
+        <li><a href="join-us" class="footer-text">Work with us</a></li>
+        <li><a href="/advertise" class="footer-text">Advertise with us</a></li>
+      </ul>
+
+      <ul class="footer-list">
+        <li><a href="/newsletter" class="newsletter-0">Sign up for our newsletter!</a></li>
+        <li class="newsletter-1">You scrolled down here for something, right?</li>
+        <li class="newsletter-2">Don't worry, we don't believe in spamming inboxes.</li>
+      </ul>
+      <!-- TODO: Add in logo or some action here (email, copy right, etc) -->
+
+      <p class="copyright"><small>Copyright &copy; Debugged Labs {{ getCurrentYear() }}</small></p>
+    </div>
+  </span>
+</div>

@@ -34,6 +34,7 @@ import { GalleryPostCardComponent } from './modules/post-card/gallery-post-card/
 import { RowlistPostCardComponent } from './modules/post-card/rowlist-post-card/rowlist-post-card.component';
 import { PostCardBaseComponent } from './modules/post-card/post-card-base/post-card-base.component';
 import { PostsListBaseComponent } from './modules/posts-list/posts-list-base/posts-list-base.component';
+import { FooterComponent } from './navigation/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { PostsListBaseComponent } from './modules/posts-list/posts-list-base/pos
     GalleryPostCardComponent,
     RowlistPostCardComponent,
     PostsListBaseComponent,
-    PostCardBaseComponent
+    PostCardBaseComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
