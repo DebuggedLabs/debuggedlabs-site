@@ -4,7 +4,7 @@
 <div class="page-content-spacing"></div>
 
 <!-- Section header -->
-<app-section-header [sectionTitle]="'About us'" 
+<app-section-header [sectionTitle]="'About us'"
                     [iconUrl]="iconUrl"
                     [backgroundColor]="backgroundColor"
 ></app-section-header>
@@ -20,8 +20,8 @@
 <p class="cairo-heading" align="center">WHO WE ARE</p>
 <hr class="about-hr">
 
-<p class="cairo-paragraph horiz-padding"><b>Debugged Labs</b> is a a <em class="science-sentence">podcast</em>-<em class="technology-sentence">blog</em> founded by two UCLA grads who resent 
-    gobbledygook. Our mission is to break down what's happening in technology, science, and society into byte-sized 
+<p class="cairo-paragraph horiz-padding"><b>Debugged Labs</b> is a a <em class="science-sentence">podcast</em>-<em class="technology-sentence">blog</em> founded by two UCLA grads who resent
+    gobbledygook. Our mission is to break down what's happening in technology, science, and society into byte-sized
     chunks that, <em class="about-sentence">well, make sense to the public.</em> The world is fast-changing and the people building tech and gadgets <b>aren't always
     thinking about what it means for the rest of us.</b>
 </p>
@@ -40,4 +40,7 @@
 <div class="horiz-padding" *ngFor="let profile of this.teamProfiles">
     <app-about-post [profile]="profile"></app-about-post>
 </div>
+
+<!-- Footer -->
+<app-footer></app-footer>
 

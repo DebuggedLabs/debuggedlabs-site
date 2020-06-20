@@ -14,13 +14,13 @@
     <!-- Top technology posts (if page 1) -->
     <app-posts-list *ngIf="isShowingTopPosts" [listType]="0" [posts]="this.topPosts"></app-posts-list>
 
-    <!-- Technology post list -->
+    <!-- Technology row lists -->
     <app-posts-list [listType]="3" [posts]="this.rowPosts"></app-posts-list>
-
-    <!-- Technology podcast list -->
-    <app-posts-list></app-posts-list>
 
     <p>Displaying page index: {{ this.pageNumber }}</p>
 </div>
+
+<!-- Footer -->
+<app-footer></app-footer>
 
 

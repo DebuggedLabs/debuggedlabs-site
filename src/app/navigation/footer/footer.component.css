@@ -1,0 +1,175 @@
+.background {
+  margin-top: 30px;
+  background: #1C1C1C;
+  min-height: 250px;
+  width: 100%;
+}
+
+.footer-list {
+  list-style-type: none;
+  display: inline-block;
+  padding-right: 9%;
+}
+
+.footer-content {
+  padding-top: 3%;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+/* podcast */
+.footer-subhead-podcast {
+  color: #3399ff;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding-bottom: 12%;
+  text-decoration: none;
+}
+
+.footer-subhead-podcast:link {
+  color: #d9d9d9;
+}
+
+.footer-subhead-podcast:hover {
+  color: #00FFFF;
+}
+
+.footer-subhead-podcast:active {
+  color: #d9d9d9;
+}
+
+/* technology */
+.footer-subhead-technology {
+  color: #ff872e;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding-bottom: 12%;
+  text-decoration: none;
+}
+
+.footer-subhead-technology:link {
+  color: #d9d9d9;
+}
+
+.footer-subhead-technology:hover {
+  color: #00FFFF;
+}
+
+.footer-subhead-technology:active {
+  color: #d9d9d9;
+}
+
+/* about */
+.footer-subhead-about {
+  color: #ff6666;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding-bottom: 12%;
+  text-decoration: none;
+}
+
+.footer-subhead-about:link {
+  color: #d9d9d9;
+}
+
+.footer-subhead-about:hover {
+  color: #00FFFF;
+}
+
+.footer-subhead-about:active {
+  color: #d9d9d9;
+}
+
+/* home page */
+.footer-subhead {
+  color: yellow;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding-bottom: 12%;
+  text-decoration: none;
+}
+
+.footer-subhead:link {
+  color: #d9d9d9;
+}
+
+.footer-subhead:hover {
+  color: #00FFFF;
+}
+
+.footer-subhead:active {
+  color: #d9d9d9;
+}
+
+/* normal text */
+.footer-text {
+  color: #d9d9d9;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  padding-bottom: 15%;
+  text-decoration: none;
+}
+
+.footer-text:link {
+  color: #d9d9d9;
+}
+
+.footer-text:hover {
+  color: #00FFFF;
+}
+
+.footer-text:active {
+  color: #d9d9d9;
+}
+
+/* fillter colors */
+.footer-text-empty {
+  color: #1C1C1C;
+}
+
+/* Newsletter messages */
+.newsletter-0 {
+  color: #ff6666;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  font-size: 34px;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
+  text-decoration: none;
+}
+
+.newsletter-1 {
+  color: #3399ff;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 400;
+  font-size: 21.5px;
+}
+
+.newsletter-2 {
+  color: #ff872e;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 300;
+  font-size: 18.5px;
+  padding-bottom: 3%;
+}
+
+.newsletter-0:hover {
+  color: #00FFFF;
+}
+
+.copyright {
+  color: #d9d9d9;
+}
+
+/* .newsletter-link:active {
+  color: yellow;
+} */
+
+/* .newsletter-link:link {
+  color: yellow;
+} */
