@@ -27,7 +27,7 @@ const data = [
         publishedDate: yesterday,
         topic: "Technology",
         teaser: "Reading is for schmucks. Listen to this epic podcast 2!",
-      featuredArtURL: "http://vignette4.wikia.nocookie.net/wingsoffire/images/c/c8/I_like_trains.jpg/revision/latest?cb=20160124005631",
+      featuredArtURL: "https://pm1.narvii.com/6483/a66a250293e5978ddb63e43e3ec39fb62effbd9b_00.jpg",
         featuredArtAlt: "I like trains",
         additionalArtURLs: [],
         additionalArtAlts: [],
