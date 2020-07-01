@@ -1,5 +1,7 @@
 .background {
   margin-top: 30px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
   background: #1C1C1C;
   min-height: 250px;
   width: 100%;
@@ -8,13 +10,18 @@
 .footer-list {
   list-style-type: none;
   display: inline-block;
-  padding-right: 9%;
+  padding-right: 6%;
+}
+
+.footer-end {
+  list-style-type: none;
+  display: inline-block;
 }
 
 .footer-content {
   padding-top: 3%;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 3%;
+  padding-right: 3%;
 }
 
 /* podcast */
@@ -137,7 +144,7 @@
   color: #ff6666;
   font-family: 'Cairo', sans-serif;
   font-weight: 700;
-  font-size: 34px;
+  font-size: 32px;
   padding-bottom: 0%;
   margin-bottom: 0%;
   text-decoration: none;
@@ -163,6 +170,7 @@
 }
 
 .copyright {
+  padding-left: 2.5%;
   color: #d9d9d9;
 }
 

@@ -13,7 +13,7 @@ const data = [
         publishedDate: today,
         topic: "Technology",
         teaser: "Reading is for schmucks. Listen to this epic podcast 1!",
-        featuredArtURL: "https://i.ytimg.com/vi/MEO3Dub2I0g/hqdefault.jpg",
+    featuredArtURL: "https://i1.ytimg.com/vi/hHkKJfcBXcw/hqdefault.jpg",
         featuredArtAlt: "I like trains",
         additionalArtURLs: [],
         additionalArtAlts: [],
