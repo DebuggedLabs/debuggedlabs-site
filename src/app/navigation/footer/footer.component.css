@@ -35,7 +35,7 @@
 }
 
 .footer-subhead-podcast:link {
-  color: #d9d9d9;
+  color: #3399ff;
 }
 
 .footer-subhead-podcast:hover {
@@ -43,7 +43,7 @@
 }
 
 .footer-subhead-podcast:active {
-  color: #d9d9d9;
+  color: #3399ff;
 }
 
 /* technology */
@@ -57,7 +57,7 @@
 }
 
 .footer-subhead-technology:link {
-  color: #d9d9d9;
+  color: #ff872e;
 }
 
 .footer-subhead-technology:hover {
@@ -65,7 +65,7 @@
 }
 
 .footer-subhead-technology:active {
-  color: #d9d9d9;
+  color: #ff872e;
 }
 
 /* about */
@@ -79,7 +79,7 @@
 }
 
 .footer-subhead-about:link {
-  color: #d9d9d9;
+  color: #ff6666;
 }
 
 .footer-subhead-about:hover {
@@ -87,7 +87,7 @@
 }
 
 .footer-subhead-about:active {
-  color: #d9d9d9;
+  color: #ff6666;
 }
 
 /* home page */
@@ -101,7 +101,7 @@
 }
 
 .footer-subhead:link {
-  color: #d9d9d9;
+  color: yellow;
 }
 
 .footer-subhead:hover {
@@ -109,7 +109,7 @@
 }
 
 .footer-subhead:active {
-  color: #d9d9d9;
+  color: yellow;
 }
 
 /* normal text */
