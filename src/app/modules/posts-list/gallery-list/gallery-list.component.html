@@ -1,1 +1,30 @@
-<p>gallery-list works!</p>
+<div class="block">
+
+  <!-- Primary slide -->
+  <div class="slideshow">
+    <div class="slide">
+      <a href="{{ this.primaryPost.content }}">
+        <img class="slide-image" src="{{ this.primaryPost.featuredArtURL }}">
+        <div class="slide-overlay">
+          <div class="listen-cta">LISTEN —> </div>
+          <div class="slide-title">{{ this.primaryPost.title }}</div>
+          <div class="slide-teaser">{{ this.primaryPost.teaser }}</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Seconday slides -->
+  <div class="secondary-slide">
+    <div class="slide">
+      <a href="{{ this.secondaryPost.content }}">
+        <img class="slide-image-smaller" src="{{ this.secondaryPost.featuredArtURL }}">
+        <div class="slide-overlay">
+          <div class="slide-title-smaller">{{ this.secondaryPost.title }}</div>
+          <div class="slide-teaser-smaller">{{ this.secondaryPost.teaser }}</div>
+          <div class="listen-cta-smaller">LISTEN —> </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
