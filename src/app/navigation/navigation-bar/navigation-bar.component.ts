@@ -3,7 +3,7 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
 import { navigationMenuItemInfo } from '../../definitions/types';
 import { MenuConfig } from 'src/app/config/router-config';
 import { WidthService } from 'src/app/services/width.service';
-import { PageDetailsService } from 'src/app/services/page-details.service';
+import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -47,7 +47,7 @@ export class NavigationBarComponent implements OnInit {
  * Listen in on scroll and resizing events
  */
   @HostListener('window:scroll') onScroll() {
-    this.show = false;
+    this.show = this.pageDetailService.getCurrentPageId() !== PageId.Home;
     if (window.pageYOffset > 0)
     {
       if (window.pageYOffset > this.heightCutOff) {
