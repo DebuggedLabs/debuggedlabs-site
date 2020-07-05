@@ -8,10 +8,10 @@ const before = new Date();
 const data = [
     {
         id: "string1",
-        title: "Podcast 1",
+        title: "What is a network?",
         authors: TeamProfileData,
         publishedDate: today,
-        topic: "Technology",
+        topic: "Bits and Pieces",
         teaser: "Reading is for schmucks. Listen to this epic podcast 1!",
     featuredArtURL: "https://i1.ytimg.com/vi/hHkKJfcBXcw/hqdefault.jpg",
         featuredArtAlt: "I like trains",
@@ -22,10 +22,10 @@ const data = [
 
     {
         id: "string2",
-        title: "Podcast 2",
+        title: "I like trains. You should too.",
         authors: TeamProfileData,
         publishedDate: yesterday,
-        topic: "Technology",
+        topic: "Technology podcast",
         teaser: "Reading is for schmucks. Listen to this epic podcast 2!",
       featuredArtURL: "https://pm1.narvii.com/6483/a66a250293e5978ddb63e43e3ec39fb62effbd9b_00.jpg",
         featuredArtAlt: "I like trains",
@@ -36,10 +36,10 @@ const data = [
 
     {
         id: "string3",
-        title: "Podcast 3",
+        title: "Is technology fundamentally racist?",
         authors: TeamProfileData,
         publishedDate: before,
-        topic: "Genetics",
+        topic: "Bits and Pieces",
         teaser: "Reading is for schmucks. Listen to this epic podcast 3!",
         featuredArtURL: "https://i.ytimg.com/vi/BaQq6wLcr5o/maxresdefault.jpg",
         featuredArtAlt: "I like trains",
