@@ -13,7 +13,7 @@ import { PageDetailsService } from 'src/app/services/page-details.service';
     trigger('fadeIn', [
       state('void', style({
         opacity: 0
-      })), 
+      })),
       transition('void <=> *', animate(300)),
       state('noAnimate', style({
         opacity: 100
@@ -47,6 +47,7 @@ export class NavigationBarComponent implements OnInit {
  * Listen in on scroll and resizing events
  */
   @HostListener('window:scroll') onScroll() {
+    this.show = false;
     if (window.pageYOffset > 0)
     {
       if (window.pageYOffset > this.heightCutOff) {
@@ -70,10 +71,10 @@ export class NavigationBarComponent implements OnInit {
  */
   setClasses() {
     return {
-      'sticky': this.show,     
+      'sticky': this.show,
       'dbl-background': true,
       'container': true,
-      'navigation-menu-div': true 
+      'navigation-menu-div': true
     }
   }
 
