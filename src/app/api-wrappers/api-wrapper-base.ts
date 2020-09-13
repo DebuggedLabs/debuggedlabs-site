@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/internal/Observable';
 export class ApiWrapper {
 
   baseUrl = "https://cms.debuggedlabs.com/debugged-labs/"
-  teamsUrl = this.baseUrl + "team/";
+  teamsUrl = this.baseUrl + "items/team";
   usersUrl = this.baseUrl + "users/";
   imageDetailUrl = this.baseUrl + "files/";
 
