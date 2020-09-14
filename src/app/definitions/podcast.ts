@@ -16,10 +16,9 @@ export class PodcastPost implements Post {
     socialMediaLinks?: { [platform: string]: string; };
 
     // text-specific fields
-    content: string;  // to store the text for the post
-
+    content: string;  // to store the link to the podcast
     /**
-     * 
+     *
      * @param id post id
      * @param title title of the post
      * @param authors bylines for the piece

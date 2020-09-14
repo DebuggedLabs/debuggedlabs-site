@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { TeamProfile } from 'src/app/definitions/teamProfile';
+import { ImageDetailService } from 'src/app/services/image-detail.service';
 
 @Component({
   selector: 'app-about-post',
@@ -9,6 +10,8 @@ import { TeamProfile } from 'src/app/definitions/teamProfile';
 export class AboutPostComponent implements OnInit {
 
   @Input() profile: TeamProfile;
+  imageUrl: string = "";
+
   private windowWidth: number;
   private widthCutOff: number = 952;
 
@@ -16,9 +19,12 @@ export class AboutPostComponent implements OnInit {
     this.windowWidth = window.innerWidth;
   }
 
-  constructor() { }
+  constructor(private imageDetailService: ImageDetailService) { }
 
   ngOnInit() {
+    this.imageDetailService.getFullImage(this.profile.imageId, imageUrl => {
+      this.imageUrl = imageUrl;
+    });
   }
 
   getImageInlineClass()
@@ -38,6 +44,9 @@ export class AboutPostComponent implements OnInit {
     }
 
     return this.windowWidth <= this.widthCutOff ? 60 : 25;
+  }
+
+  getImageUrl() {
   }
 
 }
