@@ -2,6 +2,7 @@
 export interface TeamEntry {
     id: string;
     userid: string;
+    name: string;
     sort: number;
     profile: number;
     bio_short: string;
@@ -9,4 +10,5 @@ export interface TeamEntry {
     image: number;
     twitter_handle: string;
     position: string;
+    email: string;
 };

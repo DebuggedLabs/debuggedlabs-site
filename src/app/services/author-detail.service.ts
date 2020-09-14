@@ -16,6 +16,7 @@ export class AuthorDetailService {
 
   /**
    * Get all team members' profiles
+   * @param callback Callback once the values are retrieved
    */
   getAllTeamProfiles(callback: (teamProfiles: TeamProfile[]) => void) {
     this.authorApiWrapper.getAllAuthorProfiles((profiles: TeamProfile[]) => {
@@ -23,6 +24,11 @@ export class AuthorDetailService {
     });
   }
 
+  /**
+   * Get a single team member's profile
+   * @param teamProfileId the team profile ID of the member
+   * @param callback Callback once the values are retrieved
+   */
   getSingleTeamProfile(teamProfileId: string, callback: (TeamProfile) => void) {
     this.authorApiWrapper.getSingleAuthorProfile(teamProfileId, (profile: TeamProfile[]) => {
       callback(profile);

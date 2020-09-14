@@ -23,7 +23,7 @@ export class AboutComponent implements OnInit {
               private pageDetailService: PageDetailsService,
               private showHamnburgerMenuService: WidthService,
               private authorDetailService: AuthorDetailService) {
-    authorDetailService.getAllTeamProfiles((teamProfiles: TeamProfile[]) => {
+    this.authorDetailService.getAllTeamProfiles((teamProfiles: TeamProfile[]) => {
       this.teamProfiles = teamProfiles;
       console.log(teamProfiles);
     });
