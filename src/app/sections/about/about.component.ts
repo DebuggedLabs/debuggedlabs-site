@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { TeamProfile } from 'src/app/definitions/teamProfile';
-import { TeamProfileData } from 'src/app/config/profiles-config';
 import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
 import { WidthService } from 'src/app/services/width.service';
 import { AuthorDetailService } from 'src/app/services/author-detail.service';
@@ -19,12 +18,15 @@ export class AboutComponent implements OnInit {
 
   teamProfiles: TeamProfile[];
 
-  constructor(private titleService: Title, 
-              private router: ActivatedRoute, 
+  constructor(private titleService: Title,
+              private router: ActivatedRoute,
               private pageDetailService: PageDetailsService,
               private showHamnburgerMenuService: WidthService,
               private authorDetailService: AuthorDetailService) {
-    this.teamProfiles = authorDetailService.getAllTeamProfiles();
+    this.authorDetailService.getAllTeamProfiles((teamProfiles: TeamProfile[]) => {
+      this.teamProfiles = teamProfiles;
+      console.log(teamProfiles);
+    });
   }
 
   ngOnInit() {
@@ -37,5 +39,5 @@ export class AboutComponent implements OnInit {
       this.pageDetailService.updateCurrentPageId(PageId.About);
       this.showHamnburgerMenuService.updateShowHamburgerMenuStatus(false);
   }
-  
+
 }
