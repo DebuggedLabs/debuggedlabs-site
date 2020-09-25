@@ -4,7 +4,8 @@ export enum PageId {
   Home = "home",
   Podcasts = "podcasts",
   Technology = "technology",
-  About = "about"
+  About = "about",
+  Author = "author",
 }
 
 @Injectable({
