@@ -1,3 +1,5 @@
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div [ngClass]="getImageInlineClass()">
     <img src="{{ imageUrl }}" class="image" [style.width.%]="getImageWidth()">
     <p class="name" *ngIf="showAltTitle()">{{ profile.name }}</p>
@@ -6,6 +8,10 @@
     <div class="text">
         <p class="bioShort"><em>{{ profile.bioShort }}</em></p>
         <p class="bio">{{ profile.bio }}</p>
+        <div>
+          <a href="mailto:{{ profile.email }}" target="_blank" class="fa fa-envelope"></a>
+          <a href="https://twitter.com/{{ profile.twitterHandle }}" *ngIf="isFieldNotEmpty(profile.twitterHandle)" target="_blank" class="fa fa-twitter"></a>
+        </div>
     </div>
 </div>
 <p class="name" *ngIf="!showAltTitle()">{{ profile.name }}</p>

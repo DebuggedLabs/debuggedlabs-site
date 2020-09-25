@@ -46,7 +46,8 @@ export class AboutPostComponent implements OnInit {
     return this.windowWidth <= this.widthCutOff ? 60 : 25;
   }
 
-  getImageUrl() {
+  isFieldNotEmpty(field: string) {
+    return field != null && field != "";
   }
 
 }
