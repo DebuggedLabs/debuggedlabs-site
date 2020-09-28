@@ -2,6 +2,24 @@
 
 <!-- Padding under navbar -->
 <div class="page-content-spacing"></div>
+<br>
+<br>
 
+<!-- Header for the page -->
+<hr class="author-hr">
+<p class="cairo-heading" align="center">{{ authorProfile.name | uppercase }}</p>
+<hr class="author-hr">
+<br>
+<br>
 
-<app-about-post [profile]="this.authorProfile" *ngIf="this.isAuthorValid"></app-about-post>
+<!-- Show the author profile -->
+<div class="horiz-padding">
+  <app-about-post [profile]="this.authorProfile" *ngIf="this.isAuthorValid"></app-about-post>
+</div>
+
+<hr class="author-hr">
+<p class="cairo-heading" align="center">THE LATEST FROM THIS AUTHOR</p>
+<hr class="author-hr">
+
+<!-- Footer -->
+<app-footer></app-footer>

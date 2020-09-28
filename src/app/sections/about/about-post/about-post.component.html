@@ -2,7 +2,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div [ngClass]="getImageInlineClass()">
     <img src="{{ imageUrl }}" class="image" [style.width.%]="getImageWidth()">
-    <p class="name" *ngIf="showAltTitle()">{{ profile.name }}</p>
+    <p>
+      <a class="name" *ngIf="showAltTitle()" href="{{ profile.profilePageUrl }}">{{ profile.name }}</a>
+    </p>
     <p class="position" *ngIf="showAltTitle()">{{ profile.position }}</p>
     <div class="padding"></div>
     <div class="text">
@@ -14,7 +16,9 @@
         </div>
     </div>
 </div>
-<p class="name" *ngIf="!showAltTitle()">{{ profile.name }}</p>
+<p>
+  <a class="name" *ngIf="!showAltTitle()" href="{{ profile.profilePageUrl }}">{{ profile.name }}</a>
+</p>
 <p class="position" *ngIf="!showAltTitle()">{{ profile.position }}</p>
 <br>
 <br>

@@ -1,0 +1,16 @@
+.horiz-padding {
+    margin-left: 13%;
+    margin-right: 13%;
+}
+
+.author-hr {
+    width:40%;
+    border-width: 2px;
+}
+
+.cairo-heading {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: gray;
+}

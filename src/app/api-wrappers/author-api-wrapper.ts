@@ -115,7 +115,7 @@ export class AuthorApiWrapper extends ApiWrapper {
     {
       name: data.name,
       id: data.id,
-      profilePageUrl: data.userid,
+      profilePageUrl: "author/" + data.userid,
       position: data.position,
       bio: data.bio,
       bioShort: data.bio_short,
