@@ -8,10 +8,12 @@ import { KeyValue } from '@angular/common';
 export class AuthorApiWrapper extends ApiWrapper {
 
   private authorProfileCache: Map<string, KeyValue<TeamProfile, Date>>;
+  private nameToIdMap: Map<string, string>;
 
   constructor(private httpClient: HttpClient) {
     super(httpClient);
     this.authorProfileCache = new Map<string, KeyValue<TeamProfile, Date>>();
+    this.nameToIdMap = new Map<string, string>();
   }
 
   /**
@@ -62,6 +64,48 @@ export class AuthorApiWrapper extends ApiWrapper {
   }
 
   /**
+   * Get single author from the back-end
+   * @param teamProfileId Name of the author
+   * @param serviceFunction The service function to pass the result to (as a parameter)
+   */
+  getSingleAuthorProfileFromName(name: string, serviceFunction: (TeamProfile) => void) {
+    this.getTeamProfileIdFromAuthorName(name, profileId => {
+      // pass back null if we can't get the profile ID
+      if (profileId == null || profileId === '') {
+        serviceFunction(null);
+      }
+      else {
+        // otherwise, get details about the single author
+        this.getSingleAuthorProfile(profileId, teamProfile => {
+          serviceFunction(teamProfile);
+        });
+      }
+    })
+  }
+
+  /**
+   * Method to get the author if you have the author name
+   * @param name Author name you're trying to query
+   */
+  private getTeamProfileIdFromAuthorName(name: string, callback: (string) => void) {
+
+    if (!this.nameToIdMap.has(name)) {
+      this.getAllAuthorProfiles(profiles => {
+        // return null if can't find mapping even after refreshing our indexes
+        if (!this.nameToIdMap.has(name)) {
+          callback(null);
+        }
+        else {
+          callback(this.nameToIdMap.get(name));
+        }
+      });
+    }
+    else {
+      callback(this.nameToIdMap.get(name));
+    }
+  }
+
+  /**
    * Handle the initial GET request's data
    * @param data Data from the initial GET request
    * @param serviceFunction The service function to pass the result to (as a parameter)
@@ -87,6 +131,7 @@ export class AuthorApiWrapper extends ApiWrapper {
     };
 
     console.log(authorProfile);
+    this.nameToIdMap.set(authorProfile.name.toLowerCase(), data.id);
     this.authorProfileCache.set(data.id, keyValuePair);
     return authorProfile;
   }

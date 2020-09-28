@@ -34,4 +34,15 @@ export class AuthorDetailService {
       callback(profile);
     });
   }
+
+  /**
+   * Get a single team member's profile
+   * @param teamProfileId the name of the team member
+   * @param callback Callback once the values are retrieved
+   */
+  getSingleTeamProfileFromName(authorName: string, callback: (TeamProfile) => void) {
+    this.authorApiWrapper.getSingleAuthorProfileFromName(authorName, (profile: TeamProfile[]) => {
+      callback(profile);
+    });
+  }
 }

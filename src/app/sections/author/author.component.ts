@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { TeamProfile } from 'src/app/definitions/teamProfile';
 import { AuthorDetailService } from 'src/app/services/author-detail.service';
 import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
 import { WidthService } from 'src/app/services/width.service';
@@ -15,6 +16,8 @@ export class AuthorComponent implements OnInit {
   public iconUrl: string;
   public backgroundColor: string;
   public authorName: string;
+  public authorProfile: TeamProfile;
+  public isAuthorValid: boolean = false;
 
   constructor(private titleService: Title,
               private router: ActivatedRoute,
@@ -23,34 +26,56 @@ export class AuthorComponent implements OnInit {
               private authorDetailService: AuthorDetailService) { }
 
   ngOnInit() {
-
     // parse the query params
     this.router.paramMap.subscribe(params => {
       // get the author name from the url parameters
-      this.getAuthorName(params);
+      this.getAuthorDetails(params);
     });
 
-    this.router.data
-      .subscribe((data: { title: string, iconUrl: string, backgroundColor: string }) => {
-        this.titleService.setTitle(this.authorName + " | Debugged Labs");
-        this.iconUrl = data.iconUrl;
-        this.backgroundColor = data.backgroundColor;
-      });
     this.pageDetailService.updateCurrentPageId(PageId.Author);
     this.showHamnburgerMenuService.updateShowHamburgerMenuStatus(false);
   }
 
-  getAuthorName(params: ParamMap) {
+  /**
+   * Get the author name from the URL params
+   * @param params Params from the URL router details
+   */
+  private getAuthorDetails(params: ParamMap) {
     let authorNameWithHyphen = params.get('authorname');
     let authorSplit: string[] = authorNameWithHyphen.split("-");
-    this.authorName = "";
+    let authorName = "";
     for (let i=0; i < authorSplit.length; i++) {
-      this.authorName += authorSplit[i];
+      authorName += authorSplit[i];
       if (i < authorSplit.length - 1)
       {
-        this.authorName += " ";
+        authorName += " ";
       }
     }
+
+    this.authorDetailService.getSingleTeamProfileFromName(authorName.toLowerCase(), profile => {
+      this.validateAndParseAuthorDetails(profile);
+      this.router.data
+        .subscribe((data: { title: string, iconUrl: string, backgroundColor: string }) => {
+          this.titleService.setTitle(this.authorName + " | Debugged Labs");
+          this.iconUrl = data.iconUrl;
+          this.backgroundColor = data.backgroundColor;
+        });
+    });
   }
 
+  /**
+   * Validate that the author name passed in the URL is indeed there
+   * @param authorId author ID passed back from API
+   */
+  private validateAndParseAuthorDetails(authorProfile: TeamProfile) {
+    if (authorProfile == null) {
+      this.isAuthorValid = false;
+      // TODO: navigate to the "page not found" page
+    }
+    else {
+      this.isAuthorValid = true;
+      this.authorProfile = authorProfile;
+      this.authorName = authorProfile.name;
+    }
+  }
 }

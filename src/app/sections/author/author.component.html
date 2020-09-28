@@ -1,0 +1,7 @@
+<app-navigation-bar [show]="true"></app-navigation-bar>
+
+<!-- Padding under navbar -->
+<div class="page-content-spacing"></div>
+
+
+<app-about-post [profile]="this.authorProfile" *ngIf="this.isAuthorValid"></app-about-post>
