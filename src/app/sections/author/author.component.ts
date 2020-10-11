@@ -51,16 +51,17 @@ export class AuthorComponent implements OnInit {
         authorName += " ";
       }
     }
-
-    this.authorDetailService.getSingleTeamProfileFromName(authorName.toLowerCase(), profile => {
-      this.validateAndParseAuthorDetails(profile);
-      this.router.data
-        .subscribe((data: { title: string, iconUrl: string, backgroundColor: string }) => {
+    this.router.data
+      .subscribe((data: { title: string, iconUrl: string, backgroundColor: string }) => {
+        this.authorDetailService.getSingleTeamProfileFromName(authorName.toLowerCase(), profile => {
+          this.validateAndParseAuthorDetails(profile);
           this.titleService.setTitle(this.authorName + " | Debugged Labs");
-          this.iconUrl = data.iconUrl;
-          this.backgroundColor = data.backgroundColor;
         });
-    });
+        this.iconUrl = data.iconUrl;
+        this.backgroundColor = data.backgroundColor;
+      });
+
+
   }
 
   /**

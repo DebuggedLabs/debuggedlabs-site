@@ -75,7 +75,7 @@ export const RouterConfig: Routes = [
       data: {
         name: "About Author",
         title: 'Author | Debugged Labs',
-        iconUrl: 'assets/icons/about_icon.png',
+        iconUrl: 'assets/icons/author_icon.png',
         backgroundColor: '#ff6666'
       }
     },

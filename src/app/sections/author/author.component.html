@@ -2,11 +2,16 @@
 
 <!-- Padding under navbar -->
 <div class="page-content-spacing"></div>
-<br>
+
+<!-- Section header -->
+<app-section-header [sectionTitle]="'Author\'s corner'"
+                    [iconUrl]="iconUrl"
+                    [backgroundColor]="backgroundColor"
+></app-section-header>
 
 <!-- Header for the page -->
 <hr class="author-hr">
-<p class="cairo-heading" align="center">{{ authorProfile.name | uppercase }}</p>
+<p *ngIf="this.isAuthorValid" class="cairo-heading" align="center">{{ authorProfile.name | uppercase }}</p>
 <hr class="author-hr">
 <br>
 <br>

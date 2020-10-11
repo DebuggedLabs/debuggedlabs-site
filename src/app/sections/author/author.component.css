@@ -14,3 +14,8 @@
     font-size: 30px;
     color: gray;
 }
+
+.heading {
+    background-color: #ff6666;
+    width: 50%;
+}
