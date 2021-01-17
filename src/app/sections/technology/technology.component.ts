@@ -85,10 +85,10 @@ export class TechnologyComponent implements OnInit {
     }
     else {
       this.pageNumber = 0;
-      this.router.navigate(['podcasts']);
+      this.router.navigate(['technology']);
     }
 
-    // if not on first page of podcasts, then we're not showing a featured post
+    // if not on first page of technology, then we're not showing a featured post
     this.isShowingTopPosts = this.pageNumber > 0 ? false : true;
   }
 

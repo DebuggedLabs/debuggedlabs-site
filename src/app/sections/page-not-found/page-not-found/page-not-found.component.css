@@ -1,0 +1,36 @@
+.horiz-padding {
+    margin-left: 30%;
+    margin-right: 17%;
+}
+
+.horiz-padding-2 {
+    margin-left: 28%;
+    margin-right: 25%;
+}
+
+.section-icon {
+    max-width: 30%;
+    min-width: 220px;
+    min-height: 150px;
+}
+
+.large-cairo-em {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    color: #ff6666;
+}
+
+.cairo-paragraph {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: gray;
+}
+
+.cairo-paragraph-smaller {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 400;
+    font-size: 23px;
+    color: #ff872e;
+}

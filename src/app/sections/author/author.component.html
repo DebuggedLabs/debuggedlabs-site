@@ -1,0 +1,30 @@
+<app-navigation-bar [show]="true" *ngIf="this.isAuthorValid"></app-navigation-bar>
+
+<!-- Padding under navbar -->
+<div class="page-content-spacing"></div>
+
+<!-- Section header -->
+<app-section-header [sectionTitle]="'Author\'s corner'"
+                    [iconUrl]="iconUrl"
+                    [backgroundColor]="backgroundColor"
+                    *ngIf="this.isAuthorValid"
+></app-section-header>
+
+<!-- Header for the page -->
+<hr class="author-hr">
+<p *ngIf="this.isAuthorValid" class="cairo-heading" align="center">{{ authorProfile.name | uppercase }}</p>
+<hr class="author-hr">
+<br>
+<br>
+
+<!-- Show the author profile -->
+<div class="horiz-padding">
+  <app-about-post [profile]="this.authorProfile" *ngIf="this.isAuthorValid"></app-about-post>
+</div>
+
+<hr *ngIf="this.isAuthorValid" class="author-hr">
+<p  *ngIf="this.isAuthorValid" class="cairo-heading" align="center">THE LATEST FROM THIS AUTHOR</p>
+<hr *ngIf="this.isAuthorValid" class="author-hr">
+
+<!-- Footer -->
+<app-footer *ngIf="this.isAuthorValid"></app-footer>

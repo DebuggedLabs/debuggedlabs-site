@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { TeamProfile } from 'src/app/definitions/teamProfile';
 import { ImageDetailService } from 'src/app/services/image-detail.service';
+import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
 
 @Component({
   selector: 'app-about-post',
@@ -46,7 +47,8 @@ export class AboutPostComponent implements OnInit {
     return this.windowWidth <= this.widthCutOff ? 60 : 25;
   }
 
-  getImageUrl() {
+  isFieldNotEmpty(field: string) {
+    return field != null && field != "";
   }
 
 }

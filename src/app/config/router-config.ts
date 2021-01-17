@@ -3,21 +3,23 @@ import { TechnologyComponent } from '../sections/technology/technology.component
 import { AboutComponent } from '../sections/about/about.component';
 import { Routes } from '@angular/router';
 import { PodcastsComponent } from '../sections/podcasts/podcasts.component';
+import { AuthorComponent } from '../sections/author/author.component';
+import { PageNotFoundComponent } from '../sections/page-not-found/page-not-found/page-not-found.component';
 
 export const RouterConfig: Routes = [
 
-    // for the default pages 
+    // for the default pages
     {
         path: '',
         component: FrontpageComponent,
-        data: { 
-            title: 'Debugged Labs' 
+        data: {
+            title: 'Debugged Labs'
         }
     },
     {
         path: 'podcasts',
         component: PodcastsComponent,
-        data: { 
+        data: {
             name: "Podcasts",
             title: 'Podcasts | Debugged Labs',
             iconUrl: 'assets/icons/podcast_icon.png',
@@ -28,7 +30,7 @@ export const RouterConfig: Routes = [
         path: 'technology',
         component: TechnologyComponent,
         data: {
-            name: "Technology", 
+            name: "Technology",
             title: 'Technology | Debugged Labs',
             iconUrl: 'assets/icons/technology_icon.png',
             backgroundColor: '#ff872e'
@@ -44,23 +46,18 @@ export const RouterConfig: Routes = [
             backgroundColor: '#ff6666'
         }
     },
+    {
+      path: 'page-not-found',
+      component: PageNotFoundComponent,
+      data: {
+        name: "Page Not Found",
+        title: 'Page not found | Debugged Labs',
+        iconUrl: 'assets/icons/page-not-found_icon.png',
+        backgroundColor: '#ff6666'
+      }
+    },
 
-    // to handle no url parameters
-    {
-        path: 'podcasts/page/1',
-        redirectTo: 'podcasts',
-        pathMatch: 'full'
-    },
-    {
-        path: 'podcasts/page/1',
-        redirectTo: 'podcasts',
-        pathMatch: 'full'
-    },
-    {
-        path: 'technology/page/1',
-        redirectTo: 'technology',
-        pathMatch: 'full'
-    },
+    // to handle url parameters
     {
         path: 'podcasts/page/:page',
         component: PodcastsComponent,
@@ -83,6 +80,16 @@ export const RouterConfig: Routes = [
     },
 
     // add /author support
+    {
+      path: 'author/:authorname',
+      component: AuthorComponent,
+      data: {
+        name: "About Author",
+        title: 'Author | Debugged Labs',
+        iconUrl: 'assets/icons/author_icon.png',
+        backgroundColor: '#ff6666'
+      }
+    },
 
     // to handle edge cases
     {
