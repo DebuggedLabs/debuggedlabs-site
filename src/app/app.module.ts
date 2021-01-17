@@ -37,6 +37,7 @@ import { PostCardBaseComponent } from './modules/post-card/post-card-base/post-c
 import { PostsListBaseComponent } from './modules/posts-list/posts-list-base/posts-list-base.component';
 import { FooterComponent } from './navigation/footer/footer.component';
 import { AuthorComponent } from './sections/author/author.component';
+import { PageNotFoundComponent } from './sections/page-not-found/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { AuthorComponent } from './sections/author/author.component';
     PostsListBaseComponent,
     PostCardBaseComponent,
     FooterComponent,
-    AuthorComponent
+    AuthorComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

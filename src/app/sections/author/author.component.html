@@ -1,4 +1,4 @@
-<app-navigation-bar [show]="true"></app-navigation-bar>
+<app-navigation-bar [show]="true" *ngIf="this.isAuthorValid"></app-navigation-bar>
 
 <!-- Padding under navbar -->
 <div class="page-content-spacing"></div>
@@ -7,6 +7,7 @@
 <app-section-header [sectionTitle]="'Author\'s corner'"
                     [iconUrl]="iconUrl"
                     [backgroundColor]="backgroundColor"
+                    *ngIf="this.isAuthorValid"
 ></app-section-header>
 
 <!-- Header for the page -->
@@ -21,9 +22,9 @@
   <app-about-post [profile]="this.authorProfile" *ngIf="this.isAuthorValid"></app-about-post>
 </div>
 
-<hr class="author-hr">
-<p class="cairo-heading" align="center">THE LATEST FROM THIS AUTHOR</p>
-<hr class="author-hr">
+<hr *ngIf="this.isAuthorValid" class="author-hr">
+<p  *ngIf="this.isAuthorValid" class="cairo-heading" align="center">THE LATEST FROM THIS AUTHOR</p>
+<hr *ngIf="this.isAuthorValid" class="author-hr">
 
 <!-- Footer -->
-<app-footer></app-footer>
+<app-footer *ngIf="this.isAuthorValid"></app-footer>

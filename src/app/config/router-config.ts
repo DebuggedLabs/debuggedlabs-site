@@ -4,6 +4,7 @@ import { AboutComponent } from '../sections/about/about.component';
 import { Routes } from '@angular/router';
 import { PodcastsComponent } from '../sections/podcasts/podcasts.component';
 import { AuthorComponent } from '../sections/author/author.component';
+import { PageNotFoundComponent } from '../sections/page-not-found/page-not-found/page-not-found.component';
 
 export const RouterConfig: Routes = [
 
@@ -44,6 +45,16 @@ export const RouterConfig: Routes = [
             iconUrl: 'assets/icons/about_icon.png',
             backgroundColor: '#ff6666'
         }
+    },
+    {
+      path: 'page-not-found',
+      component: PageNotFoundComponent,
+      data: {
+        name: "Page Not Found",
+        title: 'Page not found | Debugged Labs',
+        iconUrl: 'assets/icons/page-not-found_icon.png',
+        backgroundColor: '#ff6666'
+      }
     },
 
     // to handle url parameters

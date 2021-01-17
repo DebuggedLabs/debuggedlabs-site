@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { TeamProfile } from 'src/app/definitions/teamProfile';
 import { AuthorDetailService } from 'src/app/services/author-detail.service';
 import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
@@ -20,14 +20,15 @@ export class AuthorComponent implements OnInit {
   public isAuthorValid: boolean = false;
 
   constructor(private titleService: Title,
-              private router: ActivatedRoute,
+              private route: ActivatedRoute,
+              private router: Router,
               private pageDetailService: PageDetailsService,
               private showHamnburgerMenuService: WidthService,
               private authorDetailService: AuthorDetailService) { }
 
   ngOnInit() {
     // parse the query params
-    this.router.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe(params => {
       // get the author name from the url parameters
       this.getAuthorDetails(params);
     });
@@ -38,7 +39,7 @@ export class AuthorComponent implements OnInit {
 
   /**
    * Get the author name from the URL params
-   * @param params Params from the URL router details
+   * @param params Params from the URL route details
    */
   private getAuthorDetails(params: ParamMap) {
     let authorNameWithHyphen = params.get('authorname');
@@ -51,7 +52,7 @@ export class AuthorComponent implements OnInit {
         authorName += " ";
       }
     }
-    this.router.data
+    this.route.data
       .subscribe((data: { title: string, iconUrl: string, backgroundColor: string }) => {
         this.authorDetailService.getSingleTeamProfileFromName(authorName.toLowerCase(), profile => {
           this.validateAndParseAuthorDetails(profile);
@@ -70,8 +71,9 @@ export class AuthorComponent implements OnInit {
    */
   private validateAndParseAuthorDetails(authorProfile: TeamProfile) {
     if (authorProfile == null) {
+      // navigate to the "page not found" page if author not found
       this.isAuthorValid = false;
-      // TODO: navigate to the "page not found" page
+      this.router.navigate(['page-not-found']);
     }
     else {
       this.isAuthorValid = true;
