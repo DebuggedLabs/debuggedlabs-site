@@ -1,0 +1,12 @@
+<p>Displaying page number: {{ this.pageNumber }}</p>
+<p>Displaying total number of pages: {{ this.totalNumberOfPages }}</p>
+
+<div class="center">
+  <div class="pagination">
+    <a href="{{ this.pageMinUrl }}" *ngIf="this.shouldShowLeftArrow">&laquo;</a>
+    <ng-container *ngFor="let pageNumberUrl of this.pageNumberSequence">
+      <a href="{{ pageNumberUrl.url }}">{{ pageNumberUrl.pageNumber }}</a>
+    </ng-container>
+    <a href="{{ this.pageMaxUrl }}" *ngIf="this.shouldShowRightArrow">&raquo;</a>
+  </div>
+</div>

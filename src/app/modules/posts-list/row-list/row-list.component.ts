@@ -21,7 +21,8 @@ export class RowListComponent extends PostsListBaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.numRows = Math.ceil(this.posts.length / 3);
+    this.numRows = Math.ceil(this.posts.length / this.NUMBER_OF_COLUMNS);
+    console.log("number of rows = " + this.numRows);
   }
 
   /**

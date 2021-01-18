@@ -14,12 +14,17 @@ import { ScrollTopService } from 'src/app/services/scroll-top.service';
 })
 export class TechnologyComponent implements OnInit {
 
+  // constants
+  public NUMBER_OF_POSTS_PER_PAGE: number = 9;
+  public totalNumberOfPages: number = 1;  // default set to 9 for purposes of division
+
   // style-related fields
   public iconUrl: string;
   public backgroundColor: string;
 
   // structural fields
   public isShowingTopPosts: boolean;
+  public pageIndex: number;
   public pageNumber: number;
 
   // data fields
@@ -53,8 +58,16 @@ export class TechnologyComponent implements OnInit {
 
     // parse the query params
     this.route.paramMap.subscribe(params => {
-      // get the page number from the URL
-      this.getPageNumber(params);
+
+      // get total number of posts in technology
+      this.technologyFetchService.getTotalTechnologyPostsCount(totalNumberOfPosts => {
+        let numPages = Math.ceil(totalNumberOfPosts/this.NUMBER_OF_POSTS_PER_PAGE);
+        this.totalNumberOfPages = Math.max(1, numPages);
+        console.log("total number of posts = " + totalNumberOfPosts + ", number of pages = " + numPages);
+
+        // get the page number from the URL
+        this.getPageIndex(params);
+      });
     });
 
     // close hamburger menu
@@ -63,45 +76,47 @@ export class TechnologyComponent implements OnInit {
     // update page detail service
     this.pageDetailService.updateCurrentPageId(PageId.Technology);
 
-    // fetch the podcasts
+    // fetch the technology posts
     this.getTechnologyPosts();
 
     // scroll to the top of the page on reload
     this.scrollTopService.setScrollTop();
 
     // log all our variables
-    console.log("Page number: " + this.pageNumber);
+    console.log("Page number: " + this.pageIndex);
     console.log("Showing featured podcast: ", this.isShowingTopPosts);
   }
 
   /**
-   * Get the page number from the URL params
+   * Get the page index from the URL params
    * @param params ParamMap passed in from the ActivatedRoute
    */
-  getPageNumber(params: ParamMap): void {
-    const pageNumber = params.get('page') == null ? 1 : parseInt(params.get('page'));
-    if (pageNumber > 0) {
-      this.pageNumber = pageNumber - 1;
+  getPageIndex(params: ParamMap): void {
+    const pageIndex = params.get('page') == null ? 1 : parseInt(params.get('page'));
+    if (pageIndex > 0 && pageIndex <= this.totalNumberOfPages) {
+      this.pageIndex = pageIndex - 1;
+      this.pageNumber = this.pageIndex + 1;
     }
     else {
-      this.pageNumber = 0;
+      this.pageIndex = 0;
+      this.pageNumber = this.pageIndex + 1;
       this.router.navigate(['technology']);
     }
 
     // if not on first page of technology, then we're not showing a featured post
-    this.isShowingTopPosts = this.pageNumber > 0 ? false : true;
+    this.isShowingTopPosts = this.pageIndex > 0 ? false : true;
   }
 
   /**
    * Get technology posts
    */
   getTechnologyPosts() {
-    var allPosts = this.technologyFetchService.getTenTechnologyPosts(this.pageNumber);
+    var allPosts = this.technologyFetchService.getBatchOfTechnologyPosts(this.pageIndex, 0, this.NUMBER_OF_POSTS_PER_PAGE);
 
-    // if showing featured posts, the first 4 posts are featured
+    // if showing featured posts, the first 4 posts are featured and only have 2 rows
     if (this.isShowingTopPosts) {
       this.topPosts = allPosts.slice(0, 3);
-      this.rowPosts = allPosts.slice(3);
+      this.rowPosts = allPosts.slice(3, 9);
     }
     else {
       this.rowPosts = allPosts;

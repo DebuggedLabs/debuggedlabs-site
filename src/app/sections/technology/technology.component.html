@@ -16,9 +16,10 @@
 
     <!-- Technology row lists -->
     <app-posts-list [listType]="3" [posts]="this.rowPosts"></app-posts-list>
-
-    <p>Displaying page index: {{ this.pageNumber }}</p>
 </div>
+
+<!-- Page number component -->
+<app-page-number [pageNumber]="this.pageNumber" [totalNumberOfPages]="this.totalNumberOfPages"></app-page-number>
 
 <!-- Footer -->
 <app-footer></app-footer>
