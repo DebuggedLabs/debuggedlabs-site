@@ -4,7 +4,10 @@ import { PageDetailsService } from 'src/app/services/page-details.service';
 export type PageNumberUrl = {
   pageNumber: number;
   url: string;
+<<<<<<< HEAD
   isSelected: boolean;
+=======
+>>>>>>> 7bc0f1b (Adding page number module)
 }
 
 @Component({

@@ -111,7 +111,7 @@ export class TechnologyComponent implements OnInit {
    * Get technology posts
    */
   getTechnologyPosts() {
-    var allPosts = this.technologyFetchService.getBatchOfTechnologyPosts(this.pageIndex, 0, this.NUMBER_OF_POSTS_PER_PAGE, technologyPosts => {
+    this.technologyFetchService.getBatchOfTechnologyPosts(this.pageIndex, 0, this.NUMBER_OF_POSTS_PER_PAGE, technologyPosts => {
 
       // if showing featured posts, the first 3 posts are featured and only have 2 rows
       if (this.isShowingTopPosts) {
