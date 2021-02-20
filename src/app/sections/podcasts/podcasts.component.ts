@@ -15,12 +15,17 @@ import { WidthService } from 'src/app/services/width.service';
 })
 export class PodcastsComponent implements OnInit {
 
+  // constants
+  public NUMBER_OF_POSTS_PER_PAGE: number = 6;
+  public totalNumberOfPages: number = 1;  // default set to 9 for purposes of division
+
   // style-related fields
   public iconUrl: string;
   public backgroundColor: string;
 
   // structural fields
   public isShowingTopPosts: boolean;
+  public pageIndex: number;
   public pageNumber: number;
 
   // data fields
@@ -54,8 +59,16 @@ export class PodcastsComponent implements OnInit {
 
     // parse the query params
     this.route.paramMap.subscribe(params => {
-      // get the page number from the URL
-      this.getPageNumber(params);
+
+      // get total number of podcasts
+      this.podcastFetchService.getTotalPodcastsCount(totalNumberOfPosts => {
+        let numPages = Math.ceil(totalNumberOfPosts / this.NUMBER_OF_POSTS_PER_PAGE);
+        this.totalNumberOfPages = Math.max(1, numPages);
+        console.log("total number of posts = " + totalNumberOfPosts + ", number of pages = " + numPages);
+
+        // get the page number from the URL
+        this.getPageIndex(params);
+      });
     });
 
     // close hamburger menu
@@ -96,16 +109,37 @@ export class PodcastsComponent implements OnInit {
    * Retrieve the podcasts from the fetching service
    */
   getPodcasts() {
-    var allPosts = this.podcastFetchService.getTenPodcastPosts(this.pageNumber);
+    this.podcastFetchService.getBatchOfPodcastsPosts(this.pageIndex, 0, this.NUMBER_OF_POSTS_PER_PAGE, podcastPosts => {
 
-    // if showing featured posts, the first 4 posts are featured
-    if (this.isShowingTopPosts) {
-      this.topPodcasts = allPosts.slice(0, 4);
-      this.rowPosts = allPosts.slice(4);
+      // if showing featured posts, the first 3 posts are featured
+      if (this.isShowingTopPosts) {
+        this.topPodcasts = podcastPosts.slice(0, 3);
+        this.rowPosts = podcastPosts.slice(3, this.NUMBER_OF_POSTS_PER_PAGE);
+      }
+      else {
+        this.rowPosts = podcastPosts;
+      }
+    });
+  }
+
+  /**
+   * Get the page index from the URL params
+   * @param params ParamMap passed in from the ActivatedRoute
+   */
+  getPageIndex(params: ParamMap): void {
+    const pageIndex = params.get('page') == null ? 1 : parseInt(params.get('page'));
+    if (pageIndex > 0 && pageIndex <= this.totalNumberOfPages) {
+      this.pageIndex = pageIndex - 1;
+      this.pageNumber = this.pageIndex + 1;
     }
     else {
-      this.rowPosts = allPosts;
+      this.pageIndex = 0;
+      this.pageNumber = this.pageIndex + 1;
+      this.router.navigate(['podcasts']);
     }
+
+    // if not on first page of podcasts, then we're not showing a featured post
+    this.isShowingTopPosts = this.pageIndex > 0 ? false : true;
   }
 
 }

@@ -10,32 +10,22 @@ export class TechnologyService {
   constructor() { }
 
   /**
-   * Get total number of technology posts
-   */
-  getTotalTechnologyPostsCount(): number {
-    return POSTS.length;
+  * Get total number of technology posts
+  * @param serviceFunction The service function to pass the result to (as a parameter)
+  */
+  getTotalTechnologyPostsCount(serviceFunction: (number) => void) {
+    serviceFunction(POSTS.length);
   }
 
   /**
-   * Get ten podcasts from most recent to least, starting from the setNumber parameter
+   * Get ten technology posts from most recent to least, starting from the setNumber parameter
    * @param setNumber the post number to start from
    * @param offset the offset to begin with
+   * @param numberOfPosts number of posts to get
+   * @param serviceFunction service function to pass the data to
    */
-  getTenTechnologyPosts(setNumber: number, offset: number = 0): Post[] {
-    return POSTS.slice((setNumber * 10) + offset, setNumber * 10 + 10);
-  }
-
-  /**
-   * Get the most recent 10 non-featuured technology posts
-   */
-  getTenRecentNonFeaturedTechnologyPosts(): Post[] {
-    return this.getTenTechnologyPosts(0, 1);
-  }
-
-  /**
-   * Get the featured technology post
-   */
-  getFeaturedTechnologyPost(): Post {
-    return POSTS[0];
+  getBatchOfTechnologyPosts(setNumber: number, offset: number = 0, numberOfPosts: number = 10, serviceFunction: (posts: Post[]) => void) {
+    let frontPageOffset = setNumber == 1 ? 10 : (setNumber * numberOfPosts);
+    serviceFunction(POSTS.slice(frontPageOffset + offset, frontPageOffset + numberOfPosts));
   }
 }

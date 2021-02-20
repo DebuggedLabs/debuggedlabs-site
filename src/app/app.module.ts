@@ -38,6 +38,7 @@ import { PostsListBaseComponent } from './modules/posts-list/posts-list-base/pos
 import { FooterComponent } from './navigation/footer/footer.component';
 import { AuthorComponent } from './sections/author/author.component';
 import { PageNotFoundComponent } from './sections/page-not-found/page-not-found/page-not-found.component';
+import { PageNumberComponent } from './modules/page-number/page-number.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { PageNotFoundComponent } from './sections/page-not-found/page-not-found/
     PostCardBaseComponent,
     FooterComponent,
     AuthorComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PageNumberComponent
   ],
   imports: [
     BrowserModule,

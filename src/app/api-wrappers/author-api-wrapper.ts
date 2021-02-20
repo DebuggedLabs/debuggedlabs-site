@@ -4,11 +4,14 @@ import { TeamEntry } from './backend-types/teamEntry';
 import { HttpClient } from '@angular/common/http';
 import { ApiWrapper } from './api-wrapper-base';
 import { KeyValue } from '@angular/common';
+import { TeamProfiileCacheItem } from '../definitions/types';
+import { ConsoleReporter } from 'jasmine';
 
 export class AuthorApiWrapper extends ApiWrapper {
 
   private authorProfileCache: Map<string, KeyValue<TeamProfile, Date>>;
   private nameToIdMap: Map<string, string>;
+  private TEAM_PROFILE_KEY = "team-profile-key-";
 
   constructor(private httpClient: HttpClient) {
     super(httpClient);
@@ -28,12 +31,13 @@ export class AuthorApiWrapper extends ApiWrapper {
       .subscribe(
         data => {
           let teamEntries: TeamEntry[] = (data as any).data;
-          console.log(teamEntries);
 
           // aggregate the author profiles
           let authorProfiles: TeamProfile[] = [];
           teamEntries.forEach(teamEntry => {
-            authorProfiles.push(this.handleAuthorProfileRequest(teamEntry));
+            let authorProfile: TeamProfile = this.handleAuthorProfileRequest(teamEntry);
+            authorProfiles.push(authorProfile);
+            this.updateTeamProfileCache(teamEntry.id, authorProfile);
           });
           serviceFunction(authorProfiles);
         },
@@ -49,7 +53,9 @@ export class AuthorApiWrapper extends ApiWrapper {
   getSingleAuthorProfile(teamProfileId: string, serviceFunction: (TeamProfile) => void) {
     // returned the cached value if we already retrieved it before
     if (this.isProfileInCache(teamProfileId)) {
-      return this.authorProfileCache.get(teamProfileId).key;
+      var teamProfileObject: TeamProfiileCacheItem = JSON.parse(localStorage.getItem(this.getTeamProfileCacheKey(teamProfileId)));
+      serviceFunction(teamProfileObject.profile);
+      return;
     }
 
     const teamsUri: string = this.teamsUrl + "/" + teamProfileId;
@@ -57,6 +63,7 @@ export class AuthorApiWrapper extends ApiWrapper {
       .subscribe(
         data => {
           let authorProfile: TeamProfile = this.handleAuthorProfileRequest((data as any).data);
+          this.updateTeamProfileCache(teamProfileId, authorProfile);
           serviceFunction(authorProfile);
         },
         error => this.handleError(error, `getSingleAuthorProfile teamProfileId=${teamProfileId}`).bind(this)
@@ -132,8 +139,18 @@ export class AuthorApiWrapper extends ApiWrapper {
 
     console.log(authorProfile);
     this.nameToIdMap.set(authorProfile.name.toLowerCase(), data.id);
-    this.authorProfileCache.set(data.id, keyValuePair);
     return authorProfile;
+  }
+
+  /**
+   * Returns whether the original image is in caceh
+   * @param teamProfileId TeamProfile ID that was queried
+   * @param profile The profile retrieved from the backend
+   */
+  private updateTeamProfileCache(teamProfileId: string, profile: TeamProfile) {
+    let currentDate = new Date();
+    let cacheItem: TeamProfiileCacheItem = { profile: profile, date: currentDate };
+    localStorage.setItem(this.getTeamProfileCacheKey(teamProfileId), JSON.stringify(cacheItem));
   }
 
   /**
@@ -142,12 +159,22 @@ export class AuthorApiWrapper extends ApiWrapper {
    */
   private isProfileInCache(teamProfileId: string): boolean {
     // if cache has the team profile ID, check to see if it was updated within the last 4 hours
-    if (this.authorProfileCache.has(teamProfileId)) {
-      let cacheEntry: KeyValue<TeamProfile, Date> = this.authorProfileCache.get(teamProfileId);
-      let difference: number = (new Date()).getHours() - cacheEntry.value.getHours();
-      return difference >= 4;
+    var cacheObject = localStorage.getItem(this.getTeamProfileCacheKey(teamProfileId));
+    console.log("This is teh cache ob ject: " + cacheObject);
+    if (cacheObject != null) {
+      let entryDate: Date = new Date(JSON.parse(cacheObject).date);
+      let difference: number = (new Date()).getHours() - entryDate.getHours();
+      return difference <= 4;
     }
 
     return false;
+  }
+
+  /**
+   * Get team profile cache key for retrieval, setting
+   * @param teamProfileId thumbnail for which we need to cache key
+   */
+  private getTeamProfileCacheKey(teamProfileId: string) {
+    return this.TEAM_PROFILE_KEY + teamProfileId;
   }
 }

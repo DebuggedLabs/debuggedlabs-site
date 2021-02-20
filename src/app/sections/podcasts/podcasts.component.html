@@ -14,8 +14,12 @@
     <!-- Top podcast posts (if page 1) -->
     <app-posts-list *ngIf="isShowingTopPosts" [listType]="0" [posts]="this.topPodcasts"></app-posts-list>
 
-    <p>Displaying page index: {{ this.pageNumber }}</p>
+    <!-- Podcasts row lists -->
+    <app-posts-list *ngIf="this.rowPosts.length > 0" [listType]="3" [posts]="this.rowPosts"></app-posts-list>
 </div>
+
+<!-- Page number component -->
+<app-page-number [pageNumber]="this.pageNumber" [totalNumberOfPages]="this.totalNumberOfPages"></app-page-number>
 
 <!-- Footer -->
 <app-footer></app-footer>
