@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { ApiWrapper } from './api-wrapper-base';
 import { KeyValue } from '@angular/common';
 import { TeamProfiileCacheItem } from '../definitions/types';
-import { ConsoleReporter } from 'jasmine';
 
 export class AuthorApiWrapper extends ApiWrapper {
 
