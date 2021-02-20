@@ -6,7 +6,7 @@
   display: inline-block;
 }
 
-.pagination a {
+.page-number {
   color: black;
   float: left;
   padding: 8px 16px;
@@ -16,8 +16,26 @@
   margin: 0 4px;
 }
 
-.pagination a.active {
-  background-color: #4CAF50;
-  color: white;
-  border: 1px solid #4CAF50;
+.page-number:hover {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  background-color: #BDBDBD;
+  border: 1px solid #ddd;
+  margin: 0 4px;
 }
+
+.page-number-disabled {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    background-color: #BDBDBD;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+    pointer-events: none;
+}
+

@@ -12,30 +12,19 @@ export class PodcastsService {
   /**
    * Get total number of podcast posts
    */
-  getTotalPodcastsCount(): number {
-    return PODCASTS.length;
+  getTotalPodcastsCount(serviceFunction: (number) => void) {
+    serviceFunction(PODCASTS.length);
   }
 
   /**
-   * Get ten podcasts from most recent to least, starting from the setNumber parameter
-   * @param setNumber the podcast number to start from
+   * Get ten podcasts posts from most recent to least, starting from the setNumber parameter
+   * @param setNumber the post number to start from
    * @param offset the offset to begin with
+   * @param numberOfPosts number of posts to get
+   * @param serviceFunction service function to pass the data to
    */
-  getTenPodcastPosts(setNumber: number, offset: number = 0): PodcastPost[] {
-    return PODCASTS.slice((setNumber * 10) + offset, setNumber * 10 + 10);
-   }
-
-  /**
-   * Get the most recent 10 non-featuured podcast posts
-   */ 
-  getTenRecentNonFeaturedPodcastPosts(): PodcastPost[] {
-    return this.getTenPodcastPosts(0, 1);
+  getBatchOfPodcastsPosts(setNumber: number, offset: number = 0, numberOfPosts: number = 7, serviceFunction: (posts: PodcastPost[]) => void) {
+    let frontPageOffset = setNumber == 1 ? 7 : (setNumber * numberOfPosts);
+    serviceFunction(PODCASTS.slice(frontPageOffset + offset, frontPageOffset + numberOfPosts));
   }
-
-   /**
-    * Get the featured podcast post
-    */
-   getFeaturedPodcast(): PodcastPost {
-      return PODCASTS[0];
-   }
-}  
+}

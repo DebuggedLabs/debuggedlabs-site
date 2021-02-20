@@ -1,12 +1,15 @@
-<p>Displaying page number: {{ this.pageNumber }}</p>
-<p>Displaying total number of pages: {{ this.totalNumberOfPages }}</p>
-
 <div class="center">
   <div class="pagination">
-    <a href="{{ this.pageMinUrl }}" *ngIf="this.shouldShowLeftArrow">&laquo;</a>
+    <a class="page-number" href="{{ this.pageMinUrl }}" *ngIf="this.shouldShowLeftArrow">&laquo;</a>
     <ng-container *ngFor="let pageNumberUrl of this.pageNumberSequence">
-      <a href="{{ pageNumberUrl.url }}">{{ pageNumberUrl.pageNumber }}</a>
+      <a href="{{ pageNumberUrl.url }}"
+        [ngClass]="{
+                'page-number': this.pageNumber != pageNumberUrl.pageNumber,
+                'page-number-disabled': this.pageNumber == pageNumberUrl.pageNumber
+            }">
+            {{ pageNumberUrl.pageNumber }}
+      </a>
     </ng-container>
-    <a href="{{ this.pageMaxUrl }}" *ngIf="this.shouldShowRightArrow">&raquo;</a>
+    <a class="page-number" href="{{ this.pageMaxUrl }}" *ngIf="this.shouldShowRightArrow">&raquo;</a>
   </div>
 </div>

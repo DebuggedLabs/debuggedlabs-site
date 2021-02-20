@@ -111,18 +111,17 @@ export class TechnologyComponent implements OnInit {
    * Get technology posts
    */
   getTechnologyPosts() {
-    var allPosts = this.technologyFetchService.getBatchOfTechnologyPosts(this.pageIndex, 0, this.NUMBER_OF_POSTS_PER_PAGE);
+    var allPosts = this.technologyFetchService.getBatchOfTechnologyPosts(this.pageIndex, 0, this.NUMBER_OF_POSTS_PER_PAGE, technologyPosts => {
 
-    // if showing featured posts, the first 4 posts are featured and only have 2 rows
-    if (this.isShowingTopPosts) {
-      this.topPosts = allPosts.slice(0, 3);
-      this.rowPosts = allPosts.slice(3, 9);
-    }
-    else {
-      this.rowPosts = allPosts;
-    }
-
-    console.log(this.rowPosts);
+      // if showing featured posts, the first 3 posts are featured and only have 2 rows
+      if (this.isShowingTopPosts) {
+        this.topPosts = technologyPosts.slice(0, 3);
+        this.rowPosts = technologyPosts.slice(3, this.NUMBER_OF_POSTS_PER_PAGE);
+      }
+      else {
+        this.rowPosts = technologyPosts;
+      }
+    });
   }
 
 }

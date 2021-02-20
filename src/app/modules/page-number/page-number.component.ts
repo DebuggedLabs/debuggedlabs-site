@@ -4,6 +4,7 @@ import { PageDetailsService } from 'src/app/services/page-details.service';
 export type PageNumberUrl = {
   pageNumber: number;
   url: string;
+  isSelected: boolean;
 }
 
 @Component({
@@ -45,7 +46,8 @@ export class PageNumberComponent implements OnInit {
     if (this.totalNumberOfPages <= 1) {
       sequence.push({
         pageNumber: this.pageNumber,
-        url: this.getPageNumberUrl(this.pageNumber)
+        url: this.getPageNumberUrl(this.pageNumber),
+        isSelected: true
       });
       this.shouldShowLeftArrow = false;
       this.shouldShowRightArrow = false;
@@ -76,7 +78,8 @@ export class PageNumberComponent implements OnInit {
       {
         sequence.push({
           pageNumber: i,
-          url: this.getPageNumberUrl(i)
+          url: this.getPageNumberUrl(i),
+          isSelected: i == this.pageNumber
         });
       }
     }

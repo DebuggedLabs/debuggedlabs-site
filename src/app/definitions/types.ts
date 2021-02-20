@@ -1,3 +1,5 @@
+import { TeamProfile } from "./teamProfile"
+
 /**
  * Navigation menu item information
  */
@@ -6,6 +8,30 @@ export type navigationMenuItemInfo = {
     routerLink: string,
     inactive: boolean,
     selectedColor: string
+}
+
+/**
+ * Cache item to track image info
+ */
+export type ImageUrlCacheItem = {
+  url: string;
+  date: Date
+}
+
+/**
+ * Cache item to track string info
+ */
+export type StringDataCacheItem = {
+  data: string;
+  date: Date
+}
+
+/**
+ * Cache item to track string info
+ */
+export type TeamProfiileCacheItem = {
+  profile: TeamProfile;
+  date: Date
 }
 
 /**

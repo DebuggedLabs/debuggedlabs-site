@@ -1,17 +1,15 @@
 import { KeyValue } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ApiWrapper } from './api-wrapper-base';
+import { ImageUrlCacheItem }  from '../definitions/types';
 
 export class ImageApiWrapper extends ApiWrapper {
 
-  private originalImageCache = new Map<string, KeyValue<string, Date>>();
-  private thumbnailImageCache = new Map<string, KeyValue<string, Date>>();
-
+  private IMAGE_CACHE_KEY: string = "image-cache-key-";
+  private THUMBNAIL_CACHE_KEY: string = "thumbnail-cache-key-";
 
   constructor(private httpClient: HttpClient) {
     super(httpClient);
-    this.originalImageCache = new Map<string, KeyValue<string, Date>>();
-    this.thumbnailImageCache = new Map<string, KeyValue<string, Date>>();
   }
 
   /**
@@ -22,7 +20,9 @@ export class ImageApiWrapper extends ApiWrapper {
   getOriginalImageUrl(imageId: string, serviceFunction: (string) => void) {
     // returned the cached value if we already retrieved it before
     if (this.isOriginalImageInCache(imageId)) {
-      return this.originalImageCache.get(imageId).key;
+      var imageObject: ImageUrlCacheItem = JSON.parse(localStorage.getItem(this.getImageIdCacheKey(imageId)));
+      serviceFunction(imageObject.url);
+      return;
     }
 
     const imageUri: string = this.imageDetailUrl + imageId;
@@ -32,6 +32,7 @@ export class ImageApiWrapper extends ApiWrapper {
           // extract the original image url
           let originalImageUrl = (data as any).data.data.full_url;
           serviceFunction(originalImageUrl);
+          this.updateOriginalImageCache(imageId, originalImageUrl);
         },
         error => this.handleError(error, `getOriginalImageUrl imageId=${imageId}`).bind(this)
       );
@@ -45,7 +46,9 @@ export class ImageApiWrapper extends ApiWrapper {
   getThumbnailImageUrl(imageId: string, serviceFunction: (string) => void) {
     // returned the cached value if we already retrieved it before
     if (this.isThumbnailInCache(imageId)) {
-      return this.thumbnailImageCache.get(imageId).key;
+      var imageObject: ImageUrlCacheItem = JSON.parse(localStorage.getItem(this.getImageIdCacheKey(imageId)));
+      serviceFunction(imageObject.url);
+      return;
     }
 
     const imageUri: string = this.imageDetailUrl + imageId;
@@ -56,21 +59,61 @@ export class ImageApiWrapper extends ApiWrapper {
           let thumbnailData = (data as any).data.data.thumbnails as any[];
           let thumbanailUrl = thumbnailData[0].url;
           serviceFunction(thumbanailUrl);
+          this.updateThumbnailCache(imageId, thumbanailUrl);
         },
         error => this.handleError(error, `getOriginalImageUrl imageId=${imageId}`).bind(this)
       );
   }
 
   /**
+   * Get image cache key for retrieval, setting
+   * @param imageId image ID for which we need to cache key
+   */
+  private getImageIdCacheKey(imageId: string) {
+    return this.IMAGE_CACHE_KEY + imageId;
+  }
+
+  /**
+   * Get image cache key for retrieval, setting
+   * @param thumbnail thumbnail for which we need to cache key
+   */
+  private getThumbnailCacheKey(thumbnail: string) {
+    return this.THUMBNAIL_CACHE_KEY + thumbnail;
+  }
+
+  /**
    * Returns whether the original image is in caceh
-   * @param teamProfileId The image Id being queried
+   * @param imageId Image ID that was queried
+   * @param originalImageUrl The image url retrieved from the backend
+   */
+  private updateOriginalImageCache(imageId: string, originalImageUrl: string) {
+    let currentDate = new Date();
+    let cacheItem: ImageUrlCacheItem = { url: originalImageUrl, date: currentDate };
+    localStorage.setItem(this.getImageIdCacheKey(imageId), JSON.stringify(cacheItem));
+  }
+
+  /**
+   * Returns whether the original image is in caceh
+   * @param imageId Image ID that was queried
+   * @param thumbnailUrl The thumbnail url retrieved from the backend
+   */
+  private updateThumbnailCache(thumbnail: string, thumbnailUrl: string) {
+    let currentDate = new Date();
+    let cacheItem: ImageUrlCacheItem = { url: thumbnailUrl, date: currentDate };
+    localStorage.setItem(this.getThumbnailCacheKey(thumbnail), JSON.stringify(cacheItem));
+  }
+
+  /**
+   * Returns whether the original image is in caceh
+   * @param imageId The image Id being queried
    */
   private isOriginalImageInCache(imageId: string): boolean {
-    // if cache has the team profile ID, check to see if it was updated within the last 1 hour
-    if (this.originalImageCache.has(imageId)) {
-      let cacheEntry: KeyValue<string, Date> = this.originalImageCache.get(imageId);
-      let difference: number = (new Date()).getHours() - cacheEntry.value.getHours();
-      return difference >= 1;
+    // if cache has the image ID, check to see if it was updated within the last 1 hour
+    var cacheObject = localStorage.getItem(this.getImageIdCacheKey(imageId));
+    if (cacheObject != null) {
+      let entryDate: Date = new Date(JSON.parse(cacheObject).date);
+      let difference: number = (new Date()).getHours() - entryDate.getHours();
+      return difference <= 1;
     }
 
     return false;
@@ -78,14 +121,15 @@ export class ImageApiWrapper extends ApiWrapper {
 
   /**
   * Returns whether the thumbnail image is in cache
-  * @param teamProfileId The image Id being queried
+  * @param thumbnail The image Id being queried
   */
-  private isThumbnailInCache(imageId: string): boolean {
-    // if cache has the team profile ID, check to see if it was updated within the last 1 hour
-    if (this.thumbnailImageCache.has(imageId)) {
-      let cacheEntry: KeyValue<string, Date> = this.thumbnailImageCache.get(imageId);
-      let difference: number = (new Date()).getHours() - cacheEntry.value.getHours();
-      return difference >= 1;
+  private isThumbnailInCache(thumbnail: string): boolean {
+    // if cache has the thumbnail, check to see if it was updated within the last 1 hour
+    var cacheObject = localStorage.getItem(this.getThumbnailCacheKey(thumbnail));
+    if (cacheObject != null) {
+      let entryDate: Date = new Date(JSON.parse(cacheObject).date);
+      let difference: number = (new Date()).getHours() - entryDate.getHours();
+      return difference <= 1;
     }
 
     return false;
