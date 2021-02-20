@@ -9,7 +9,6 @@ export class TechnologyService {
 
   constructor() { }
 
-
   /**
   * Get total number of technology posts
   * @param serviceFunction The service function to pass the result to (as a parameter)
