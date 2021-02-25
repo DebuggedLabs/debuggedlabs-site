@@ -159,7 +159,6 @@ export class AuthorApiWrapper extends ApiWrapper {
   private isProfileInCache(teamProfileId: string): boolean {
     // if cache has the team profile ID, check to see if it was updated within the last 4 hours
     var cacheObject = localStorage.getItem(this.getTeamProfileCacheKey(teamProfileId));
-    console.log("This is teh cache ob ject: " + cacheObject);
     if (cacheObject != null) {
       let entryDate: Date = new Date(JSON.parse(cacheObject).date);
       let difference: number = (new Date()).getHours() - entryDate.getHours();

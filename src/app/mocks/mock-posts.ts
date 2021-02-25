@@ -7,17 +7,18 @@ const before = new Date();
 
 var data = [
     {
-        id: "string1",
+        id: "1",
         title: "What does the fox really say?",
         authors: TeamProfileData,
         publishedDate: today,
         topic: "Technology",
         teaser: "It's time to finally unveil the secret behind the mysterious mammal",
+        thumbanailUrl: "https://itech104695.files.wordpress.com/2016/03/cool-images-for-backgrounds-1600-x-1174.jpg",
         featuredArtURL: "https://itech104695.files.wordpress.com/2016/03/cool-images-for-backgrounds-1600-x-1174.jpg",
         featuredArtAlt: "A fox",
         additionalArtURLs: [],
         additionalArtAlts: [],
-        content: "/posts/string1"
+        content: "/posts/1"
     },
     {
         id: "string2",

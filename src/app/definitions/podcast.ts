@@ -7,8 +7,10 @@ export class PodcastPost implements Post {
     title: string;
     authors: TeamProfile[];
     publishedDate: Date;
+    modifiedDate?: Date;
     topic: string;
     teaser: string;
+    thumbnailArtUrl?: string;
     featuredArtURL: string;
     featuredArtAlt: string;
     additionalArtURLs: string[];
@@ -17,14 +19,17 @@ export class PodcastPost implements Post {
 
     // text-specific fields
     content: string;  // to store the link to the podcast
+
     /**
      *
      * @param id post id
      * @param title title of the post
      * @param authors bylines for the piece
      * @param publishedDate published date of the post
+     * @param modifiedDate modified date of the post
      * @param teaser teaser text to display on posts-lists element
      * @param topic topic of the post
+     * @param thumbnailArtUrl URL of the thumbnail art to display
      * @param featuredArtURL HTTPS URL of the art to display
      * @param featuredArtAlt alt for the featured art
      * @param additionalArtURLs array to store any other art URLS to display
@@ -45,13 +50,17 @@ export class PodcastPost implements Post {
         additionalArtAlts: string[],
         content: string,
         socialMediaLinks?: { [platform: string]: string; },
+        modifiedDate?: Date,
+        thumbnailArtUrl?: string
     ) {
         this.id = id;
         this.title = title;
         this.authors = authors;
         this.publishedDate = publishedDate;
+        this.modifiedDate = modifiedDate;
         this.topic = topic;
         this.teaser = teaser;
+        this.thumbnailArtUrl = thumbnailArtUrl;
         this.featuredArtURL = featuredArtURL;
         this.featuredArtAlt = featuredArtAlt;
         this.additionalArtURLs = additionalArtURLs

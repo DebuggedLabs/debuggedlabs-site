@@ -5,6 +5,7 @@ import { Routes } from '@angular/router';
 import { PodcastsComponent } from '../sections/podcasts/podcasts.component';
 import { AuthorComponent } from '../sections/author/author.component';
 import { PageNotFoundComponent } from '../sections/page-not-found/page-not-found/page-not-found.component';
+import { PostPageComponent } from '../modules/post-page/post-page/post-page.component';
 
 export const RouterConfig: Routes = [
 
@@ -89,6 +90,12 @@ export const RouterConfig: Routes = [
         iconUrl: 'assets/icons/author_icon.png',
         backgroundColor: '#ff6666'
       }
+    },
+
+    // to handle post pages
+    {
+      path: 'posts/:postid',
+      component: PostPageComponent,
     },
 
     // to handle edge cases
