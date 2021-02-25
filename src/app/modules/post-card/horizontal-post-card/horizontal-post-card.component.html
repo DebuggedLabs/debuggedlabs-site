@@ -5,7 +5,7 @@
     </p>
 
     <!-- Featured image -->
-    <a href="{{ post.content }}">
+    <a href="{{ this.getPostLink() }}">
       <img [src]="post.featuredArtURL" [alt]="post.featuredArtAlt" [ngClass]="getImageClass()">
     </a>
   </div>
@@ -13,13 +13,13 @@
   <div [ngClass]="getGroupClass(2)">
     <!-- Card title -->
     <h2 class="card-title-h2">
-      <a href="{{ post.content }}" class="card-title">{{ post.title }}</a>
+      <a href="{{ this.getPostLink()}}" class="card-title">{{ post.title }}</a>
     </h2>
 
 
     <!-- Card teaser -->
     <p class="card-teaser-p">
-      <a href="{{ post.content }}" class="card-teaser">{{ post.teaser }}</a>
+      <a href="{{ this.getPostLink() }}" class="card-teaser">{{ post.teaser }}</a>
     </p>
 
     <!-- Byline -->

@@ -24,8 +24,6 @@ export class PostRetrievalService {
    */
   getSinglePost(postId: string, callback: (Post) => void) {
     this.postApiWrapper.getSinglePost(postId, post => {
-      console.log("Here is the post: ");
-      console.log(post);
       callback(post);
     });
   }

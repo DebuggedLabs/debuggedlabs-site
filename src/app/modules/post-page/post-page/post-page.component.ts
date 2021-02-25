@@ -14,7 +14,7 @@ export class PostPageComponent implements OnInit {
 
   @Input() public postInput?: Post;
 
-  public post: Post;
+  public post: Post = null;
   public isPostValid: boolean = false;
 
   constructor(private titleService: Title,

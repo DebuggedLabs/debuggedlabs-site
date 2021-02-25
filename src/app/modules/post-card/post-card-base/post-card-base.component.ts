@@ -46,4 +46,11 @@ export class PostCardBaseComponent implements OnInit {
   getFullWindowViewWidth(): number {
     return 100;
   }
+
+  /**
+   * Get link to the post
+   */
+  getPostLink(): string {
+    return "/posts/" + this.post.id;
+  }
 }

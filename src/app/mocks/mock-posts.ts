@@ -18,20 +18,20 @@ var data = [
         featuredArtAlt: "A fox",
         additionalArtURLs: [],
         additionalArtAlts: [],
-        content: "/posts/1"
+        content: "I like trains"
     },
     {
-        id: "string2",
+        id: "2",
         title: "Say goodbye to trains",
         authors: TeamProfileData,
         publishedDate: yesterday,
         topic: "Ethics",
         teaser: "Coronavirus has all but ensured these beautiful contraptions will go away.",
-      featuredArtURL: "https://hips.hearstapps.com/pop.h-cdn.co/assets/cm/15/05/54ca9c8cbd1bb_-_monstertrain-470-0210.jpg?fill=320:234&resize=480:*",
+        featuredArtURL: "https://hips.hearstapps.com/pop.h-cdn.co/assets/cm/15/05/54ca9c8cbd1bb_-_monstertrain-470-0210.jpg?fill=320:234&resize=480:*",
         featuredArtAlt: "I like trains a lot",
         additionalArtURLs: [],
         additionalArtAlts: [],
-        content: "/posts/string2"
+        content: "He likes trains"
     },
 
     {

@@ -18,4 +18,5 @@ export interface PostEntry {
   modified_on: Date;
   feature_image: string;
   featured_alt: string;
+  is_podcast: string;
 }

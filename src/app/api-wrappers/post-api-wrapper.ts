@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Post } from '../definitions/interfaces';
+import { PodcastPost } from '../definitions/podcast';
+import { TextPost } from '../definitions/textpost';
 import { AuthorDetailService } from '../services/author-detail.service';
 import { ImageDetailService } from '../services/image-detail.service';
 import { ApiWrapper } from './api-wrapper-base';
@@ -43,41 +45,66 @@ export class PostApiWrapper extends ApiWrapper {
       let teamProfileIds: string[] = [];
 
       // return null if primary author is not set (non-zero)
-      if (data.primary_author == "0" || data.primary_author == null) {
+      if (this.getTeamProfileId(data.primary_author) == null) {
         return null;
       }
       else {
         teamProfileIds.push(this.getTeamProfileId(data.primary_author));
-        if (data.secondary_author != "0" && data.secondary_author != null) {
+        if (this.getTeamProfileId(data.secondary_author) != null) {
           teamProfileIds.push(this.getTeamProfileId(data.secondary_author));
         }
-        if (data.tertiary_author != "0" && data.tertiary_author != null) {
+        if (this.getTeamProfileId(data.tertiary_author) != null) {
           teamProfileIds.push(this.getTeamProfileId(data.tertiary_author));
         }
-        if (data.quarternary_author != "0" && data.quarternary_author != null) {
+        if (this.getTeamProfileId(data.quarternary_author) != null) {
           teamProfileIds.push(this.getTeamProfileId(data.quarternary_author));
         }
       }
+
+      // determine if podcast post or text post
+      let isPodcastPost: boolean = this.getIsPodcastBoolean(data.is_podcast);
+
       this.imageDetailService.getFullImage(data.feature_image, imageUrl => {
         this.imageDetailService.getThumbnailImage(data.feature_image, thumbnailUrl => {
           this.authorDetailService.getMultipleTeamProfiles(teamProfileIds, profiles => {
-            let post: Post =
-            {
-              id: data.id,
-              title: data.title,
-              authors: profiles,
-              publishedDate: new Date(data.created_on),
-              modifiedDate: new Date(data.modified_on),
-              topic: data.topic,
-              teaser: data.teaser,
-              thumbnailArtUrl: thumbnailUrl,
-              featuredArtURL: imageUrl,
-              featuredArtAlt: data.featured_alt,
-              additionalArtURLs: [], // TODO, figure this out
-              additionalArtAlts: [], // TODO, figure this out
-              content: data.content,
-              socialMediaLinks: null // TODO, figure this out
-            };
+            let post: Post = null;
+            // for podcast posts
+            if (isPodcastPost) {
+              post = new PodcastPost(
+                data.id,
+                data.title,
+                profiles,
+                new Date(data.created_on), // published date
+                data.topic,
+                data.teaser,
+                imageUrl,
+                data.featured_alt,
+                [], // TODO additional art url, figure this out
+                [], // TODO additional art alt, figure this out
+                data.content,
+                null, // TODO social media links, figure this out
+                new Date(data.modified_on),
+                thumbnailUrl,
+              );
+            }
+            else {
+              post = new TextPost(
+                data.id,
+                data.title,
+                profiles,
+                new Date(data.created_on), // published date
+                data.topic,
+                data.teaser,
+                imageUrl,
+                data.featured_alt,
+                [], // TODO additional art url, figure this out
+                [], // TODO additional art alt, figure this out
+                data.content,
+                null, // TODO social media links, figure this out
+                new Date(data.modified_on),
+                thumbnailUrl,
+              );
+            }
             callback(post);
           })
         })
@@ -91,12 +118,24 @@ export class PostApiWrapper extends ApiWrapper {
    * @param authorString author ID string returned from backend CMS
    */
   private getTeamProfileId(authorString: string): string {
-    if (authorString == null || authorString == undefined) {
+    if (authorString == null || authorString == undefined || authorString == "0" || authorString == "1") {
       return null;
     }
 
     let authorIdNumber: number = +authorString;
     authorIdNumber--;
-    return "" + authorIdNumber;
+    return authorIdNumber > 0 ? "" + authorIdNumber : null;
+  }
+
+  /**
+   * Function determining if post is a podcast
+   * @param isPodcastString string indicating if podcast string
+   */
+  private getIsPodcastBoolean(isPodcastString: string): boolean {
+    if (isPodcastString == null || isPodcastString == undefined) {
+      return false;
+    }
+    let b = JSON.parse(isPodcastString);
+    return b;
   }
 }
