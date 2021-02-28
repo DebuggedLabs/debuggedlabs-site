@@ -13,6 +13,7 @@ export class TextPostPageComponent extends PostPageBaseComponent implements OnIn
   }
 
   ngOnInit() {
+    console.log(this.postData);
   }
 
 }

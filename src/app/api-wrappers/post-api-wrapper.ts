@@ -88,6 +88,7 @@ export class PostApiWrapper extends ApiWrapper {
               );
             }
             else {
+              // for text posts
               post = new TextPost(
                 data.id,
                 data.title,
