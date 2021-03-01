@@ -14,7 +14,7 @@ var data = [
         topic: "Technology",
         teaser: "It's time to finally unveil the secret behind the mysterious mammal",
         thumbanailUrl: "https://itech104695.files.wordpress.com/2016/03/cool-images-for-backgrounds-1600-x-1174.jpg",
-        featuredArtURL: "https://itech104695.files.wordpress.com/2016/03/cool-images-for-backgrounds-1600-x-1174.jpg",
+        featuredArtURL: "https://www.mammal.org.uk/wp-content/uploads/2019/02/Red-fox-Katie-Nethercoat.jpg",
         featuredArtAlt: "A fox",
         additionalArtURLs: [],
         additionalArtAlts: [],

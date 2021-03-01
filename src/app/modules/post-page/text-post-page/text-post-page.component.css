@@ -1,0 +1,43 @@
+.header-container {
+  background-color: black;
+  padding-top: 15px;
+  padding-bottom: 50px;
+}
+
+.image-container {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.featured-art{
+  width: auto;
+  height: 80vh;
+  overflow: hidden;
+  text-align: center;
+}
+
+.post-title-container {
+  margin-top: -35px;
+  margin-left: 40px;
+  width: 60vw;
+  bottom: 0px;
+  left: 30px;
+  background-color: #000971;
+  padding: 20px;
+  transform: skewX(-10deg);
+}
+
+.post-title {
+  padding-left: 5px;
+  padding-bottom: 10px;
+  text-align: left;
+  transform: skewX(10deg);
+  color: white
+}
+
+.post-teaser {
+  padding-left: 15px;
+  padding-right: 100px;
+  text-align: left;
+  color: #A4A4A4
+}

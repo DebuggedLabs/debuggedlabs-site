@@ -1,8 +1,20 @@
-<app-navigation-bar [show]="true"></app-navigation-bar>
+<app-navigation-bar [show]="false">
+  <!-- Padding under navbar -->
+  <div class="page-content-spacing"></div>
+</app-navigation-bar>
 
-<!-- Padding under navbar -->
-<div class="page-content-spacing"></div>
-
-<div>
-  <h1>{{ postData.title }}</h1>
+<!-- Div showing featured art and headline -->
+<!-- Featured art -->
+<div class="header-container">
+  <div class="image-container ">
+    <img src="{{ postData.featuredArtURL }}" class="featured-art" alt="{{ postData.featuredArtAlt }}">
+  </div>
+  <div class="post-title-container">
+    <h1 class="post-title">{{ postData.title }}</h1>
+    <h3 class="post-teaser">{{ postData.teaser }}</h3>
+  </div>
 </div>
+
+
+<!-- Footer -->
+<app-footer></app-footer>
