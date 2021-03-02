@@ -6,6 +6,7 @@ export enum PageId {
   Technology = "technology",
   About = "about",
   Author = "author",
+  Post = "post",
   PageNotFound = "page-not-found"
 }
 

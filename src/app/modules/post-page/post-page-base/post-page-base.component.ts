@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Post } from 'src/app/definitions/interfaces';
 import { Platforms } from 'src/app/definitions/types';
+import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
 import { WidthService } from 'src/app/services/width.service';
 
 @Component({
@@ -12,7 +13,11 @@ export class PostPageBaseComponent implements OnInit {
 
   @Input() postData: Post;
 
-  constructor(private myWidthService: WidthService) {  }
+  constructor(private myWidthService: WidthService,
+              private pageDetailService: PageDetailsService)
+  {
+    this.pageDetailService.updateCurrentPageId(PageId.Post);
+  }
 
   ngOnInit() {
   }
