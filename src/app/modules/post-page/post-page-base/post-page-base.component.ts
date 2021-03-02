@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Post } from 'src/app/definitions/interfaces';
 import { Platforms } from 'src/app/definitions/types';
+import { WidthService } from 'src/app/services/width.service';
 
 @Component({
   selector: 'app-post-page-base',
@@ -11,7 +12,7 @@ export class PostPageBaseComponent implements OnInit {
 
   @Input() postData: Post;
 
-  constructor() { }
+  constructor(private myWidthService: WidthService) {  }
 
   ngOnInit() {
   }
@@ -85,6 +86,20 @@ export class PostPageBaseComponent implements OnInit {
     return null;
   }
 
+  /**
+  * Determine image class based on mobile view status
+  */
+  getImageClass(): string {
+    if (this.isMobile()) {
+      return "featured-art-mobile";
+    }
+    return "featured-art-full";
+  }
 
-
+  /**
+   * Return whether is mobile view
+   */
+  isMobile(): boolean {
+    return this.myWidthService.isMobileOrNarrowView();
+  }
 }

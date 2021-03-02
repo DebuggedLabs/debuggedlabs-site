@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WidthService } from 'src/app/services/width.service';
 import { PostPageBaseComponent } from '../post-page-base/post-page-base.component';
 
 @Component({
@@ -8,8 +9,8 @@ import { PostPageBaseComponent } from '../post-page-base/post-page-base.componen
 })
 export class TextPostPageComponent extends PostPageBaseComponent implements OnInit {
 
-  constructor() {
-    super()
+  constructor(private widthService: WidthService) {
+    super(widthService);
   }
 
   ngOnInit() {

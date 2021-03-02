@@ -7,11 +7,11 @@
 <!-- Featured art -->
 <div class="header-container">
   <div class="image-container ">
-    <img src="{{ postData.featuredArtURL }}" class="featured-art" alt="{{ postData.featuredArtAlt }}">
+    <img src="{{ postData.featuredArtURL }}" [ngClass]="getImageClass()" alt="{{ postData.featuredArtAlt }}">
   </div>
   <div class="post-title-container">
     <h1 class="post-title">{{ postData.title }}</h1>
-    <h3 class="post-teaser">{{ postData.teaser }}</h3>
+    <h3 *ngIf="!isMobile()" class="post-teaser">{{ postData.teaser }}</h3>
   </div>
 </div>
 
