@@ -19,8 +19,7 @@ export class PostPageBaseComponent implements OnInit {
     this.pageDetailService.updateCurrentPageId(PageId.Post);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   /**
    * Return content of post

@@ -25,7 +25,7 @@
     <!-- Byline -->
     <p [ngClass]="getCardBylineSectionClass()">By
       <ng-container *ngFor="let author of post.authors">
-        <a class="card-byline" href="{{ author.profilePageUrl }}">{{ author.name | uppercase }}</a>
+        <a class="card-byline" href="{{ author.profilePageUrl }}">{{ author.name }}</a>
       </ng-container>
     </p>
   </div>
