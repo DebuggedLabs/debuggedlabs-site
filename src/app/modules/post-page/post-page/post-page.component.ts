@@ -44,7 +44,8 @@ export class PostPageComponent implements OnInit {
       this.postRetrievalService.getSinglePost(this.postId, postFromBackend => {
         if (postFromBackend != null) {
           this.post = postFromBackend;
-          this.titleService.setTitle(this.post.title);
+          let title = this.post.title + " | Debugged Labs"
+          this.titleService.setTitle(title);
         }
         this.validateAndParsePostDetails(this.post);
       });
