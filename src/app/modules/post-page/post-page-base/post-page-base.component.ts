@@ -49,7 +49,7 @@ export class PostPageBaseComponent implements OnInit {
    * Returns whether the post was updated
    */
   wasPostUpdated(): boolean {
-    return this.postData.modifiedDate != null && this.postData.modifiedDate != undefined;
+    return this.postData.shouldShowModifiedDate && this.postData.modifiedDate != null && this.postData.modifiedDate != undefined;
   }
 
   /**

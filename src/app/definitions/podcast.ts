@@ -16,6 +16,7 @@ export class PodcastPost implements Post {
     additionalArtURLs: string[];
     additionalArtAlts: string[];
     socialMediaLinks?: { [platform: string]: string; };
+    shouldShowModifiedDate: boolean = false;
 
     // text-specific fields
     content: string;  // to store the link to the podcast
@@ -36,6 +37,7 @@ export class PodcastPost implements Post {
      * @param additionalArtAlts alts for the additional art
      * @param content HTML content of post
      * @param socialMediaLinks array to store social media links if needed
+     * @param shouldShowModifiedDate boolean indicating if should show modified date
      */
     constructor(
         id: string,
@@ -51,7 +53,8 @@ export class PodcastPost implements Post {
         content: string,
         socialMediaLinks?: { [platform: string]: string; },
         modifiedDate?: Date,
-        thumbnailArtUrl?: string
+        thumbnailArtUrl?: string,
+        shouldShowModifiedDate?: boolean
     ) {
         this.id = id;
         this.title = title;
@@ -67,5 +70,6 @@ export class PodcastPost implements Post {
         this.additionalArtAlts = additionalArtAlts;
         this.content = content;
         this.socialMediaLinks = socialMediaLinks;
+        this.shouldShowModifiedDate = shouldShowModifiedDate != null && shouldShowModifiedDate != undefined ? shouldShowModifiedDate : false;
     }
 }

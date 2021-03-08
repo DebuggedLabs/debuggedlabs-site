@@ -16,4 +16,5 @@ export interface Post {
     additionalArtAlts: string[];                        // alts for each of the additional arts
     content: string;                                    // the content to display or play
     socialMediaLinks?: { [platform: string]: string }   // for linking social media links
+    shouldShowModifiedDate: boolean;                    // boolean indicating if should show modified date in the post
 }

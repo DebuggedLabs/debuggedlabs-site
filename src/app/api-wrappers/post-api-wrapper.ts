@@ -62,7 +62,7 @@ export class PostApiWrapper extends ApiWrapper {
       }
 
       // determine if podcast post or text post
-      let isPodcastPost: boolean = this.getIsPodcastBoolean(data.is_podcast);
+      let isPodcastPost: boolean = this.convertStringToBoolean(data.is_podcast);
 
       this.imageDetailService.getFullImage(data.feature_image, imageUrl => {
         this.imageDetailService.getThumbnailImage(data.feature_image, thumbnailUrl => {
@@ -85,6 +85,7 @@ export class PostApiWrapper extends ApiWrapper {
                 null, // TODO social media links, figure this out
                 new Date(data.modified_on),
                 thumbnailUrl,
+                this.convertStringToBoolean(data.show_modified_date)
               );
             }
             else {
@@ -104,6 +105,7 @@ export class PostApiWrapper extends ApiWrapper {
                 null, // TODO social media links, figure this out
                 new Date(data.modified_on),
                 thumbnailUrl,
+                this.convertStringToBoolean(data.show_modified_date)
               );
             }
             callback(post);
@@ -129,14 +131,14 @@ export class PostApiWrapper extends ApiWrapper {
   }
 
   /**
-   * Function determining if post is a podcast
-   * @param isPodcastString string indicating if podcast string
+   * Function parsing string to boolean
+   * @param str string potentially containing boolean value
    */
-  private getIsPodcastBoolean(isPodcastString: string): boolean {
-    if (isPodcastString == null || isPodcastString == undefined) {
+  private convertStringToBoolean(str: string): boolean {
+    if (str == null || str == undefined) {
       return false;
     }
-    let b = JSON.parse(isPodcastString);
+    let b = JSON.parse(str);
     return b;
   }
 }

@@ -32,11 +32,11 @@
     <p>{{ this.getPublishedDateString() }}</p>
   </div>
 
-  <br>
-
   <!-- Updated date (with an updated date) -->
   <div *ngIf="this.wasPostUpdated()" class="date-string">
+    <br>
     <p><i>This post was last updated {{ this.getUpdatedDateString() }}.</i></p>
+    <br>
   </div>
 </div>
 
