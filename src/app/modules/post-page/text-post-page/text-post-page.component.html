@@ -24,10 +24,21 @@
         <img [src]="getAuthorImageUrl(author)" alt="Profile photo of {{ author.name }}" class="author-byline-image">{{ author.name }}
       </a>
     </div>
-    <a class="author-byline" href="{{ author.profilePageUrl }}">{{ author.name }}</a>
+    <a [ngClass]="getAuthorBylineTextClass()" href="{{ author.profilePageUrl }}">{{ author.name }}</a>
   </ng-container>
-</div>
 
+  <!-- Published date (with no updated date) -->
+  <div class="date-string">
+    <p>{{ this.getPublishedDateString() }}</p>
+  </div>
+
+  <br>
+
+  <!-- Updated date (with an updated date) -->
+  <div *ngIf="this.wasPostUpdated()" class="date-string">
+    <p><i>This post was last updated {{ this.getUpdatedDateString() }}.</i></p>
+  </div>
+</div>
 
 <!-- Footer -->
 <app-footer></app-footer>

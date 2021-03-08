@@ -12,9 +12,8 @@ import { PostPageBaseComponent } from '../post-page-base/post-page-base.componen
 export class PodcastPostPageComponent extends PostPageBaseComponent implements OnInit {
 
   constructor(private widthService: WidthService,
-              private myPageDetailService: PageDetailsService,
-              private myImageDetailService: ImageDetailService) {
-    super(widthService, myPageDetailService, myImageDetailService);
+              private myPageDetailService: PageDetailsService) {
+    super(widthService, myPageDetailService);
   }
 
   ngOnInit() {

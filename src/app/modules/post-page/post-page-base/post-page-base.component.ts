@@ -13,6 +13,14 @@ export class PostPageBaseComponent implements OnInit {
 
   @Input() postData: Post;
 
+  private dateFormat: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit'
+  };
+
   constructor(private myWidthService: WidthService,
               private pageDetailService: PageDetailsService)
   {
@@ -33,7 +41,25 @@ export class PostPageBaseComponent implements OnInit {
    */
   getPublishedDateString(): string {
     let date = this.postData.publishedDate;
-    return date.toLocaleString();
+    return date.toLocaleDateString('default', this.dateFormat);
+  }
+
+  /**
+   *
+   * Returns whether the post was updated
+   */
+  wasPostUpdated(): boolean {
+    return this.postData.modifiedDate != null && this.postData.modifiedDate != undefined;
+  }
+
+  /**
+   * Get updated date of post
+   */
+  getUpdatedDateString(): string {
+    if (this.wasPostUpdated()) {
+      return this.postData.modifiedDate.toLocaleString('default', this.dateFormat);
+    }
+    return null;
   }
 
   /**

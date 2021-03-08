@@ -23,6 +23,7 @@ export class TextPostPageComponent extends PostPageBaseComponent implements OnIn
 
   ngOnInit() {
     console.log(this.postData);
+    console.log(this.wasPostUpdated());
 
     // cache the author profile URLs first
     this.postData.authors.forEach(author => {
@@ -54,6 +55,16 @@ export class TextPostPageComponent extends PostPageBaseComponent implements OnIn
       return 'image-cropper-mobile';
     }
     return 'image-cropper';
+  }
+
+  /**
+   * Get author byline text class for mobile/desktop
+   */
+  getAuthorBylineTextClass(): string {
+    if (this.widthService.isMobileOrNarrowView()) {
+      return 'author-byline-mobile';
+    }
+    return 'author-byline';
   }
 
 }

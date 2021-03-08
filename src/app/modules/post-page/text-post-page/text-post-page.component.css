@@ -78,6 +78,7 @@
   border-radius: 50%;
   display: inline-block;
   vertical-align: middle;
+  margin-left: 40px;
 }
 
 .image-cropper-mobile {
@@ -85,6 +86,7 @@
   height: 100px;
   overflow: hidden;
   border-radius: 50%;
+  margin-left: 40px;
 }
 
 .author-byline-image {
@@ -102,6 +104,22 @@
   color: gray;
 }
 
-.author-byline-published-date {
+.author-byline-mobile {
+  padding-right: 3%;
+  padding-left: 1%;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: gray;
+  margin-left: 40px;
+}
 
+.date-string {
+  margin-left: 40px;
+  margin-top: 20px;
+  font-weight: 200;
+  font-family: 'Cairo', sans-serif;
+  font-size: 14px;
+  color: gray;
+  margin-left: 40px;
 }
