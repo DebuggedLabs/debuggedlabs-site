@@ -4,6 +4,7 @@ import { ImageDetailService } from 'src/app/services/image-detail.service';
 import { PageDetailsService } from 'src/app/services/page-details.service';
 import { WidthService } from 'src/app/services/width.service';
 import { PostPageBaseComponent } from '../post-page-base/post-page-base.component';
+import { Parser, HtmlRenderer } from 'commonmark';
 
 @Component({
   selector: 'app-text-post-page',
