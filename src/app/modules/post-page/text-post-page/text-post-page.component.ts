@@ -68,4 +68,16 @@ export class TextPostPageComponent extends PostPageBaseComponent implements OnIn
     return 'author-byline';
   }
 
+  /**
+   *
+   */
+  getPostContent(): string {
+    var reader = new Parser();
+    var writer = new HtmlRenderer();
+
+    // parse the post content
+    var parsedBody = reader.parse(this.postData.content);
+    return writer.render(parsedBody);
+  }
+
 }
