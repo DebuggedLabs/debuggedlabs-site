@@ -18,6 +18,7 @@ export class PostPageComponent implements OnInit {
   public post: Post = null;
   public isPostValid: boolean = false;
   private postId: string = "";
+
   private fetchCount: number = 0;
 
   constructor(private titleService: Title,
