@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Post } from '../definitions/interfaces';
 import { PodcastPost } from '../definitions/podcast';
 import { TextPost } from '../definitions/textpost';
@@ -30,8 +30,16 @@ export class PostApiWrapper extends ApiWrapper {
             serviceFunction(post);
           });
         },
-        error => {
-          serviceFunction(null);
+        (err: HttpErrorResponse) => {
+          console.log(err);
+          // to mark missing posts
+          if (err.status/100 >= 4 && err.status/100 < 5) {
+            console.log("Couldn't find post");
+            serviceFunction(undefined);
+          }
+          else {
+            serviceFunction(null);
+          }
         });
   }
 
