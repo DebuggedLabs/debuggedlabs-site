@@ -123,3 +123,16 @@
   color: gray;
   margin-left: 40px;
 }
+
+.post-content {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 20px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 18px;
+  color: black;
+}
