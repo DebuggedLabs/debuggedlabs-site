@@ -1,6 +1,3 @@
-import { DeprecatedDatePipe } from "@angular/common";
-import { TeamProfile } from "src/app/definitions/teamProfile";
-
 // for handdling post entires
 export interface PostEntry {
   id: string;

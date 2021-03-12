@@ -87,9 +87,7 @@ import { PodcastPostPageComponent } from './modules/post-page/podcast-post-page/
     AppRoutingModule,
     FormsModule,
     LoadingBarRouterModule,
-    RouterModule.forRoot(
-      RouterConfig
-    )
+    RouterModule.forRoot(RouterConfig, { relativeLinkResolution: 'legacy' })
   ],
   providers: [],
   bootstrap: [AppComponent]

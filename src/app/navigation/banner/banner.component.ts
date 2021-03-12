@@ -10,7 +10,7 @@ import { PageDetailsService, PageId } from 'src/app/services/page-details.servic
 })
 export class BannerComponent implements OnInit {
 
-  @ViewChild('bannerId', { read: ElementRef, static: false }) elementView: ElementRef;
+  @ViewChild('bannerId', { read: ElementRef }) elementView: ElementRef;
 
   /**
    * Constructor for BannerComponent
