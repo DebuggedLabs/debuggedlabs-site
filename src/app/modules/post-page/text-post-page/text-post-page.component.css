@@ -1,0 +1,138 @@
+.header-container {
+  background-color: black;
+  padding-top: 15px;
+  padding-bottom: 50px;
+}
+
+.image-container {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.featured-art-mobile {
+  max-width: 80%;
+  height: auto;
+  text-align: center;
+}
+
+.featured-art-full {
+  width: auto;
+  height: 72vh;
+  overflow: hidden;
+  text-align: center;
+}
+
+.post-title-container {
+  margin-top: -35px;
+  margin-left: 40px;
+  width: 60vw;
+  bottom: 0px;
+  left: 30px;
+  background-color: #000971;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 15px;
+  padding-right: 15px;
+  transform: skewX(-10deg);
+}
+
+.post-title {
+  padding-left: 5px;
+  padding-bottom: 10px;
+  text-align: left;
+  transform: skewX(10deg);
+  color: white;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.post-teaser {
+  padding-left: 15px;
+  padding-right: 100px;
+  text-align: left;
+  color: #A4A4A4;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+}
+
+.author-byline-container {
+  padding-top: 20px;
+  padding-left: 10%;
+}
+
+.author-byline-by {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  color: black;
+  font-size: 18px;
+  padding-right: 15px;
+  padding-top: 10px;
+}
+
+.image-cropper {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 40px;
+}
+
+.image-cropper-mobile {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-left: 40px;
+}
+
+.author-byline-image {
+  margin: 0 auto;
+  height: auto;
+  width: 100%;
+}
+
+.author-byline {
+  padding-right: 3%;
+  padding-left: 1%;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: gray;
+}
+
+.author-byline-mobile {
+  padding-right: 3%;
+  padding-left: 1%;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: gray;
+  margin-left: 40px;
+}
+
+.date-string {
+  margin-left: 40px;
+  margin-top: 20px;
+  font-weight: 200;
+  font-family: 'Cairo', sans-serif;
+  font-size: 14px;
+  color: gray;
+  margin-left: 40px;
+}
+
+.post-content {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 20px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 18px;
+  color: black;
+}

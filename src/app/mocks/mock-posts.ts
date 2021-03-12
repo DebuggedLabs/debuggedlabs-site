@@ -7,30 +7,31 @@ const before = new Date();
 
 var data = [
     {
-        id: "string1",
+        id: "1",
         title: "What does the fox really say?",
         authors: TeamProfileData,
         publishedDate: today,
         topic: "Technology",
         teaser: "It's time to finally unveil the secret behind the mysterious mammal",
-        featuredArtURL: "https://itech104695.files.wordpress.com/2016/03/cool-images-for-backgrounds-1600-x-1174.jpg",
+        thumbanailUrl: "https://itech104695.files.wordpress.com/2016/03/cool-images-for-backgrounds-1600-x-1174.jpg",
+        featuredArtURL: "https://www.mammal.org.uk/wp-content/uploads/2019/02/Red-fox-Katie-Nethercoat.jpg",
         featuredArtAlt: "A fox",
         additionalArtURLs: [],
         additionalArtAlts: [],
-        content: "/posts/string1"
+        content: "I like trains"
     },
     {
-        id: "string2",
+        id: "2",
         title: "Say goodbye to trains",
         authors: TeamProfileData,
         publishedDate: yesterday,
         topic: "Ethics",
         teaser: "Coronavirus has all but ensured these beautiful contraptions will go away.",
-      featuredArtURL: "https://hips.hearstapps.com/pop.h-cdn.co/assets/cm/15/05/54ca9c8cbd1bb_-_monstertrain-470-0210.jpg?fill=320:234&resize=480:*",
+        featuredArtURL: "https://hips.hearstapps.com/pop.h-cdn.co/assets/cm/15/05/54ca9c8cbd1bb_-_monstertrain-470-0210.jpg?fill=320:234&resize=480:*",
         featuredArtAlt: "I like trains a lot",
         additionalArtURLs: [],
         additionalArtAlts: [],
-        content: "/posts/string2"
+        content: "He likes trains"
     },
 
     {

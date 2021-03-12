@@ -61,13 +61,11 @@ export class AuthorComponent implements OnInit {
         this.iconUrl = data.iconUrl;
         this.backgroundColor = data.backgroundColor;
       });
-
-
   }
 
   /**
    * Validate that the author name passed in the URL is indeed there
-   * @param authorId author ID passed back from API
+   * @param authorProfile author ID passed back from API
    */
   private validateAndParseAuthorDetails(authorProfile: TeamProfile) {
     if (authorProfile == null) {

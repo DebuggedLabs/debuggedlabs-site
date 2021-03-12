@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Post } from 'src/app/definitions/interfaces';
+import { TeamProfile } from 'src/app/definitions/teamProfile';
+import { ImageDetailService } from 'src/app/services/image-detail.service';
 import { WidthService } from 'src/app/services/width.service';
 
 @Component({
@@ -13,8 +15,7 @@ export class PostCardBaseComponent implements OnInit {
 
   constructor(private widthService: WidthService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   /**
    * Return width of the card
@@ -45,5 +46,12 @@ export class PostCardBaseComponent implements OnInit {
    */
   getFullWindowViewWidth(): number {
     return 100;
+  }
+
+  /**
+   * Get link to the post
+   */
+  getPostLink(): string {
+    return "/posts/" + this.post.id;
   }
 }

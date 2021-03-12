@@ -7,6 +7,7 @@ export class ApiWrapper {
 
   baseUrl = "https://cms.debuggedlabs.com/debugged-labs/"
   teamsUrl = this.baseUrl + "items/team";
+  postUrl = this.baseUrl + "items/posts";
   usersUrl = this.baseUrl + "users/";
   imageDetailUrl = this.baseUrl + "files/";
 

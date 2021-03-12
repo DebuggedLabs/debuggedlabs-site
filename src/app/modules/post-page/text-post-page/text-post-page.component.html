@@ -1,0 +1,47 @@
+<app-navigation-bar [show]="true"></app-navigation-bar>
+
+<!-- Padding under navbar -->
+<div class="page-content-spacing"></div>
+
+<!-- Div showing featured art and headline -->
+<!-- Featured art -->
+<div class="header-container">
+  <div class="image-container ">
+    <img src="{{ postData.featuredArtURL }}" [ngClass]="getImageClass()" alt="{{ postData.featuredArtAlt }}">
+  </div>
+  <div class="post-title-container">
+    <h1 class="post-title">{{ postData.title }}</h1>
+    <h3 *ngIf="!isMobile()" class="post-teaser">{{ postData.teaser }}</h3>
+  </div>
+</div>
+
+<!-- Byline -->
+<div class="author-byline-container">
+  <p align="left" class="author-byline-by">By</p>
+  <ng-container *ngFor="let author of postData.authors">
+    <div [ngClass]="getBylineInlineClass()">
+      <a href="{{ author.profilePageUrl }}">
+        <img [src]="getAuthorImageUrl(author)" alt="Profile photo of {{ author.name }}" class="author-byline-image">{{ author.name }}
+      </a>
+    </div>
+    <a [ngClass]="getAuthorBylineTextClass()" href="{{ author.profilePageUrl }}">{{ author.name }}</a>
+  </ng-container>
+
+  <!-- Published date (with no updated date) -->
+  <div class="date-string">
+    <p>{{ this.getPublishedDateString() }}</p>
+  </div>
+
+  <!-- Updated date (with an updated date) -->
+  <div *ngIf="this.wasPostUpdated()" class="date-string">
+    <br>
+    <p><i>This post was last updated {{ this.getUpdatedDateString() }}.</i></p>
+    <br>
+  </div>
+</div>
+
+<!-- Show post content -->
+<div class="post-content" [innerHTML]="this.getPostContent()" ></div>
+
+<!-- Footer -->
+<app-footer></app-footer>

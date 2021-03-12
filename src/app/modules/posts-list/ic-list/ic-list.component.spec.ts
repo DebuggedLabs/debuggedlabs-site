@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ICListComponent } from './ic-list.component';
 
@@ -6,7 +6,7 @@ describe('IcListComponent', () => {
   let component: ICListComponent;
   let fixture: ComponentFixture<ICListComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ICListComponent ]
     })

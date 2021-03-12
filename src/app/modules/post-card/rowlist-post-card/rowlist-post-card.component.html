@@ -5,25 +5,25 @@
   </p>
 
   <!-- Featured image -->
-  <a href="{{ post.content }}">
+  <a href="{{ this.getPostLink()}}">
     <img [src]="post.featuredArtURL" [alt]="post.featuredArtAlt" [ngClass]="getImageClass()">
   </a>
 
   <!-- Card title -->
   <h2 class="card-title-h2">
-    <a href="{{ post.content }}" class="card-title">{{ post.title }}</a>
+    <a href="{{ this.getPostLink() }}" class="card-title">{{ post.title }}</a>
   </h2>
 
 
   <!-- Card teaser -->
   <p class="card-teaser-p">
-    <a href="{{ post.content }}" class="card-teaser">{{ post.teaser }}</a>
+    <a href="{{ this.getPostLink() }}" class="card-teaser">{{ post.teaser }}</a>
   </p>
 
   <!-- Byline -->
   <p align="right" class="card-byline-section">By
     <ng-container *ngFor="let author of post.authors">
-      <a class="card-byline" href="{{ author.profilePageUrl }}">{{ author.name | uppercase }}</a>
+      <a class="card-byline" href="{{ author.profilePageUrl }}">{{ author.name }}</a>
     </ng-container>
   </p>
 </div>

@@ -51,3 +51,12 @@ export enum PostListType {
   GalleryList,
   RowList
 }
+
+/**
+ * Types of platforms
+ */
+export enum Platforms {
+  Facebook = "facebook",
+  Twitter = "twitter",
+  Email = "email"
+}

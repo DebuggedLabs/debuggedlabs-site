@@ -39,6 +39,10 @@ import { FooterComponent } from './navigation/footer/footer.component';
 import { AuthorComponent } from './sections/author/author.component';
 import { PageNotFoundComponent } from './sections/page-not-found/page-not-found/page-not-found.component';
 import { PageNumberComponent } from './modules/page-number/page-number.component';
+import { PostPageBaseComponent } from './modules/post-page/post-page-base/post-page-base.component';
+import { TextPostPageComponent } from './modules/post-page/text-post-page/text-post-page.component';
+import { PostPageComponent } from './modules/post-page/post-page/post-page.component';
+import { PodcastPostPageComponent } from './modules/post-page/podcast-post-page/podcast-post-page.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +74,11 @@ import { PageNumberComponent } from './modules/page-number/page-number.component
     FooterComponent,
     AuthorComponent,
     PageNotFoundComponent,
-    PageNumberComponent
+    PageNumberComponent,
+    PostPageBaseComponent,
+    TextPostPageComponent,
+    PostPageComponent,
+    PodcastPostPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,9 +87,7 @@ import { PageNumberComponent } from './modules/page-number/page-number.component
     AppRoutingModule,
     FormsModule,
     LoadingBarRouterModule,
-    RouterModule.forRoot(
-      RouterConfig
-    )
+    RouterModule.forRoot(RouterConfig, { relativeLinkResolution: 'legacy' })
   ],
   providers: [],
   bootstrap: [AppComponent]

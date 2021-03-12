@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CListComponent } from './c-list.component';
 
@@ -6,7 +6,7 @@ describe('EListComponent', () => {
   let component: CListComponent;
   let fixture: ComponentFixture<CListComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CListComponent ]
     })

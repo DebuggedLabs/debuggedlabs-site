@@ -1,0 +1,5 @@
+<!-- Podcast post -->
+<app-text-post-page *ngIf="this.isPostLoaded() && !this.isPodcastPost()" [postData]="this.post"></app-text-post-page>
+
+<!-- Text post -->
+<app-podcast-post-page *ngIf="this.isPostLoaded() && this.isPodcastPost()" [postData]="this.post"></app-podcast-post-page>
