@@ -18,6 +18,7 @@ export class PostPageComponent implements OnInit {
   public post: Post = null;
   public isPostValid: boolean = false;
   private postId: string = "";
+  private fetchCount: number = 0;
 
   constructor(private titleService: Title,
               private route: ActivatedRoute,
@@ -39,15 +40,21 @@ export class PostPageComponent implements OnInit {
     // make a call to the backend if a post isn't passed in directly
     if (this.post == null || this.post == undefined)
     {
-      console.log(this.post);
+      console.log("Inputted post: " + this.post);
       console.log("Here is the post ID: ", this.postId);
       this.postRetrievalService.getSinglePost(this.postId, postFromBackend => {
+
+        console.log("Post from backend, count " + this.fetchCount, postFromBackend);
+        this.fetchCount++;
+
         if (postFromBackend != null) {
           this.post = postFromBackend;
           let title = this.post.title + " | Debugged Labs"
           this.titleService.setTitle(title);
         }
-        this.validateAndParsePostDetails(this.post);
+        else if (postFromBackend === undefined){
+          this.validateAndParsePostDetails(this.post);
+        }
       });
     }
     else {
