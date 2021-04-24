@@ -7,8 +7,8 @@ export class WidthService {
 
   private showHamburgerMenuItems: boolean;
   private showHamburgerMenu: boolean;
-  
-  constructor() { 
+
+  constructor() {
     this.showHamburgerMenuItems = false;
     this.showHamburgerMenu = false;
   }
