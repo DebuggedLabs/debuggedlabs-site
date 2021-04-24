@@ -1,11 +1,11 @@
-<div class="sidenav" 
-    [style.width.%]="width" 
+<div class="sidenav"
+    [style.width.%]="getMenuWidth()"
     [ngClass]="{active: showOrHideItems()}"
     [style.marginTop.px]="getMarginTop()">
     <ul *ngFor="let item of getMenuItems()">
         <li style="list-style-type:none;">
             <a [ngClass]="{
-                        'menu-item': !item.inactive, 
+                        'menu-item': !item.inactive,
                         'selected-nav-item': item.inactive
                         }" [ngStyle]="{'color': item.inactive ? item.selectedColor : ''}"
                 routerLink="{{ item.routerLink }}">{{ item.title }}</a>

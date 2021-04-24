@@ -21,7 +21,7 @@ export class AboutComponent implements OnInit {
   constructor(private titleService: Title,
               private router: ActivatedRoute,
               private pageDetailService: PageDetailsService,
-              private showHamnburgerMenuService: WidthService,
+              private showHamburgerMenuService: WidthService,
               private authorDetailService: AuthorDetailService) {
     this.authorDetailService.getAllTeamProfiles((teamProfiles: TeamProfile[]) => {
       this.teamProfiles = teamProfiles;
@@ -37,7 +37,7 @@ export class AboutComponent implements OnInit {
         this.backgroundColor = data.backgroundColor;
       });
       this.pageDetailService.updateCurrentPageId(PageId.About);
-      this.showHamnburgerMenuService.updateShowHamburgerMenuStatus(false);
+      this.showHamburgerMenuService.updateShowHamburgerMenuStatus(false);
   }
 
 }

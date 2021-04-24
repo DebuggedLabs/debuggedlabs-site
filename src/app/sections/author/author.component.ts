@@ -23,7 +23,7 @@ export class AuthorComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
               private pageDetailService: PageDetailsService,
-              private showHamnburgerMenuService: WidthService,
+              private showHamburgerMenuService: WidthService,
               private authorDetailService: AuthorDetailService) { }
 
   ngOnInit() {
@@ -34,7 +34,7 @@ export class AuthorComponent implements OnInit {
     });
 
     this.pageDetailService.updateCurrentPageId(PageId.Author);
-    this.showHamnburgerMenuService.updateShowHamburgerMenuStatus(false);
+    this.showHamburgerMenuService.updateShowHamburgerMenuStatus(false);
   }
 
   /**

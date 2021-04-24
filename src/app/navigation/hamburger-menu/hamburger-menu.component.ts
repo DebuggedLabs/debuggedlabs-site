@@ -12,7 +12,7 @@ import { PageDetailsService, PageId } from 'src/app/services/page-details.servic
 export class HamburgerMenuComponent implements OnInit {
 
   public width: number = 0;
-  
+
   /**
    * Constructor of HamburgerMenuItemsComponent
    * @param showMenuService service dictating whether to show the hamburger menu
@@ -28,27 +28,21 @@ export class HamburgerMenuComponent implements OnInit {
    * Returns the statuus of the show service
    */
   showOrHideItems(): boolean {
-    var shouldShow: boolean = this.showMenuService.shouldShowHamburgerMenuAndItems();
-    if (shouldShow)
-    {
-      this.openMenu();
-    }
-    else {
-      this.closeMenu();
-    }
-    return shouldShow;
+    return this.showMenuService.shouldShowHamburgerMenuAndItems();
   }
 
   /**
-   * Invoke the opening navigation for the hamburger menu
+   * Function to return width of the hamburger menu
+   * @returns width of the hamburger menu, based on whether to show it
    */
-  openMenu() {
-    this.width = 55;
+  getMenuWidth(): number {
+    if (this.showOrHideItems()) {
+      // open menu
+      return 55;
+    }
+    // close menu
+    return 0;
   }
-
-  closeMenu() {
-    this.width = 0;
-  } 
 
   /**
    * Get menu items for the hamburger menu
