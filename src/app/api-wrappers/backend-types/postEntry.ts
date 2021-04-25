@@ -7,7 +7,7 @@ export interface PostEntry {
   tertiary_author: string;
   quarternary_author: string;
   created_on: Date;
-  topic: string;
+  topic: string[];
   teaser: string;
   content: string;
   status: string;

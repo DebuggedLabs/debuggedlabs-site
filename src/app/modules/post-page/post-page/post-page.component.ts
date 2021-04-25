@@ -28,9 +28,12 @@ export class PostPageComponent implements OnInit {
 
   ngOnInit() {
     // parse the query params
-    this.route.paramMap.subscribe(params => {
-      // get the post id from the url parameters
-      this.postId = params.get('postid');
+    this.route.paramMap.subscribe({
+      next: params => {
+        // get the post id from the url parameters
+        this.postId = params.get('postid');
+      },
+      error: error => console.log(error)
     });
     this.getPostFromBackend();
   }

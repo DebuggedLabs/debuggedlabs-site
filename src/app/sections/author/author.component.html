@@ -22,9 +22,14 @@
   <app-about-post [profile]="this.authorProfile" *ngIf="this.isAuthorValid"></app-about-post>
 </div>
 
+<!-- Show latest posts from the author -->
 <hr *ngIf="this.isAuthorValid" class="author-hr">
 <p  *ngIf="this.isAuthorValid" class="cairo-heading" align="center">THE LATEST FROM THIS AUTHOR</p>
 <hr *ngIf="this.isAuthorValid" class="author-hr">
+<div *ngFor="let post of authorPosts" [ngClass]="getAuthorPostsClass()">
+  <app-post-card [post]="post" [cardType]="2"></app-post-card>
+</div>
+<p *ngIf="this.doesAuthorHaveNoContent()" class="cairo-text" align="center">This author hasn't published any content yet. But they will soon!</p>
 
 <!-- Footer -->
 <app-footer *ngIf="this.isAuthorValid"></app-footer>

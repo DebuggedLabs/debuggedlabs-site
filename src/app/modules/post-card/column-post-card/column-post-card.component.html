@@ -1,7 +1,9 @@
 <div class="card" [style.width.%]="getCardWidthInPercentage()" [style.height.px]="getCardHeightInPixels()" [style.max-width.px]="getMaxWidthInPixels()">
-  <p class="card-topic">
-    {{ post.topic | uppercase }}
-  </p>
+  <ng-container *ngFor="let topic of post.topics">
+    <p class="card-topic">
+      {{ topic | uppercase }}
+    </p>
+  </ng-container>
 
   <!-- Featured image -->
   <a href="{{ this.getPostLink() }}">

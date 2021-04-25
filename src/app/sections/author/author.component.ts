@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Post } from 'src/app/definitions/interfaces';
 import { TeamProfile } from 'src/app/definitions/teamProfile';
 import { AuthorDetailService } from 'src/app/services/author-detail.service';
 import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
+import { PostRetrievalService } from 'src/app/services/post-retrieval.service';
 import { WidthService } from 'src/app/services/width.service';
 
 @Component({
@@ -18,19 +20,24 @@ export class AuthorComponent implements OnInit {
   public authorName: string;
   public authorProfile: TeamProfile;
   public isAuthorValid: boolean = false;
+  public authorPosts: Post[] = [];
 
   constructor(private titleService: Title,
               private route: ActivatedRoute,
               private router: Router,
               private pageDetailService: PageDetailsService,
               private showHamburgerMenuService: WidthService,
-              private authorDetailService: AuthorDetailService) { }
+              private authorDetailService: AuthorDetailService,
+              private postRetrievalService: PostRetrievalService) { }
 
   ngOnInit() {
     // parse the query params
-    this.route.paramMap.subscribe(params => {
-      // get the author name from the url parameters
-      this.getAuthorDetails(params);
+    this.route.paramMap.subscribe({
+      next: params => {
+        // get the author name from the url parameters
+        this.getAuthorDetails(params);
+      },
+      error: error => console.log(error)
     });
 
     this.pageDetailService.updateCurrentPageId(PageId.Author);
@@ -53,14 +60,37 @@ export class AuthorComponent implements OnInit {
       }
     }
     this.route.data
-      .subscribe((data: { title: string, iconUrl: string, backgroundColor: string }) => {
-        this.authorDetailService.getSingleTeamProfileFromName(authorName.toLowerCase(), profile => {
-          this.validateAndParseAuthorDetails(profile);
-          this.titleService.setTitle(this.authorName + " | Debugged Labs");
-        });
-        this.iconUrl = data.iconUrl;
-        this.backgroundColor = data.backgroundColor;
+      .subscribe({
+          next: (data: { title: string, iconUrl: string, backgroundColor: string }) => {
+            this.authorDetailService.getSingleTeamProfileFromName(authorName.toLowerCase(), profile => {
+              this.validateAndParseAuthorDetails(profile);
+              this.titleService.setTitle(this.authorName + " | Debugged Labs");
+              this.getAuthorsPosts();
+            });
+            this.iconUrl = data.iconUrl;
+            this.backgroundColor = data.backgroundColor;
+          },
+          error: () => { console.log ("Error happened in subscribing to URL params"); }
       });
+  }
+
+  /**
+   * Get author posts class based on mobile/web view
+   * @returns class to use
+   */
+  getAuthorPostsClass(): string {
+    if (this.showHamburgerMenuService.isMobileOrNarrowView()) {
+      return "center-padding-mobile";
+    }
+    return "center-padding";
+  }
+
+  /**
+   * Check if the author has no posts
+   * @returns Boolean indicating if author has no posts
+   */
+  doesAuthorHaveNoContent(): boolean {
+    return this.isAuthorValid && this.authorPosts != null && this.authorPosts.length == 0;
   }
 
   /**
@@ -77,6 +107,20 @@ export class AuthorComponent implements OnInit {
       this.isAuthorValid = true;
       this.authorProfile = authorProfile;
       this.authorName = authorProfile.name;
+    }
+  }
+
+  /**
+   * Get author's posts
+   */
+  private getAuthorsPosts() {
+    if (this.authorProfile != null && this.authorProfile != undefined) {
+      this.postRetrievalService.getPostsForAuthor(this.authorProfile, posts => {
+        if (posts.length > 0) {
+          this.authorPosts = posts;
+          console.log(this.authorPosts);
+        }
+      });
     }
   }
 }

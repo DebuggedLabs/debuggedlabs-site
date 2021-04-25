@@ -27,15 +27,15 @@ export class ImageApiWrapper extends ApiWrapper {
 
     const imageUri: string = this.imageDetailUrl + imageId;
     this.httpClient.get(imageUri)
-      .subscribe(
-        data => {
+      .subscribe({
+        next: data => {
           // extract the original image url
           let originalImageUrl = (data as any).data.data.full_url;
           serviceFunction(originalImageUrl);
           this.updateOriginalImageCache(imageId, originalImageUrl);
         },
-        error => this.handleError(error, `getOriginalImageUrl imageId=${imageId}`).bind(this)
-      );
+        error: error => this.handleError(error, `getOriginalImageUrl imageId=${imageId}`).bind(this)
+      });
   }
 
   /**
@@ -53,16 +53,16 @@ export class ImageApiWrapper extends ApiWrapper {
 
     const imageUri: string = this.imageDetailUrl + imageId;
     this.httpClient.get(imageUri)
-      .subscribe(
-        data => {
+      .subscribe({
+        next: data => {
           // extract the original image url
           let thumbnailData = (data as any).data.data.thumbnails as any[];
           let thumbanailUrl = thumbnailData[0].url;
           serviceFunction(thumbanailUrl);
           this.updateThumbnailCache(imageId, thumbanailUrl);
         },
-        error => this.handleError(error, `getOriginalImageUrl imageId=${imageId}`).bind(this)
-      );
+        error: error => this.handleError(error, `getOriginalImageUrl imageId=${imageId}`).bind(this)
+      });
   }
 
   /**

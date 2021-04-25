@@ -27,8 +27,8 @@ export class AuthorApiWrapper extends ApiWrapper {
     const teamsUri: string = this.teamsUrl;
     // update the the author profile cache
     this.httpClient.get(teamsUri)
-      .subscribe(
-        data => {
+      .subscribe({
+        next: data => {
           let teamEntries: TeamEntry[] = (data as any).data;
 
           // aggregate the author profiles
@@ -40,8 +40,8 @@ export class AuthorApiWrapper extends ApiWrapper {
           });
           serviceFunction(authorProfiles);
         },
-        error => this.handleError(error, `getAllAuthorProfiles`).bind(this)
-      );
+        error: error => this.handleError(error, `getAllAuthorProfiles`).bind(this)
+      });
   }
 
   /**
@@ -59,14 +59,14 @@ export class AuthorApiWrapper extends ApiWrapper {
 
     const teamsUri: string = this.teamsUrl + "/" + teamProfileId;
      this.httpClient.get(teamsUri)
-      .subscribe(
-        data => {
+      .subscribe({
+        next: data => {
           let authorProfile: TeamProfile = this.handleAuthorProfileRequest((data as any).data);
           this.updateTeamProfileCache(teamProfileId, authorProfile);
           serviceFunction(authorProfile);
         },
-        error => this.handleError(error, `getSingleAuthorProfile teamProfileId=${teamProfileId}`).bind(this)
-      );
+        error: error => this.handleError(error, `getSingleAuthorProfile teamProfileId=${teamProfileId}`).bind(this)
+      });
   }
 
   /**
@@ -120,7 +120,7 @@ export class AuthorApiWrapper extends ApiWrapper {
     let authorProfile: TeamProfile =
     {
       name: data.name,
-      id: data.id,
+      id: data.id + 1,
       profilePageUrl: "author/" + data.userid,
       position: data.position,
       bio: data.bio,

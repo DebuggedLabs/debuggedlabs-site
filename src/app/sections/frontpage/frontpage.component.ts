@@ -28,8 +28,11 @@ export class FrontpageComponent implements OnInit {
 
   ngOnInit() {
     this.router.data
-      .subscribe((data: { title: string }) => {
-        this.titleService.setTitle(data.title);
+      .subscribe({
+        next: (data: { title: string }) => {
+          this.titleService.setTitle(data.title);
+        },
+        error: error => console.log(error)
       });
 
     // close hamburger menu

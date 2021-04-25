@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { PostApiWrapper } from '../api-wrappers/post-api-wrapper';
+import { Post } from '../definitions/interfaces';
+import { TeamProfile } from '../definitions/teamProfile';
 import { AuthorDetailService } from './author-detail.service';
 import { ImageDetailService } from './image-detail.service';
 
@@ -25,6 +27,17 @@ export class PostRetrievalService {
   getSinglePost(postId: string, callback: (Post) => void) {
     this.postApiWrapper.getSinglePost(postId, post => {
       callback(post);
+    });
+  }
+
+  /**
+   * Get all posts written by an author
+   * @param authorProfile Profile of the author
+   * @param callback callback to return the posts to
+   */
+  getPostsForAuthor(authorProfile: TeamProfile, callback: (posts: Post[]) => void) {
+    this.postApiWrapper.getPostsForAuthor(authorProfile, authorPosts => {
+      callback(authorPosts);
     });
   }
 }
