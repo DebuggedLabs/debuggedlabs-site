@@ -8,7 +8,7 @@ export class PodcastPost implements Post {
     authors: TeamProfile[];
     publishedDate: Date;
     modifiedDate?: Date;
-    topic: string;
+    topics: string[];
     teaser: string;
     thumbnailArtUrl?: string;
     featuredArtURL: string;
@@ -29,7 +29,7 @@ export class PodcastPost implements Post {
      * @param publishedDate published date of the post
      * @param modifiedDate modified date of the post
      * @param teaser teaser text to display on posts-lists element
-     * @param topic topic of the post
+     * @param topics topics of the post
      * @param thumbnailArtUrl URL of the thumbnail art to display
      * @param featuredArtURL HTTPS URL of the art to display
      * @param featuredArtAlt alt for the featured art
@@ -44,7 +44,7 @@ export class PodcastPost implements Post {
         title: string,
         authors: TeamProfile[],
         publishedDate: Date,
-        topic: string,
+        topics: string[],
         teaser: string,
         featuredArtURL: string,
         featuredArtAlt: string,
@@ -61,7 +61,7 @@ export class PodcastPost implements Post {
         this.authors = authors;
         this.publishedDate = publishedDate;
         this.modifiedDate = modifiedDate;
-        this.topic = topic;
+        this.topics = topics;
         this.teaser = teaser;
         this.thumbnailArtUrl = thumbnailArtUrl;
         this.featuredArtURL = featuredArtURL;

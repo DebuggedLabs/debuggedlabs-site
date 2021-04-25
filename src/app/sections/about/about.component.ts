@@ -31,10 +31,13 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     this.router.data
-      .subscribe((data: { title: string, iconUrl: string, backgroundColor: string }) => {
-        this.titleService.setTitle(data.title);
-        this.iconUrl = data.iconUrl;
-        this.backgroundColor = data.backgroundColor;
+      .subscribe({
+          next: (data: { title: string, iconUrl: string, backgroundColor: string }) => {
+            this.titleService.setTitle(data.title);
+            this.iconUrl = data.iconUrl;
+            this.backgroundColor = data.backgroundColor;
+          },
+          error: error => console.log(error)
       });
       this.pageDetailService.updateCurrentPageId(PageId.About);
       this.showHamburgerMenuService.updateShowHamburgerMenuStatus(false);

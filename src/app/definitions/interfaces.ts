@@ -7,7 +7,7 @@ export interface Post {
     authors: TeamProfile[];                             // authors of the piece
     publishedDate: Date;                                // published date
     modifiedDate?: Date;                                // modified date
-    topic: string;                                      // topic of the post
+    topics: string[];                                   // topics of the post
     teaser: string;                                     // teaser blurbs to show on the lists pages
     thumbnailArtUrl?: string;                           // for thumbnail of the post
     featuredArtURL: string;                             // for art (animated or still) to go alongside content

@@ -23,10 +23,13 @@ export class PageNotFoundComponent implements OnInit {
 
   ngOnInit() {
     this.route.data
-      .subscribe((data: { title: string, iconUrl: string, backgroundColor: string }) => {
-        this.titleService.setTitle(data.title);
-        this.iconUrl = data.iconUrl;
-      });
+      .subscribe({
+        next: (data: { title: string, iconUrl: string, backgroundColor: string }) => {
+          this.titleService.setTitle(data.title);
+          this.iconUrl = data.iconUrl;
+        },
+        error: error => console.log(error)
+    });
 
     // close hamburger menu
     this.showHamburgerMenuService.updateShowHamburgerMenuStatus(false);

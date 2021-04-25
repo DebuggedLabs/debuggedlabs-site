@@ -12,8 +12,11 @@ export class ScrollTopService {
   ) { }
 
   setScrollTop() {
-    this.router.events.subscribe((event: NavigationEnd) => {
-      window.scroll(0, 0);
+    this.router.events.subscribe({
+      next: (event: NavigationEnd) => {
+        window.scroll(0, 0);
+      },
+      error: error => console.log(error)
     });
   }
 }

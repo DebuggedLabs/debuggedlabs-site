@@ -3,9 +3,11 @@
   <!-- Primary slide -->
   <div class="primary-slide">
     <!-- Topic -->
-    <p class="card-topic">
-      {{ this.primaryPost.topic }}
-    </p>
+    <ng-container *ngFor="let topic of primaryPost.topics">
+      <p class="card-topic">
+        {{ topic }}
+      </p>
+    </ng-container>
     <!-- Secondary post -->
     <div class="slide">
       <a href="{{ this.primaryPost.content }}">
@@ -24,9 +26,11 @@
   <!-- Seconday slides -->
   <div class="secondary-slide">
     <!-- Topic -->
-    <p class="card-topic">
-      {{ this.secondaryPost.topic }}
-    </p>
+    <ng-container *ngFor="let topic of secondaryPost.topics">
+      <p class="card-topic">
+        {{ topic }}
+      </p>
+    </ng-container>
     <!-- Secondary post -->
     <div class="slide">
       <a href="{{ this.secondaryPost.content }}">

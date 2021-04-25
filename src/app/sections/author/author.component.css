@@ -1,6 +1,16 @@
 .horiz-padding {
-    margin-left: 13%;
-    margin-right: 13%;
+  margin-left: 13%;
+  margin-right: 13%;
+}
+
+.center-padding {
+  margin-left: 34%;
+  margin-right: 34%;
+}
+
+.center-padding-mobile {
+  margin-left: 5%;
+  margin-right: 5%
 }
 
 .author-hr {

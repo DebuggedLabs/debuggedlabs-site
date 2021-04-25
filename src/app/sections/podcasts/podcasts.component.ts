@@ -51,24 +51,30 @@ export class PodcastsComponent implements OnInit {
   ngOnInit() {
     // get data from router-config
     this.route.data
-      .subscribe((data: { title: string, iconUrl: string, backgroundColor: string }) => {
-        this.titleService.setTitle(data.title);
-        this.iconUrl = data.iconUrl;
-        this.backgroundColor = data.backgroundColor;
-      });
+      .subscribe({
+        next: (data: { title: string, iconUrl: string, backgroundColor: string }) => {
+          this.titleService.setTitle(data.title);
+          this.iconUrl = data.iconUrl;
+          this.backgroundColor = data.backgroundColor;
+        },
+        error: error => console.log(error)
+    });
 
     // parse the query params
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe({
+      next: params => {
 
-      // get total number of podcasts
-      this.podcastFetchService.getTotalPodcastsCount(totalNumberOfPosts => {
-        let numPages = Math.ceil(totalNumberOfPosts / this.NUMBER_OF_POSTS_PER_PAGE);
-        this.totalNumberOfPages = Math.max(1, numPages);
-        console.log("total number of posts = " + totalNumberOfPosts + ", number of pages = " + numPages);
+        // get total number of podcasts
+        this.podcastFetchService.getTotalPodcastsCount(totalNumberOfPosts => {
+          let numPages = Math.ceil(totalNumberOfPosts / this.NUMBER_OF_POSTS_PER_PAGE);
+          this.totalNumberOfPages = Math.max(1, numPages);
+          console.log("total number of posts = " + totalNumberOfPosts + ", number of pages = " + numPages);
 
-        // get the page number from the URL
-        this.getPageIndex(params);
-      });
+          // get the page number from the URL
+          this.getPageIndex(params);
+        });
+      },
+      error: error => console.log(error)
     });
 
     // close hamburger menu

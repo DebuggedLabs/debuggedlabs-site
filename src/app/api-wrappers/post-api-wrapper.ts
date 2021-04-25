@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Post } from '../definitions/interfaces';
 import { PodcastPost } from '../definitions/podcast';
+import { TeamProfile } from '../definitions/teamProfile';
 import { TextPost } from '../definitions/textpost';
 import { AuthorDetailService } from '../services/author-detail.service';
 import { ImageDetailService } from '../services/image-detail.service';
@@ -23,14 +24,14 @@ export class PostApiWrapper extends ApiWrapper {
   getSinglePost(postId: string, serviceFunction: (Post) => void) {
     const postUri: string  = this.postUrl + "/" + postId;
     this.httpClient.get(postUri)
-      .subscribe(
-        data => {
+      .subscribe({
+        next: data => {
           // extract the post from the data
           this.convertDataToPost((data as any).data, post => {
             serviceFunction(post);
           });
         },
-        (err: HttpErrorResponse) => {
+        error: (err: HttpErrorResponse) => {
           console.log(err);
           // to mark missing posts
           if (err.status/100 >= 4 && err.status/100 < 5) {
@@ -40,7 +41,101 @@ export class PostApiWrapper extends ApiWrapper {
           else {
             serviceFunction(null);
           }
+        }
+      });
+  }
+
+  /**
+   * Get list of posts written by an author
+   * @param authorProfile profile of the author
+   * @param callback callback once the values return
+   */
+  getPostsForAuthor(authorProfile: TeamProfile, callback: (posts: Post[]) => void) {
+    // construct the filter string
+    let authorArray = [ "primary_author", "secondary_author", "tertiary_author", "quaternary_author" ];
+    let filterString = "";
+
+    // search across all author elements
+    for (let i = 0; i < authorArray.length; i++)
+    {
+      if (i == 0) {
+        filterString += "?filter[" + authorArray[i] + "][eq]=" + authorProfile.id;
+      }
+      else {
+        filterString += "filter[" + authorArray[i] + "][logical]=or&filter[" + authorArray[i] + "][eq]=" + authorProfile.id;
+      }
+
+      if (i < authorArray.length - 1) {
+        filterString += "&"
+      }
+    }
+
+    // make sure to sort from latest to earliest date
+    filterString += "&sort=-created_on"
+    console.log("Filter string: " + filterString);
+
+    // make the HTTP request
+    const postUri: string = this.postUrl + filterString;
+    this.httpClient.get(postUri)
+      .subscribe({
+        next: data => {
+          this.convertDataToMultiplePosts(data, (posts: Post[]) => {
+            callback(posts);
+          });
+        },
+        error: (err: HttpErrorResponse) => {
+          console.log(err);
+          // to mark missing posts
+          if (err.status / 100 >= 4 && err.status / 100 < 5) {
+            console.log("Couldn't find post");
+            callback(undefined);
+          }
+          else {
+            callback(null);
+          }
+        }
         });
+  }
+
+  /**
+   * Convert multiple data entries to Post objects
+   * @param data the raw JSON data
+   * @param callback callback once data is processed
+   */
+  private convertDataToMultiplePosts(data: any, callback: (Posts: Post[]) => void) {
+    let count = 0;
+    let dataArray: [] = (data as any).data;
+    let max = dataArray.length;
+    let postsArray: Post[] = [];
+    this.getMultiplePostsFromDataRecursive(dataArray, postsArray, count, max, posts => {
+      callback(posts);
+    });
+  }
+
+  /**
+   * Recursive function to get multiple posts, given a list of JSON data
+   * @param dataArray posts to convert to Post objects
+   * @param posts pass in array of team profiles
+   * @param count current index in the list of ids
+   * @param max max index in the list of ids
+   * @param callback callback to return the team profile to
+   */
+  private getMultiplePostsFromDataRecursive(dataArray: [], posts: Post[], count: number, max: number, callback: (posts: Post[]) => void) {
+    // if base case hasn't been met, get the current profile and then continue with recursion
+    if (count < max) {
+      this.convertDataToPost(dataArray[count], post => {
+        if (post != null && post != undefined) {
+          posts.push(post);
+          this.getMultiplePostsFromDataRecursive(dataArray, posts, count + 1, max, nextPosts => {
+            posts.concat(nextPosts);
+            callback(posts);
+          });
+        }
+      });
+    }
+    else {
+      callback(posts);
+    }
   }
 
   /**
