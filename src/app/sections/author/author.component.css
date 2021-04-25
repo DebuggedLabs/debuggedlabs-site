@@ -25,6 +25,13 @@
     color: gray;
 }
 
+.cairo-text {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: gray;
+}
+
 .heading {
     background-color: #ff6666;
     width: 50%;

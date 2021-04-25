@@ -86,6 +86,14 @@ export class AuthorComponent implements OnInit {
   }
 
   /**
+   * Check if the author has no posts
+   * @returns Boolean indicating if author has no posts
+   */
+  doesAuthorHaveNoContent(): boolean {
+    return this.isAuthorValid && this.authorPosts != null && this.authorPosts.length == 0;
+  }
+
+  /**
    * Validate that the author name passed in the URL is indeed there
    * @param authorProfile author ID passed back from API
    */
