@@ -43,6 +43,7 @@ import { PostPageBaseComponent } from './modules/post-page/post-page-base/post-p
 import { TextPostPageComponent } from './modules/post-page/text-post-page/text-post-page.component';
 import { PostPageComponent } from './modules/post-page/post-page/post-page.component';
 import { PodcastPostPageComponent } from './modules/post-page/podcast-post-page/podcast-post-page.component';
+import { HomePageButtonComponent } from './modules/home-page-button/home-page-button.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { PodcastPostPageComponent } from './modules/post-page/podcast-post-page/
     TextPostPageComponent,
     PostPageComponent,
     PodcastPostPageComponent,
+    HomePageButtonComponent,
   ],
   imports: [
     BrowserModule,
