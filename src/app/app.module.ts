@@ -44,6 +44,7 @@ import { TextPostPageComponent } from './modules/post-page/text-post-page/text-p
 import { PostPageComponent } from './modules/post-page/post-page/post-page.component';
 import { PodcastPostPageComponent } from './modules/post-page/podcast-post-page/podcast-post-page.component';
 import { HomePageButtonComponent } from './modules/home-page-button/home-page-button.component';
+import { ScienceComponent } from './sections/science/science.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { HomePageButtonComponent } from './modules/home-page-button/home-page-bu
     PostPageComponent,
     PodcastPostPageComponent,
     HomePageButtonComponent,
+    ScienceComponent,
   ],
   imports: [
     BrowserModule,

@@ -41,10 +41,10 @@
 </div>
 
 <!-- Show post content -->
-<div class="post-content" [innerHTML]="this.getPostContent()" ></div>
+<div class="post-content" [innerHTML]="this.getPostContent()"></div>
 
 <!-- Link back to the home page -->
-<app-home-page-button></app-home-page-button>
+<app-home-page-button [pageIdToReturnTo]="this.getPageIdFromPostTopic()"></app-home-page-button>
 
 <!-- Footer -->
 <app-footer></app-footer>

@@ -22,6 +22,9 @@ export class FooterComponent implements OnInit {
     if (pageId === PageId.Podcasts) {
       return className + "-podcast";
     }
+    else if (pageId === PageId.Science) {
+      return className + "-science";
+    }
     else if (pageId === PageId.Technology) {
       return className + "-technology";
     }

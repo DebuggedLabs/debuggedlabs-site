@@ -4,6 +4,7 @@ export enum PageId {
   Home = "home",
   Podcasts = "podcasts",
   Technology = "technology",
+  Science = "science",
   About = "about",
   Author = "author",
   Post = "post",
@@ -18,7 +19,7 @@ export class PageDetailsService {
 
   constructor() { }
 
-  private currentPageId: string = "home"
+  private currentPageId: string = "home";
   private bannerHeight: number = 133;
   private frontPageShowNavBar: boolean = false;
 

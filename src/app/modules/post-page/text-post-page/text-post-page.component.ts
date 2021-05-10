@@ -31,7 +31,6 @@ export class TextPostPageComponent extends PostPageBaseComponent implements OnIn
       console.log(author);
       this.imageDetailService.getFullImage(author.imageId, imageUrl => {
         this.authorMap.set(author.name, imageUrl);
-        console.log("Name = ", imageUrl);
       });
     });
   }

@@ -1,0 +1,23 @@
+<app-navigation-bar [show]="true"></app-navigation-bar>
+
+<!-- Padding under navbar -->
+<div class="page-content-spacing"></div>
+
+<!-- Section header -->
+<app-section-header [sectionTitle]="'Science'" [iconUrl]="iconUrl" [backgroundColor]="backgroundColor">
+</app-section-header>
+
+<div class="page-boundaries">
+
+  <!-- Top science posts (if page 1) -->
+  <app-posts-list *ngIf="isShowingTopPosts" [listType]="0" [posts]="this.topPosts"></app-posts-list>
+
+  <!-- Science row lists -->
+  <app-posts-list [listType]="3" [posts]="this.rowPosts"></app-posts-list>
+</div>
+
+<!-- Page number component -->
+<app-page-number [pageNumber]="this.pageNumber" [totalNumberOfPages]="this.totalNumberOfPages"></app-page-number>
+
+<!-- Footer -->
+<app-footer></app-footer>

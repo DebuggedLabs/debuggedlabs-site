@@ -6,6 +6,7 @@ import { PodcastsComponent } from '../sections/podcasts/podcasts.component';
 import { AuthorComponent } from '../sections/author/author.component';
 import { PageNotFoundComponent } from '../sections/page-not-found/page-not-found/page-not-found.component';
 import { PostPageComponent } from '../modules/post-page/post-page/post-page.component';
+import { ScienceComponent } from '../sections/science/science.component';
 
 export const RouterConfig: Routes = [
 
@@ -26,6 +27,16 @@ export const RouterConfig: Routes = [
             iconUrl: 'assets/icons/podcast_icon.png',
             backgroundColor: '#3399ff'
         }
+    },
+    {
+      path: 'science',
+      component: ScienceComponent,
+      data: {
+        name: "Science",
+        title: 'Science | Debugged Labs',
+        iconUrl: 'assets/icons/science_icon.png',
+        backgroundColor: '#b278ea'
+      }
     },
     {
         path: 'technology',
@@ -67,6 +78,16 @@ export const RouterConfig: Routes = [
             title: 'Podcasts | Debugged Labs',
             iconUrl: 'assets/icons/podcast_icon.png',
             backgroundColor: '#3399ff'
+        }
+    },
+    {
+        path: 'science/page/:page',
+        component: ScienceComponent,
+        data: {
+            name: "Science",
+            title: 'Science | Debugged Labs',
+            iconUrl: 'assets/icons/science_icon.png',
+            backgroundColor: '#b278ea'
         }
     },
     {
@@ -112,6 +133,7 @@ export const RouterConfig: Routes = [
 
 export const MenuConfig: Routes = [
     RouterConfig[1], // Podcasts
-    RouterConfig[2], // Technology
-    RouterConfig[3] // About
+    RouterConfig[2], // Science
+    RouterConfig[3], // Technology
+    RouterConfig[4] // About
 ];

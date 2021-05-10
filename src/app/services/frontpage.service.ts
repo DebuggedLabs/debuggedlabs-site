@@ -14,21 +14,28 @@ export class FrontPageService {
   /**
    * Get the top posts, which includes the feature post for the front page
    */
-  getTopPosts(): Post[] {
-    return POSTS;
+  getTopPosts(callBackFunction: (posts:Post[]) => void) {
+    callBackFunction(POSTS);
   }
 
   /**
    * Get podcast section posts for the front page
    */
-  getPodcastSectionPosts(): PodcastPost[] {
-    return PODCASTS;
+  getPodcastSectionPosts(callBackFunction: (posts) => void) {
+    callBackFunction(PODCASTS);
   }
 
   /**
    * Get technology section posts for the front page
    */
-  getTechnologySectionPosts(): Post[] {
-    return POSTS.slice(0, 3);
+  getTechnologySectionPosts(callBackFunction: (posts: Post[]) => void) {
+    callBackFunction(POSTS.slice(0, 3));
+  }
+
+  /**
+   * Get science section posts for the front page
+   */
+  getScienceSectionPosts(callBackFunction: (posts: Post[]) => void) {
+    callBackFunction(POSTS.slice(0,3));
   }
 }

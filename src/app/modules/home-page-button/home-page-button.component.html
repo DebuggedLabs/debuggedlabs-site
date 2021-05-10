@@ -1,3 +1,4 @@
 <div class="button-center">
+  <a *ngIf="!isHomePageSection()" href="/{{ this.getPageName() }}" class="button">See other {{ this.getPageName() }} posts</a>
   <a href="/" class="button">Back to home page</a>
 </div>

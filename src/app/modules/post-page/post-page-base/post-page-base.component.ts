@@ -37,6 +37,26 @@ export class PostPageBaseComponent implements OnInit {
   }
 
   /**
+   * Get the page id from the list of topics in the post
+   * @returns page id from the list of topics in the post
+   */
+  getPageIdFromPostTopic(): PageId {
+    let topic = this.postData.topics[0];
+    if (topic == "podcasts")
+    {
+      return PageId.Podcasts;
+    }
+    else if (topic == "technology")
+    {
+      return PageId.Technology;
+    }
+    else if (topic == "science")
+    {
+      return PageId.Science;
+    }
+  }
+
+  /**
    * Get date of post
    */
   getPublishedDateString(): string {
