@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PageId } from 'src/app/services/page-details.service';
 
 @Component({
   selector: 'app-home-page-button',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageButtonComponent implements OnInit {
 
+  @Input() pageIdToReturnTo: PageId;
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  public getPageName(): string {
+    return this.pageIdToReturnTo.toString();
   }
 
+  public isHomePageSection(): boolean {
+    return this.pageIdToReturnTo == undefined || this.pageIdToReturnTo == PageId.Home;
+  }
 }

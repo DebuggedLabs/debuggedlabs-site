@@ -18,7 +18,8 @@ export class FrontpageComponent implements OnInit {
 
   public topPosts: Post[];
   public podcastSubSectionPosts: PodcastPost[];
-  public technologySectionPosts: TextPost[];
+  public technologySectionPosts: Post[];
+  public scienceSectionPosts: Post[];
 
   constructor(private titleService: Title,
               private router: ActivatedRoute,
@@ -43,8 +44,20 @@ export class FrontpageComponent implements OnInit {
     this.pageDetailService.updateFrontPageShowNavBarStatus(false);
 
     // get the posts for the front page
-    this.topPosts = this.frontpageService.getTopPosts();
-    this.technologySectionPosts = this.frontpageService.getTechnologySectionPosts();
-    this.podcastSubSectionPosts = this.frontpageService.getPodcastSectionPosts();
+    this.frontpageService.getTopPosts(topPosts => {
+      this.topPosts = topPosts;
+    });
+
+    this.frontpageService.getTechnologySectionPosts(technologyPosts => {
+      this.technologySectionPosts = technologyPosts;
+    });
+
+    this.frontpageService.getPodcastSectionPosts(podcastPosts => {
+      this.podcastSubSectionPosts = podcastPosts;
+    });
+
+    this.frontpageService.getScienceSectionPosts(sciencePosts => {
+      this.scienceSectionPosts = sciencePosts;
+    });
   }
 }

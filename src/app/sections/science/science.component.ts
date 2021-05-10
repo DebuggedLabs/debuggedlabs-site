@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
-import { WidthService } from 'src/app/services/width.service';
-import { TechnologyService } from 'src/app/services/technology.service';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Post } from 'src/app/definitions/interfaces';
+import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
+import { ScienceService } from 'src/app/services/science.service';
 import { ScrollTopService } from 'src/app/services/scroll-top.service';
+import { WidthService } from 'src/app/services/width.service';
 
 @Component({
-  selector: 'app-technology',
-  templateUrl: './technology.component.html',
-  styleUrls: ['./technology.component.css']
+  selector: 'app-science',
+  templateUrl: './science.component.html',
+  styleUrls: ['./science.component.css']
 })
-export class TechnologyComponent implements OnInit {
-
+export class ScienceComponent implements OnInit {
   // constants
   public NUMBER_OF_POSTS_PER_PAGE: number = 9;
   public totalNumberOfPages: number = 1;  // default set to 9 for purposes of division
@@ -31,27 +30,19 @@ export class TechnologyComponent implements OnInit {
   public topPosts: Post[];       // list of top posts for the page
   public rowPosts: Post[];       // list of row (regular) posts for the page
 
-  /**
-     * To display the page of DebuggedLabs podcasts
-     * @param titleService to determine the title banner text
-     * @param route ActivatedRoute to parse router information
-     * @param router Router to navigate
-     * @param scrollTopService to force the page to scroll to the top if reloaded
-     * @param podcastFetchService to fetch podcasts to display on the page
-     */
   constructor(private titleService: Title,
     private route: ActivatedRoute,
     private router: Router,
     private scrollTopService: ScrollTopService,
-    private technologyFetchService: TechnologyService,
+    private scienceFetchService: ScienceService,
     private pageDetailService: PageDetailsService,
     private showHamburgerService: WidthService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // get data from router-config
     this.route.data
       .subscribe({
-          next: (data: { title: string, iconUrl: string, backgroundColor: string }) => {
+        next: (data: { title: string, iconUrl: string, backgroundColor: string }) => {
           this.titleService.setTitle(data.title);
           this.iconUrl = data.iconUrl;
           this.backgroundColor = data.backgroundColor;
@@ -63,9 +54,9 @@ export class TechnologyComponent implements OnInit {
     this.route.paramMap.subscribe({
       next: params => {
 
-        // get total number of posts in technology
-        this.technologyFetchService.getTotalTechnologyPostsCount(totalNumberOfPosts => {
-          let numPages = Math.ceil(totalNumberOfPosts/this.NUMBER_OF_POSTS_PER_PAGE);
+        // get total number of posts in science
+        this.scienceFetchService.getTotalSciencePostsCount(totalNumberOfPosts => {
+          let numPages = Math.ceil(totalNumberOfPosts / this.NUMBER_OF_POSTS_PER_PAGE);
           this.totalNumberOfPages = Math.max(1, numPages);
           console.log("total number of posts = " + totalNumberOfPosts + ", number of pages = " + numPages);
 
@@ -73,17 +64,17 @@ export class TechnologyComponent implements OnInit {
           this.getPageIndex(params);
         });
       },
-      error: error => console.log(error)  
+      error: error => console.log(error)
     });
 
     // close hamburger menu
     this.showHamburgerService.updateShowHamburgerMenuStatus(false);
 
     // update page detail service
-    this.pageDetailService.updateCurrentPageId(PageId.Technology);
+    this.pageDetailService.updateCurrentPageId(PageId.Science);
 
-    // fetch the technology posts
-    this.getTechnologyPosts();
+    // fetch the science posts
+    this.getSciencePosts();
 
     // scroll to the top of the page on reload
     this.scrollTopService.setScrollTop();
@@ -106,29 +97,28 @@ export class TechnologyComponent implements OnInit {
     else {
       this.pageIndex = 0;
       this.pageNumber = this.pageIndex + 1;
-      this.router.navigate(['technology']);
+      this.router.navigate(['science']);
     }
 
-    // if not on first page of technology, then we're not showing a featured post
+    // if not on first page of science, then we're not showing a featured post
     this.isShowingTopPosts = this.pageIndex > 0 ? false : true;
   }
 
   /**
-   * Get technology posts
+   * Get science posts
    */
-  getTechnologyPosts() {
-    var allPosts = this.technologyFetchService.getBatchOfTechnologyPosts(this.pageIndex, 0, this.NUMBER_OF_POSTS_PER_PAGE, technologyPosts => {
+  getSciencePosts() {
+    var allPosts = this.scienceFetchService.getBatchOfSciencePosts(this.pageIndex, 0, this.NUMBER_OF_POSTS_PER_PAGE, sciencePosts => {
 
       // if showing featured posts, the first 3 posts are featured and only have 2 rows
       if (this.isShowingTopPosts) {
-        this.topPosts = technologyPosts.slice(0, 3);
-        this.rowPosts = technologyPosts.slice(3, this.NUMBER_OF_POSTS_PER_PAGE);
+        this.topPosts = sciencePosts.slice(0, 3);
+        this.rowPosts = sciencePosts.slice(3, this.NUMBER_OF_POSTS_PER_PAGE);
       }
       else {
-        this.rowPosts = technologyPosts;
+        this.rowPosts = sciencePosts;
       }
     });
   }
 
 }
-

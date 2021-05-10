@@ -68,6 +68,29 @@
   color: #ff872e;
 }
 
+/* science */
+.footer-subhead-science {
+  color: #b278ea;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding-bottom: 12%;
+  text-decoration: none;
+}
+
+.footer-subhead-science:link {
+  color: #b278ea;
+}
+
+.footer-subhead-science:hover {
+  color: #00FFFF;
+}
+
+.footer-subhead-science:active {
+  color: #b278ea;
+}
+
+
 /* about */
 .footer-subhead-about {
   color: #ff6666;
