@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
-import { MatDialog } from '@angular/material/dialog';
-import { NewsletterComponent } from 'src/app/sections/newsletter/newsletter.component';
 
 @Component({
   selector: 'app-footer',
@@ -10,8 +8,7 @@ import { NewsletterComponent } from 'src/app/sections/newsletter/newsletter.comp
 })
 export class FooterComponent implements OnInit {
 
-  constructor(private pageDetailService: PageDetailsService,
-              private dialogue: MatDialog) { }
+  constructor(private pageDetailService: PageDetailsService) { }
 
   ngOnInit() {
   }
@@ -45,11 +42,11 @@ export class FooterComponent implements OnInit {
   }
 
   openDialogue() {
-    const dialogRef = this.dialogue.open(NewsletterComponent);
+  //  const dialogRef = this.dialogue.open();
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
   }
 
 }
