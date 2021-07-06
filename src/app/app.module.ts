@@ -46,6 +46,10 @@ import { PodcastPostPageComponent } from './modules/post-page/podcast-post-page/
 import { HomePageButtonComponent } from './modules/home-page-button/home-page-button.component';
 import { ScienceComponent } from './sections/science/science.component';
 import { NewsletterComponent } from './sections/newsletter/newsletter.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -93,6 +97,10 @@ import { NewsletterComponent } from './sections/newsletter/newsletter.component'
     AppRoutingModule,
     FormsModule,
     LoadingBarRouterModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
     RouterModule.forRoot(RouterConfig, { relativeLinkResolution: 'legacy' })
   ],
   providers: [],
