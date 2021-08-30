@@ -7,6 +7,7 @@ import { AuthorComponent } from '../sections/author/author.component';
 import { PageNotFoundComponent } from '../sections/page-not-found/page-not-found/page-not-found.component';
 import { PostPageComponent } from '../modules/post-page/post-page/post-page.component';
 import { ScienceComponent } from '../sections/science/science.component';
+import { NewsletterComponent } from '../sections/newsletter/newsletter.component';
 
 export const RouterConfig: Routes = [
 
@@ -117,6 +118,12 @@ export const RouterConfig: Routes = [
     {
       path: 'posts/:postid',
       component: PostPageComponent,
+    },
+
+    // handle newsletter sign-up
+    {
+      path: 'newsletter',
+      component: NewsletterComponent
     },
 
     // to handle edge cases

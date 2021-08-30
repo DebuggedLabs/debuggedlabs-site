@@ -171,6 +171,11 @@
   padding-bottom: 0%;
   margin-bottom: 0%;
   text-decoration: none;
+  background-color: transparent;
+  background-repeat:no-repeat;  
+  border: none;
+  cursor:pointer;
+  margin-left: -7px;
 }
 
 .newsletter-1 {
