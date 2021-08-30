@@ -6,7 +6,10 @@
     <div class="footer-content">
       <!-- Newsletter -->
       <ul class="footer-list">
-        <li>
+        <li *ngIf="isMobile()">
+          <a href="https://debuggedlabs.us6.list-manage.com/subscribe?u=9dae30d5ebec89ca3c44bd66b&id=09b932abd0" class="newsletter-0" target="_blank">Sign up <u>here</u> for our newsletter!</a>
+        </li>
+        <li *ngIf="!isMobile()">
           <button type="button" (click)="newsletterSignupOnClick()" class="newsletter-0">Sign up <u>here</u> for our newsletter!</button>
         </li>
         <li class="newsletter-1">You scrolled down here for something, right?</li>

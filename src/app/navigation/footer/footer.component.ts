@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NewsletterComponent } from 'src/app/sections/newsletter/newsletter.component';
 import { NewsletterService } from 'src/app/services/newsletter.service';
 import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
+import { WidthService } from 'src/app/services/width.service';
 
 @Component({
   selector: 'app-footer',
@@ -13,7 +14,8 @@ export class FooterComponent implements OnInit {
   @ViewChild('newsletterSignupModal', { static: false }) newsletterSignupModal: NewsletterComponent
 
   constructor(private pageDetailService: PageDetailsService,
-              private newsletterService: NewsletterService) { }
+              private newsletterService: NewsletterService,
+              private widthService: WidthService) { }
 
   ngOnInit() {
   }
@@ -37,6 +39,14 @@ export class FooterComponent implements OnInit {
       return className + "-about";
     }
     return className;
+  }
+
+  /**
+   * Returns whether this is a mobile site
+   * @returns boolean indicating whether mobile
+   */
+  isMobile(): boolean {
+    return this.widthService.isMobileOrNarrowView();
   }
 
   /**

@@ -24,8 +24,9 @@
 
 .close {
   position: relative;
-  right: 32px;
+  right: 5%;
   width: 32px;
+  top: 5%;
   opacity: 0.3;
 }
 
