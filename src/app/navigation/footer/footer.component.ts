@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NewsletterComponent } from 'src/app/sections/newsletter/newsletter.component';
+import { NewsletterService } from 'src/app/services/newsletter.service';
 import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
 
 @Component({
@@ -8,7 +10,10 @@ import { PageDetailsService, PageId } from 'src/app/services/page-details.servic
 })
 export class FooterComponent implements OnInit {
 
-  constructor(private pageDetailService: PageDetailsService) { }
+  @ViewChild('newsletterSignupModal', { static: false }) newsletterSignupModal: NewsletterComponent
+
+  constructor(private pageDetailService: PageDetailsService,
+              private newsletterService: NewsletterService) { }
 
   ngOnInit() {
   }
@@ -39,6 +44,11 @@ export class FooterComponent implements OnInit {
    */
   getCurrentYear(): number {
     return (new Date()).getFullYear();
+  }
+
+  newsletterSignupOnClick() {
+    console.log("Clicked!");
+    this.newsletterService.updateShowNewsletterSignupWindowStatus(true);
   }
 
   openDialogue() {

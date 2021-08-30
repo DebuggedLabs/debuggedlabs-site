@@ -1,12 +1,13 @@
 <div class="background">
+  <app-newsletter #newsletterSignupModal></app-newsletter>
+
   <!-- spacing -->
   <span>
     <div class="footer-content">
-
       <!-- Newsletter -->
       <ul class="footer-list">
         <li>
-          <a href="/newsletter" class="newsletter-0">Sign up <u>here</u> for our newsletter!</a>
+          <button type="button" (click)="newsletterSignupOnClick()" class="newsletter-0">Sign up <u>here</u> for our newsletter!</button>
         </li>
         <li class="newsletter-1">You scrolled down here for something, right?</li>
         <li class="newsletter-2">Don't worry, we don't believe in spamming inboxes.</li>
