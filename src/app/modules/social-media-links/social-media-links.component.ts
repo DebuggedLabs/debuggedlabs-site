@@ -11,12 +11,14 @@ export class SocialMediaLinksComponent implements OnInit {
   facebookLink: string;
   twitterLink: string;
   instagramLink: string;
+  newsletterLink: string;
   rssLink: string;
 
-  constructor() { 
+  constructor() {
     this.facebookLink = SocialMediaLinks[SocialMediaPlatform.Facebook];
     this.twitterLink = SocialMediaLinks[SocialMediaPlatform.Twitter];
     this.instagramLink = SocialMediaLinks[SocialMediaPlatform.Instagram];
+    this.newsletterLink = SocialMediaLinks[SocialMediaPlatform.Newsletter];
     this.rssLink = SocialMediaLinks[SocialMediaPlatform.RSS];
   }
 

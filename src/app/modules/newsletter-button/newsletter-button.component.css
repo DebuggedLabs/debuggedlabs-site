@@ -1,0 +1,19 @@
+/* Newsletter messages */
+.newsletter {
+  color: #ff6666;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
+  text-decoration: none;
+  background-color: transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  margin-left: -7px;
+}
+
+.newsletter:hover {
+  color: #00FFFF;
+}

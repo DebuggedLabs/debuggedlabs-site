@@ -1,0 +1,5 @@
+<app-newsletter #newsletterSignupModalInPost></app-newsletter>
+<div class="button-center">
+  <a href="https://debuggedlabs.us6.list-manage.com/subscribe?u=9dae30d5ebec89ca3c44bd66b&id=09b932abd0" *ngIf="isMobile()" class="button" target="_blank">Sign up for our newsletter for more content like this!</a>
+  <button *ngIf="!isMobile()" type="button" (click)="newsletterSignupOnClick()" class="button">Sign up for our newsletter for more content like this!</button>
+</div>

@@ -45,11 +45,12 @@ import { PostPageComponent } from './modules/post-page/post-page/post-page.compo
 import { PodcastPostPageComponent } from './modules/post-page/podcast-post-page/podcast-post-page.component';
 import { HomePageButtonComponent } from './modules/home-page-button/home-page-button.component';
 import { ScienceComponent } from './sections/science/science.component';
-import { NewsletterComponent } from './sections/newsletter/newsletter.component';
+import { NewsletterComponent } from './modules/newsletter/newsletter.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { NewsletterButtonComponent } from './modules/newsletter-button/newsletter-button.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { MatButtonModule } from '@angular/material/button';
     HomePageButtonComponent,
     ScienceComponent,
     NewsletterComponent,
+    NewsletterButtonComponent,
   ],
   imports: [
     BrowserModule,

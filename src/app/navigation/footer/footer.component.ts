@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NewsletterComponent } from 'src/app/sections/newsletter/newsletter.component';
+import { NewsletterComponent } from 'src/app/modules/newsletter/newsletter.component';
 import { NewsletterService } from 'src/app/services/newsletter.service';
 import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
 import { WidthService } from 'src/app/services/width.service';
@@ -56,17 +56,10 @@ export class FooterComponent implements OnInit {
     return (new Date()).getFullYear();
   }
 
+  /**
+   * Onclick function for signing up for the Debugged Labs newsletter
+   */
   newsletterSignupOnClick() {
-    console.log("Clicked!");
     this.newsletterService.updateShowNewsletterSignupWindowStatus(true);
   }
-
-  openDialogue() {
-  //  const dialogRef = this.dialogue.open();
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  }
-
 }
