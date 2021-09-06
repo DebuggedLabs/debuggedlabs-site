@@ -18,6 +18,7 @@
 <!-- Byline -->
 <div class="author-byline-container">
   <p align="left" class="author-byline-by">By</p>
+
   <ng-container *ngFor="let author of postData.authors">
     <div [ngClass]="getBylineInlineClass()">
       <a href="{{ author.profilePageUrl }}">
@@ -30,6 +31,11 @@
   <!-- Published date (with no updated date) -->
   <div class="date-string">
     <p>{{ this.getPublishedDateString() }}</p>
+  </div>
+
+  <!-- Promo the newsletter here -->
+  <div class="newsletter-promo">
+    <app-newsletter-button></app-newsletter-button>
   </div>
 
   <!-- Updated date (with an updated date) -->

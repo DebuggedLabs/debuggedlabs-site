@@ -7,6 +7,11 @@
   <h1>{{ postData.title }}</h1>
 </ng-container>
 
+<!-- Promo the newsletter here -->
+<div class="newsletter-promo">
+  <app-newsletter-button></app-newsletter-button>
+</div>
+
 <!-- Link back to the home page -->
 <app-home-page-button [pageIdToReturnTo]="this.getPageIdFromPostTopic()"></app-home-page-button>
 

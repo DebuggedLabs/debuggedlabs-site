@@ -136,3 +136,11 @@
   font-size: 18px;
   color: black;
 }
+
+.newsletter-promo {
+  right: 30px;
+  margin-left: 50%;
+  width: 40vw;
+  padding-top: -100px;
+  padding-bottom: 0px;
+}

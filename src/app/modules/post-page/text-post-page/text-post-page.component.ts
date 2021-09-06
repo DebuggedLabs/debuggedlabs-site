@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TeamProfile } from 'src/app/definitions/teamProfile';
 import { ImageDetailService } from 'src/app/services/image-detail.service';
 import { PageDetailsService } from 'src/app/services/page-details.service';
@@ -68,7 +68,7 @@ export class TextPostPageComponent extends PostPageBaseComponent implements OnIn
   }
 
   /**
-   *
+   * Get post content for the post
    */
   getPostContent(): string {
     var reader = new Parser();
@@ -78,5 +78,4 @@ export class TextPostPageComponent extends PostPageBaseComponent implements OnIn
     var parsedBody = reader.parse(this.postData.content);
     return writer.render(parsedBody);
   }
-
 }
