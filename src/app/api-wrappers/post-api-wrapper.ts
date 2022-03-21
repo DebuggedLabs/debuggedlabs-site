@@ -59,10 +59,10 @@ export class PostApiWrapper extends ApiWrapper {
     for (let i = 0; i < authorArray.length; i++)
     {
       if (i == 0) {
-        filterString += "?filter[" + authorArray[i] + "][eq]=" + authorProfile.id;
+        filterString += "?[_or]filter[" + authorArray[i] + "][_eq]=" + authorProfile.id;
       }
       else {
-        filterString += "filter[" + authorArray[i] + "][logical]=or&filter[" + authorArray[i] + "][eq]=" + authorProfile.id;
+        filterString += "[_or]filter[" + authorArray[i] + "][_eq]=" + authorProfile.id;
       }
 
       if (i < authorArray.length - 1) {
@@ -71,7 +71,7 @@ export class PostApiWrapper extends ApiWrapper {
     }
 
     // make sure to sort from latest to earliest date
-    filterString += "&sort=-created_on"
+    filterString += "&sort[]=-created_on"
     console.log("Filter string: " + filterString);
 
     // make the HTTP request
@@ -197,7 +197,7 @@ export class PostApiWrapper extends ApiWrapper {
                 data.id,
                 data.title,
                 profiles,
-                new Date(data.created_on), // published date
+                new Date(data.created_on + ".000Z"), // published date
                 data.topic,
                 data.teaser,
                 imageUrl,
@@ -206,7 +206,7 @@ export class PostApiWrapper extends ApiWrapper {
                 [], // TODO additional art alt, figure this out
                 data.content,
                 null, // TODO social media links, figure this out
-                new Date(data.modified_on),
+                new Date(data.modified_on + ".000Z"),
                 thumbnailUrl,
                 this.convertStringToBoolean(data.show_modified_date)
               );
@@ -228,9 +228,7 @@ export class PostApiWrapper extends ApiWrapper {
       return null;
     }
 
-    let authorIdNumber: number = +authorString;
-    authorIdNumber--;
-    return authorIdNumber > 0 ? "" + authorIdNumber : null;
+    return authorString;
   }
 
   /**

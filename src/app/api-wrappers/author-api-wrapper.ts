@@ -16,6 +16,9 @@ export class AuthorApiWrapper extends ApiWrapper {
     super(httpClient);
     this.authorProfileCache = new Map<string, KeyValue<TeamProfile, Date>>();
     this.nameToIdMap = new Map<string, string>();
+
+    // initialize the cache by pulling all the authors. Shouldn't be a huge expense on startup
+    this.getAllAuthorProfiles(() => {});
   }
 
   /**
@@ -36,7 +39,7 @@ export class AuthorApiWrapper extends ApiWrapper {
           teamEntries.forEach(teamEntry => {
             let authorProfile: TeamProfile = this.handleAuthorProfileRequest(teamEntry);
             authorProfiles.push(authorProfile);
-            this.updateTeamProfileCache(teamEntry.id, authorProfile);
+            this.updateTeamProfileCache(teamEntry.userid, authorProfile);
           });
           serviceFunction(authorProfiles);
         },
@@ -120,7 +123,7 @@ export class AuthorApiWrapper extends ApiWrapper {
     let authorProfile: TeamProfile =
     {
       name: data.name,
-      id: data.id + 1,
+      id: data.userid,
       profilePageUrl: "author/" + data.userid,
       position: data.position,
       bio: data.bio,
@@ -130,14 +133,7 @@ export class AuthorApiWrapper extends ApiWrapper {
       email: data.email,
     };
 
-    // add to our cache before executing the callback
-    let keyValuePair: KeyValue<TeamProfile, Date> = {
-      key: authorProfile,
-      value: new Date()
-    };
-
-    console.log(authorProfile);
-    this.nameToIdMap.set(authorProfile.name.toLowerCase(), data.id);
+    this.nameToIdMap.set(authorProfile.name.toLowerCase(), data.userid);
     return authorProfile;
   }
 
