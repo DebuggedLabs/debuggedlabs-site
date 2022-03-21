@@ -23,7 +23,6 @@ export class PostApiWrapper extends ApiWrapper {
    */
   getSinglePost(postId: string, serviceFunction: (Post) => void) {
     const postUri: string  = this.postUrl + "/" + postId;
-    console.log(postUri);
     this.httpClient.get(postUri)
       .subscribe({
         next: data => {
