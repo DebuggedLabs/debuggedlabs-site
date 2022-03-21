@@ -5,11 +5,13 @@ import { Observable } from 'rxjs/internal/Observable';
 
 export class ApiWrapper {
 
-  baseUrl = "https://cms.debuggedlabs.com/debugged-labs/"
+  baseUrl = "https://content.debuggedlabs.com/"
   teamsUrl = this.baseUrl + "items/team";
   postUrl = this.baseUrl + "items/posts";
   usersUrl = this.baseUrl + "users/";
   imageDetailUrl = this.baseUrl + "files/";
+  imageDownloadUrl = this.baseUrl + "assets/";
+  thumbnailUrlSuffix = "?key=thumbnail";
 
   constructor(private http: HttpClient) { }
 

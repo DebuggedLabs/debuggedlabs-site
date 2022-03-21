@@ -11,14 +11,6 @@ export type navigationMenuItemInfo = {
 }
 
 /**
- * Cache item to track image info
- */
-export type ImageUrlCacheItem = {
-  url: string;
-  date: Date
-}
-
-/**
  * Cache item to track string info
  */
 export type StringDataCacheItem = {
