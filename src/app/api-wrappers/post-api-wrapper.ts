@@ -147,8 +147,6 @@ export class PostApiWrapper extends ApiWrapper {
       // first, create a list of the author ids to query
       let teamProfileIds: string[] = [];
 
-      console.log(data);
-
       // return null if primary author is not set (non-zero)
       if (this.getTeamProfileId(data.primary_author) == null) {
         return null;
