@@ -52,31 +52,6 @@ export class FrontpageComponent implements OnInit {
       console.log(topPosts);
       if (topPosts != null && topPosts != undefined)
       {
-        topPosts.sort((postA, postB) => {
-
-          // get the tags
-          let postASortTags: string[] = postA.pageSortTags.filter(tag => {
-            return tag.startsWith("top-");
-          });
-          let postBSortTags: string[] = postB.pageSortTags.filter(tag => {
-            return tag.startsWith("top-");
-          });
-
-          // if no top-tag present for some reason, handle that
-          if (postASortTags.length == 0) {
-            return 1;
-          }
-          else if (postBSortTags.length == 0) {
-            return -1;
-          }
-
-          // respect the first top-## tag in the list
-          let postATopTag = postASortTags[0];
-          let postBTopTag = postBSortTags[0];
-
-          return postATopTag < postBTopTag ? -1 : 1;
-        });
-
         this.topPosts = topPosts;
         console.log("Sorted top posts: ")
         console.log(this.topPosts);
