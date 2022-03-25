@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PageId } from 'src/app/services/page-details.service';
+import { PageId } from 'src/app/definitions/types';
 
 @Component({
   selector: 'app-home-page-button',

@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { TeamProfile } from 'src/app/definitions/teamProfile';
-import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
+import { PageDetailsService } from 'src/app/services/page-details.service';
 import { WidthService } from 'src/app/services/width.service';
 import { AuthorDetailService } from 'src/app/services/author-detail.service';
+import { PageId } from 'src/app/definitions/types';
 
 @Component({
   selector: 'app-about',

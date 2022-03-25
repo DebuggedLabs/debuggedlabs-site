@@ -9,6 +9,7 @@ export class TextPost implements Post {
     publishedDate: Date;
     modifiedDate?: Date;
     topics: string[];
+    pageSortTags: string[];
     teaser: string;
     thumbnailArtUrl?: string;
     featuredArtURL: string;
@@ -30,6 +31,7 @@ export class TextPost implements Post {
      * @param modifiedDate modified date of the post
      * @param teaser teaser text to display on posts-lists element
      * @param topics topics of the post
+     * @param pageSortTags page sort tags for the post
      * @param thumbnailArtUrl URL of the thumbnail art
      * @param featuredArtURL HTTPS URL of the art to display
      * @param featuredArtAlt alt for the featured art
@@ -45,6 +47,7 @@ export class TextPost implements Post {
         authors: TeamProfile[],
         publishedDate: Date,
         topics: string[],
+        pageSortTags: string[],
         teaser: string,
         featuredArtURL: string,
         featuredArtAlt: string,
@@ -62,6 +65,7 @@ export class TextPost implements Post {
         this.publishedDate = publishedDate;
         this.modifiedDate = modifiedDate;
         this.topics = topics;
+        this.pageSortTags = pageSortTags;
         this.teaser = teaser;
         this.thumbnailArtUrl = thumbnailArtUrl;
         this.featuredArtURL = featuredArtURL;

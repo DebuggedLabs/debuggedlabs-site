@@ -52,3 +52,17 @@ export enum Platforms {
   Twitter = "twitter",
   Email = "email"
 }
+
+/**
+ * Types of pages
+ */
+export enum PageId {
+  Home = "home",
+  Podcasts = "podcasts",
+  Technology = "technology",
+  Science = "science",
+  About = "about",
+  Author = "author",
+  Post = "post",
+  PageNotFound = "page-not-found"
+}

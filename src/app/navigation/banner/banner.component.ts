@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { MenuConfig } from 'src/app/config/router-config';
 import { WidthService } from 'src/app/services/width.service';
-import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
+import { PageDetailsService } from 'src/app/services/page-details.service';
 
 @Component({
   selector: 'app-banner',
@@ -17,7 +17,7 @@ export class BannerComponent implements OnInit {
    * @param showHamburgerMenuService service dictating hamburger menu details
    */
   constructor(private showHamburgerMenuService: WidthService,
-              private pageDetailService: PageDetailsService) 
+              private pageDetailService: PageDetailsService)
   { }
 
   ngOnInit() {

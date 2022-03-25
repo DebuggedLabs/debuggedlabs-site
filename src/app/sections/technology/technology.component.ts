@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
+import { PageDetailsService } from 'src/app/services/page-details.service';
 import { WidthService } from 'src/app/services/width.service';
 import { TechnologyService } from 'src/app/services/technology.service';
 import { Post } from 'src/app/definitions/interfaces';
 import { ScrollTopService } from 'src/app/services/scroll-top.service';
+import { PageId } from 'src/app/definitions/types';
 
 @Component({
   selector: 'app-technology',
@@ -73,7 +74,7 @@ export class TechnologyComponent implements OnInit {
           this.getPageIndex(params);
         });
       },
-      error: error => console.log(error)  
+      error: error => console.log(error)
     });
 
     // close hamburger menu

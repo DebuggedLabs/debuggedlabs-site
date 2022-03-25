@@ -8,6 +8,7 @@ export interface Post {
     publishedDate: Date;                                // published date
     modifiedDate?: Date;                                // modified date
     topics: string[];                                   // topics of the post
+    pageSortTags: string[];                             // page sort tags for the post
     teaser: string;                                     // teaser blurbs to show on the lists pages
     thumbnailArtUrl?: string;                           // for thumbnail of the post
     featuredArtURL: string;                             // for art (animated or still) to go alongside content

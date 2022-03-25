@@ -4,7 +4,7 @@
 <div class="page-boundaries">
 
     <!-- Top posts (ic list) -->
-    <div class="top-posts">
+    <div class="top-posts" *ngIf="this.arePostsLoaded()">
       <app-posts-list [listType]="1" [posts]="this.topPosts"></app-posts-list>
     </div>
 

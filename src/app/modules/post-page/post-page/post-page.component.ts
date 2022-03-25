@@ -38,6 +38,7 @@ export class PostPageComponent implements OnInit {
     this.getPostFromBackend();
   }
 
+  // get post from backend
   private getPostFromBackend() {
     this.post = this.postInput;
 

@@ -1,15 +1,5 @@
 import { Injectable } from '@angular/core';
-
-export enum PageId {
-  Home = "home",
-  Podcasts = "podcasts",
-  Technology = "technology",
-  Science = "science",
-  About = "about",
-  Author = "author",
-  Post = "post",
-  PageNotFound = "page-not-found"
-}
+import { PageId } from '../definitions/types';
 
 @Injectable({
   providedIn: 'root'

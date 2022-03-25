@@ -8,6 +8,7 @@ export interface PostEntry {
   quarternary_author: string;
   created_on: Date;
   topic: string[];
+  page_sort_tags: string[];
   teaser: string;
   content: string;
   status: string;

@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { trigger, state, transition, style, animate } from '@angular/animations';
-import { navigationMenuItemInfo } from '../../definitions/types';
+import { navigationMenuItemInfo, PageId } from '../../definitions/types';
 import { MenuConfig } from 'src/app/config/router-config';
 import { WidthService } from 'src/app/services/width.service';
-import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
+import { PageDetailsService } from 'src/app/services/page-details.service';
 
 @Component({
   selector: 'app-navigation-bar',

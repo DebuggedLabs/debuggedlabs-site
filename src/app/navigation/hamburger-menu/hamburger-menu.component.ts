@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { navigationMenuItemInfo } from 'src/app/definitions/types';
+import { navigationMenuItemInfo, PageId } from 'src/app/definitions/types';
 import { WidthService } from 'src/app/services/width.service';
 import { MenuConfig } from 'src/app/config/router-config';
-import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
+import { PageDetailsService } from 'src/app/services/page-details.service';
 
 @Component({
   selector: 'app-hamburger-menu',

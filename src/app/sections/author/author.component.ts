@@ -3,8 +3,9 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Post } from 'src/app/definitions/interfaces';
 import { TeamProfile } from 'src/app/definitions/teamProfile';
+import { PageId } from 'src/app/definitions/types';
 import { AuthorDetailService } from 'src/app/services/author-detail.service';
-import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
+import { PageDetailsService } from 'src/app/services/page-details.service';
 import { PostRetrievalService } from 'src/app/services/post-retrieval.service';
 import { WidthService } from 'src/app/services/width.service';
 

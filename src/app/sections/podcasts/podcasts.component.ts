@@ -5,8 +5,9 @@ import { ScrollTopService } from '../../services/scroll-top.service';
 
 import { PodcastPost } from '../../definitions/podcast';
 import { PodcastsService } from '../../services/podcasts.service';
-import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
+import { PageDetailsService } from 'src/app/services/page-details.service';
 import { WidthService } from 'src/app/services/width.service';
+import { PageId } from 'src/app/definitions/types';
 
 @Component({
   selector: 'app-podcasts',

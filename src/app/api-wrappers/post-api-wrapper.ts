@@ -3,6 +3,7 @@ import { Post } from '../definitions/interfaces';
 import { PodcastPost } from '../definitions/podcast';
 import { TeamProfile } from '../definitions/teamProfile';
 import { TextPost } from '../definitions/textpost';
+import { PageId } from '../definitions/types';
 import { AuthorDetailService } from '../services/author-detail.service';
 import { ImageDetailService } from '../services/image-detail.service';
 import { ApiWrapper } from './api-wrapper-base';
@@ -98,6 +99,38 @@ export class PostApiWrapper extends ApiWrapper {
   }
 
   /**
+   *
+   * @param pageId
+   * @param callback
+   */
+  getTopPostsForPage(pageId: PageId, callback: (Posts: Post[]) => void) {
+    let filterString: string = "?filter[page_sort_tags][_starts_with]=top"
+
+    // make the HTTP request
+    const postUri: string = this.postUrl + filterString;
+
+    this.httpClient.get(postUri)
+      .subscribe({
+        next: data => {
+          this.convertDataToMultiplePosts(data, (posts: Post[]) => {
+            callback(posts);
+          });
+        },
+        error: (err: HttpErrorResponse) => {
+          console.log(err);
+          // to mark missing posts
+          if (err.status / 100 >= 4 && err.status / 100 < 5) {
+            console.log("Couldn't find post");
+            callback(undefined);
+          }
+          else {
+            callback(null);
+          }
+        }
+      });
+  }
+
+  /**
    * Convert multiple data entries to Post objects
    * @param data the raw JSON data
    * @param callback callback once data is processed
@@ -179,6 +212,7 @@ export class PostApiWrapper extends ApiWrapper {
                 profiles,
                 new Date(data.created_on), // published date
                 data.topic,
+                data.page_sort_tags,
                 data.teaser,
                 imageUrl,
                 data.featured_alt,
@@ -199,6 +233,7 @@ export class PostApiWrapper extends ApiWrapper {
                 profiles,
                 new Date(data.created_on + ".000Z"), // published date
                 data.topic,
+                data.page_sort_tags,
                 data.teaser,
                 imageUrl,
                 data.featured_alt,

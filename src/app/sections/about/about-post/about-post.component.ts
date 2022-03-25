@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { TeamProfile } from 'src/app/definitions/teamProfile';
 import { ImageDetailService } from 'src/app/services/image-detail.service';
-import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
 
 @Component({
   selector: 'app-about-post',

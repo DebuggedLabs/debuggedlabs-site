@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { PageId } from 'src/app/definitions/types';
 import { NewsletterComponent } from 'src/app/modules/newsletter/newsletter.component';
 import { NewsletterService } from 'src/app/services/newsletter.service';
-import { PageDetailsService, PageId } from 'src/app/services/page-details.service';
+import { PageDetailsService } from 'src/app/services/page-details.service';
 import { WidthService } from 'src/app/services/width.service';
 
 @Component({
