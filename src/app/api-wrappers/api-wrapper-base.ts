@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/internal/Observable';
 
 export class ApiWrapper {
 
-  baseUrl = "https://content.debuggedlabs.com/"
+  baseUrl = "https://directus-wxjzhobc4m6bo.azurewebsites.net/"
   teamsUrl = this.baseUrl + "items/team";
   postUrl = this.baseUrl + "items/posts";
   usersUrl = this.baseUrl + "users/";
