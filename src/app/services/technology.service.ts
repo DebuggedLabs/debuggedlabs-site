@@ -1,13 +1,22 @@
 import { Injectable } from '@angular/core';
 import { POSTS } from '../mocks/mock-posts';
 import { Post } from '../definitions/interfaces';
+import { PostRetrievalService } from './post-retrieval.service';
+import { PageId } from '../definitions/types';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TechnologyService {
 
-  constructor() { }
+  constructor(private postRetrievalService: PostRetrievalService) { }
+
+  /**
+   * Get the top posts, which includes the feature post for the front page
+   */
+  getTopPosts(callBackFunction: (posts: Post[]) => void) {
+    this.postRetrievalService.getTopPostsForPage(PageId.Technology, posts => callBackFunction(posts));
+  }
 
   /**
   * Get total number of technology posts

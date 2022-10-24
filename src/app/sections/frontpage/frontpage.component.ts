@@ -48,26 +48,32 @@ export class FrontpageComponent implements OnInit {
 
     // get the posts for the front page
     this.frontpageService.getTopPosts(topPosts => {
-      console.log("Top posts are: ");
-      console.log(topPosts);
       if (topPosts != null && topPosts != undefined)
       {
         this.topPosts = topPosts;
-        console.log("Sorted top posts: ")
-        console.log(this.topPosts);
       }
     });
 
     this.frontpageService.getTechnologySectionPosts(technologyPosts => {
-      this.technologySectionPosts = technologyPosts;
+      console.log("Top technology posts")
+      console.log(technologyPosts)
+      if (technologyPosts != null && technologyPosts != undefined) {
+        this.technologySectionPosts = technologyPosts;
+      }
     });
 
     this.frontpageService.getPodcastSectionPosts(podcastPosts => {
-      this.podcastSubSectionPosts = podcastPosts;
+      if (podcastPosts != null && podcastPosts != undefined) {
+        this.podcastSubSectionPosts = podcastPosts;
+      }
     });
 
     this.frontpageService.getScienceSectionPosts(sciencePosts => {
-      this.scienceSectionPosts = sciencePosts;
+      console.log("Top science posts")
+      console.log(sciencePosts)
+      if (sciencePosts != null && sciencePosts != undefined) {
+        this.scienceSectionPosts = sciencePosts;
+      }
     });
 
     // scroll to the top of the page on reload
@@ -78,7 +84,31 @@ export class FrontpageComponent implements OnInit {
    * Return whether top posts are loaded
    * @returns boolean indicating whether posts are loaded
    */
-  public arePostsLoaded(): boolean {
+  public areTopPostsLoaded(): boolean {
     return this.topPosts != null && this.topPosts != undefined;
+  }
+
+  /**
+   * Return whether top technology posts are loaded
+   * @returns boolean indicating whether posts are loaded
+   */
+  public areTechnologyPostsLoaded(): boolean {
+    return this.technologySectionPosts != null && this.technologySectionPosts != undefined;
+  }
+
+  /**
+   * Return whether top science posts are loaded
+   * @returns boolean indicating whether posts are loaded
+   */
+  public areSciencePostsLoaded(): boolean {
+    return this.scienceSectionPosts != null && this.scienceSectionPosts != undefined;
+  }
+
+  /**
+   * Return whether top podcast posts are loaded
+   * @returns boolean indicating whether posts are loaded
+   */
+  public arePodcastPostsLoaded(): boolean {
+    return this.podcastSubSectionPosts != null && this.podcastSubSectionPosts != undefined;
   }
 }

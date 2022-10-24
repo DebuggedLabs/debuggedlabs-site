@@ -16,12 +16,10 @@ export class NewsletterComponent implements OnInit {
   }
 
   isNewsletterSelected(): boolean {
-    console.log(this.newsletterService.shouldShowNewsletterSignupWindow());
     return this.newsletterService.shouldShowNewsletterSignupWindow();
   }
 
   closeModal() {
-    console.log("Closing newsletter signup modal");
     this.newsletterService.updateShowNewsletterSignupWindowStatus(false);
   }
 }

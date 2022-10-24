@@ -1,13 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Post } from '../definitions/interfaces';
+import { PageId } from '../definitions/types';
 import { POSTS } from '../mocks/mock-posts';
+import { PostRetrievalService } from './post-retrieval.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScienceService {
 
-  constructor() { }
+  constructor(private postRetrievalService: PostRetrievalService) { }
+
+  /**
+   * Get the top posts, which includes the feature post for the front page
+   */
+  getTopPosts(callBackFunction: (posts: Post[]) => void) {
+    this.postRetrievalService.getTopPostsForPage(PageId.Science, posts => callBackFunction(posts));
+  }
+
+  getPostsForPage(callBackFunction: (topPosts: Post[], rowPosts: Post[]) => void)
+  {
+
+  }
 
   /**
   * Get total number of science posts

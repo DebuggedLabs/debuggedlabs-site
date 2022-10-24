@@ -138,6 +138,49 @@ export class PostApiWrapper extends ApiWrapper {
               return postATopTag < postBTopTag ? -1 : 1;
             });
 
+            // to handle for pages other than the front page (e.g. Science, Technology, Podcasts)
+            if (pageId != PageId.Home) {
+              posts.filter((value: Post, index: number, array: Post[]) => {
+                return value.topics.includes(pageId.toString());
+              });
+            }
+
+            callback(posts);
+          });
+        },
+        error: (err: HttpErrorResponse) => {
+          console.log(err);
+          // to mark missing posts
+          if (err.status / 100 >= 4 && err.status / 100 < 5) {
+            console.log("Couldn't find post");
+            callback(undefined);
+          }
+          else {
+            callback(null);
+          }
+        }
+      });
+  }
+
+  /**
+   *
+   * @param pageId
+   * @param callback
+   */
+  getTopPostsForTopic(topic: string, callback: (Posts: Post[]) => void) {
+    let filterString: string = "?filter[topic][_contains]=" + topic
+
+    // make the HTTP request
+    const postUri: string = this.postUrl + filterString;
+    console.log(postUri);
+
+    this.httpClient.get(postUri)
+      .subscribe({
+        next: data => {
+          this.convertDataToMultiplePosts(data, (posts: Post[]) => {
+            posts.sort((postA, postB) => {
+              return postA.publishedDate < postB.publishedDate ? -1 : 1;
+            });
             callback(posts);
           });
         },

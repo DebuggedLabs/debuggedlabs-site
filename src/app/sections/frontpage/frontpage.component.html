@@ -4,7 +4,7 @@
 <div class="page-boundaries">
 
     <!-- Top posts (ic list) -->
-    <div class="top-posts" *ngIf="this.arePostsLoaded()">
+    <div class="top-posts" *ngIf="this.areTopPostsLoaded()">
       <app-posts-list [listType]="1" [posts]="this.topPosts"></app-posts-list>
     </div>
 
@@ -12,13 +12,15 @@
       Podcasts
     </a>
     <!-- Podcasts subsection (gallery list) -->
-    <app-posts-list [listType]="2" [posts]="this.podcastSubSectionPosts"></app-posts-list>
+    <div *ngIf="this.arePodcastPostsLoaded()">
+      <app-posts-list [listType]="2" [posts]="this.podcastSubSectionPosts"></app-posts-list>
+    </div>
 
     <!-- Science subsection (row-list) -->
     <a href="/science" class="subsection-header">
       Science
     </a>
-    <div class="science-posts">
+    <div class="science-posts" *ngIf="this.areSciencePostsLoaded()">
       <app-posts-list [listType]="3" [posts]="this.scienceSectionPosts"></app-posts-list>
     </div>
 
@@ -26,7 +28,7 @@
     <a href="/technology" class="subsection-header">
       Technology
     </a>
-    <div class="technology-posts">
+    <div class="technology-posts" *ngIf="this.areTechnologyPostsLoaded()">
       <app-posts-list [listType]="3" [posts]="this.technologySectionPosts"></app-posts-list>
     </div>
 </div>

@@ -52,4 +52,16 @@ export class PostRetrievalService {
       callback(topPostsForPage);
     })
   }
+
+  /**
+   * Get top posts for a certain topic
+   * @param topic Topic to filter posts by
+   * @param numberOfPosts Number of posts
+   * @param callback callback to return the posts to
+   */
+  getTopPostsForTopic(topic: string, numberOfPosts: number, callback: (posts: Post[]) => void) {
+    this.postApiWrapper.getTopPostsForTopic(topic, topPostsForTopic => {
+      callback(topPostsForTopic.slice(0, numberOfPosts));
+    })
+  }
 }

@@ -74,7 +74,18 @@ export class ScienceComponent implements OnInit {
     // update page detail service
     this.pageDetailService.updateCurrentPageId(PageId.Science);
 
-    // fetch the science posts
+    // get the top posts for the science page
+    // get the posts for the front page
+    this.scienceFetchService.getTopPosts(topPosts => {
+      console.log("Top posts are: ");
+      console.log(topPosts);
+      if (topPosts != null && topPosts != undefined) {
+        this.topPosts = topPosts;
+        console.log("Sorted top posts: ")
+        console.log(this.topPosts);
+      }
+    });
+
     this.getSciencePosts();
 
     // scroll to the top of the page on reload

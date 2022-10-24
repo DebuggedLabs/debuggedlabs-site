@@ -31,13 +31,13 @@ export class FrontPageService {
    * Get technology section posts for the front page
    */
   getTechnologySectionPosts(callBackFunction: (posts: Post[]) => void) {
-    callBackFunction(POSTS.slice(0, 3));
+    this.postRetrievalService.getTopPostsForTopic("technology", 3, posts => callBackFunction(posts));
   }
 
   /**
    * Get science section posts for the front page
    */
   getScienceSectionPosts(callBackFunction: (posts: Post[]) => void) {
-    callBackFunction(POSTS.slice(0,3));
+    this.postRetrievalService.getTopPostsForTopic("science", 3, posts => callBackFunction(posts));
   }
 }
